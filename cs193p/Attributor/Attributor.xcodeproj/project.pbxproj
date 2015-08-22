@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA13E1AC1B7E304C005E64B5 /* TextStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA13E1AB1B7E304C005E64B5 /* TextStatusViewController.m */; };
 		AAAAA8391B6E5B0300732FCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAAA8381B6E5B0300732FCF /* main.m */; };
 		AAAAA83C1B6E5B0300732FCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAAA83B1B6E5B0300732FCF /* AppDelegate.m */; };
 		AAAAA83F1B6E5B0300732FCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAAA83E1B6E5B0300732FCF /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA13E1AA1B7E304C005E64B5 /* TextStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextStatusViewController.h; sourceTree = "<group>"; };
+		AA13E1AB1B7E304C005E64B5 /* TextStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStatusViewController.m; sourceTree = "<group>"; };
 		AAAAA8331B6E5B0300732FCF /* Attributor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attributor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAAA8371B6E5B0300732FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAAAA8381B6E5B0300732FCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				AAAAA83D1B6E5B0300732FCF /* ViewController.h */,
 				AAAAA83E1B6E5B0300732FCF /* ViewController.m */,
 				AAAAA8401B6E5B0300732FCF /* Main.storyboard */,
+				AA13E1AA1B7E304C005E64B5 /* TextStatusViewController.h */,
+				AA13E1AB1B7E304C005E64B5 /* TextStatusViewController.m */,
 				AAAAA8431B6E5B0300732FCF /* Images.xcassets */,
 				AAAAA8451B6E5B0300732FCF /* LaunchScreen.xib */,
 				AAAAA8361B6E5B0300732FCF /* Supporting Files */,
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAAAA83F1B6E5B0300732FCF /* ViewController.m in Sources */,
+				AA13E1AC1B7E304C005E64B5 /* TextStatusViewController.m in Sources */,
 				AAAAA83C1B6E5B0300732FCF /* AppDelegate.m in Sources */,
 				AAAAA8391B6E5B0300732FCF /* main.m in Sources */,
 			);
@@ -416,6 +422,7 @@
 				AAAAA8581B6E5B0300732FCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAAAA8591B6E5B0300732FCF /* Build configuration list for PBXNativeTarget "AttributorTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +431,7 @@
 				AAAAA85B1B6E5B0300732FCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

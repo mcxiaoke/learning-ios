@@ -10,28 +10,65 @@
 
 @interface PhotoViewController ()
 
+@property(weak, nonatomic) IBOutlet UILabel *descLabel;
+@property(weak, nonatomic) IBOutlet UIImageView *imageView;
+@property(weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @end
 
 @implementation PhotoViewController
 
+- (void)loadImage {
+  if (self.imageURL) {
+    self.indicator.hidden = NO;
+    dispatch_queue_t queue = dispatch_queue_create("image", NULL);
+    dispatch_async(queue, ^{
+      NSData *data = [NSData dataWithContentsOfURL:self.imageURL];
+      UIImage *image = [UIImage imageWithData:data];
+
+      dispatch_async(dispatch_get_main_queue(), ^{
+        self.imageView.image = image;
+        self.indicator.hidden = YES;
+      });
+    });
+  }
+}
+
+- (void)setImageURL:(NSURL *)imageURL {
+  _imageURL = imageURL;
+  [self loadImage];
+}
+
+- (void)onPinch:(UIPinchGestureRecognizer *)sender {
+  if (self.imageView.image) {
+    self.imageView.transform =
+        CGAffineTransformMakeScale(sender.scale, sender.scale);
+  }
+}
+
+- (void)onTap:(UITapGestureRecognizer *)sender {
+  NSLog(@"onTap");
+}
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  UITapGestureRecognizer *tap =
+      [[UITapGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(onTap:)];
+  UIPinchGestureRecognizer *pinch =
+      [[UIPinchGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(onPinch:)];
+  pinch.scale = 1;
+
+  [self.view addGestureRecognizer:tap];
+  [self.view addGestureRecognizer:pinch];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

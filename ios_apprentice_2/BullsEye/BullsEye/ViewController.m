@@ -32,8 +32,9 @@
 }
 
 - (IBAction)onHitClick:(UIButton *)sender {
-  int newScore = [self.game calculate:(int)(self.slider.value)];
-  [self showAlert:newScore];
+  int newValue = (int)(self.slider.value);
+  int newScore = [self.game calculate:newValue];
+  [self showAlertFor:newValue and:newScore];
 }
 - (IBAction)onResetClick:(UIButton *)sender {
   [self.game reset];
@@ -42,9 +43,10 @@
 - (IBAction)onInfoClick:(UIButton *)sender {
 }
 
-- (void)showAlert:(int)newValue {
-  NSString *title = [self.game alertMessageFor:newValue];
-  NSString *message = [NSString stringWithFormat:@"Your Score is %d", newValue];
+- (void)showAlertFor:(int)value and:(int)score {
+  NSString *title = [self.game alertMessageFor:score];
+  NSString *message = [NSString
+      stringWithFormat:@"Your Value is %d, Score is %d", value, score];
   [[[UIAlertView alloc] initWithTitle:title
                               message:message
                              delegate:self
@@ -67,6 +69,8 @@
 
 - (void)newGame {
   [self.game next];
+  self.slider.value =
+      (int)(self.slider.maximumValue - self.slider.minimumValue) / 2;
   [self updateUI];
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAB93F1B1BAC18BF0089438B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB93F1A1BAC18BF0089438B /* AboutViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAEF7E2C1BA1691700668817 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF7E2B1BA1691700668817 /* main.m */; };
 		AAEF7E2F1BA1691700668817 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF7E2E1BA1691700668817 /* AppDelegate.m */; };
 		AAEF7E321BA1691700668817 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF7E311BA1691700668817 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAB93F191BAC18BF0089438B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		AAB93F1A1BAC18BF0089438B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		AAEF7E261BA1691700668817 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEF7E2A1BA1691700668817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAEF7E2B1BA1691700668817 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				AAEF7E291BA1691700668817 /* Supporting Files */,
 				AAF44AD51BABF54C0016A95C /* Game.h */,
 				AAF44AD61BABF54C0016A95C /* Game.m */,
+				AAB93F191BAC18BF0089438B /* AboutViewController.h */,
+				AAB93F1A1BAC18BF0089438B /* AboutViewController.m */,
 			);
 			path = BullsEye;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAEF7E321BA1691700668817 /* ViewController.m in Sources */,
+				AAB93F1B1BAC18BF0089438B /* AboutViewController.m in Sources */,
 				AAEF7E2F1BA1691700668817 /* AppDelegate.m in Sources */,
 				AAEF7E2C1BA1691700668817 /* main.m in Sources */,
 				AAF44AD71BABF54C0016A95C /* Game.m in Sources */,

@@ -24,7 +24,7 @@
 
 - (void)next {
   self.round++;
-  self.value = arc4random() % 99 + 1;
+  self.value = arc4random_uniform(99) + 1;
 }
 
 - (int)calculate:(int)newValue {
@@ -41,14 +41,16 @@
 
 - (NSString*)alertMessageFor:(int)score {
   NSString* title;
-  if (score > 80) {
-    title = @"Very Good!";
-  } else if (score > 50) {
+  if (score > 90) {
+    title = @"Perfect!";
+  } else if (score > 80) {
+    title = @"Pretty Good!";
+  } else if (score > 60) {
     title = @"Good!";
   } else if (score > 0) {
     title = @"Just soso.";
   } else {
-    title = @"Too bad!";
+    title = @"Net event close...";
   }
   return title;
 }

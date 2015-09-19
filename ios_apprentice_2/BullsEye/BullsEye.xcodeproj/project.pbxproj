@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA3B7CA41BAD9E75007CD187 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = AA3B7CA31BAD9E75007CD187 /* BullsEye.html */; settings = {ASSET_TAGS = (); }; };
 		AAB93F1B1BAC18BF0089438B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB93F1A1BAC18BF0089438B /* AboutViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAEF7E2C1BA1691700668817 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF7E2B1BA1691700668817 /* main.m */; };
 		AAEF7E2F1BA1691700668817 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF7E2E1BA1691700668817 /* AppDelegate.m */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA3B7CA31BAD9E75007CD187 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 		AAB93F191BAC18BF0089438B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		AAB93F1A1BAC18BF0089438B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		AAEF7E261BA1691700668817 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 		AAEF7E281BA1691700668817 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				AA3B7CA31BAD9E75007CD187 /* BullsEye.html */,
 				AAEF7E2D1BA1691700668817 /* AppDelegate.h */,
 				AAEF7E2E1BA1691700668817 /* AppDelegate.m */,
 				AAEF7E301BA1691700668817 /* ViewController.h */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAEF7E351BA1691700668817 /* Main.storyboard in Resources */,
+				AA3B7CA41BAD9E75007CD187 /* BullsEye.html in Resources */,
 				AAEF7E3A1BA1691700668817 /* LaunchScreen.xib in Resources */,
 				AAEF7E371BA1691700668817 /* Images.xcassets in Resources */,
 			);

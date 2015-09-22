@@ -9,8 +9,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "CurrentLocationViewController.h"
 #import "LocationDetailsViewController.h"
+#import "NSMutableString+AddText.h"
 
-@interface CurrentLocationViewController ()<CLLocationManagerDelegate>
+@interface CurrentLocationViewController ()<CLLocationManagerDelegate,
+                                            UITabBarControllerDelegate>
 
 @property(nonatomic, weak) IBOutlet UILabel* messageLabel;
 @property(nonatomic, weak) IBOutlet UILabel* latitudeLabel;
@@ -33,15 +35,21 @@
   BOOL _updatingLocation;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (BOOL)tabBarController:(UITabBarController*)tabBarController
+    shouldSelectViewController:(UIViewController*)viewController {
+  tabBarController.tabBar.translucent = (viewController != self);
+  return YES;
+}
 
-
-    if ([segue.identifier isEqualToString:@"TagLocation"]) {
-        UINavigationController* nav=segue.destinationViewController;
-        LocationDetailsViewController* controller=(LocationDetailsViewController*)nav.topViewController;
-        controller.coordinate=_location.coordinate;
-        controller.placemark=_placemark;
-    }
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"TagLocation"]) {
+    UINavigationController* nav = segue.destinationViewController;
+    LocationDetailsViewController* controller =
+        (LocationDetailsViewController*)nav.topViewController;
+    controller.coordinate = _location.coordinate;
+    controller.placemark = _placemark;
+    controller.managedObjectContext = self.managedObjectContext;
+  }
 }
 
 - (id)initWithCoder:(NSCoder*)aDecoder {
@@ -163,8 +171,6 @@
           reverseGeocodeLocation:_location
                completionHandler:^(NSArray<CLPlacemark*>* _Nullable placemarks,
                                    NSError* _Nullable error) {
-                 NSLog(@"geocoding results, placemarks:%@, error:%@",
-                       [placemarks lastObject], error);
                  _lastGeocodingError = error;
                  if (error == nil && [placemarks count] > 0) {
                    _placemark = [placemarks lastObject];
@@ -188,10 +194,24 @@
 }
 
 - (NSString*)stringForPlacemark:(CLPlacemark*)placemark {
-  return [NSString
-      stringWithFormat:@"%@ %@\n%@ %@ %@", placemark.subThoroughfare,
-                       placemark.thoroughfare, placemark.locality,
-                       placemark.administrativeArea, placemark.postalCode];
+  NSMutableString* line1 = [NSMutableString stringWithCapacity:100];
+  [line1 addText:placemark.subThoroughfare withSeparator:@""];
+  [line1 addText:placemark.thoroughfare withSeparator:@" "];
+
+  NSMutableString* line2 = [NSMutableString stringWithCapacity:100];
+
+  [line2 addText:placemark.locality withSeparator:@""];
+  [line2 addText:placemark.administrativeArea withSeparator:@" "];
+  [line2 addText:placemark.postalCode withSeparator:@" "];
+
+  if ([line1 length] == 0) {
+    [line2 appendString:@"\n"];
+    return line2;
+  } else {
+    [line1 appendString:@"\n"];
+    [line1 appendString:line2];
+    return line1;
+  }
 }
 
 - (void)updateLabels {
@@ -239,6 +259,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.tabBarController.delegate = self;
+  self.tabBarController.tabBar.translucent = NO;
   if ([CLLocationManager authorizationStatus] ==
       kCLAuthorizationStatusNotDetermined) {
     [_locationManager requestWhenInUseAuthorization];

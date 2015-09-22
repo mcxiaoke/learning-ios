@@ -1,14 +1,14 @@
 //
-//  FirstViewController.h
+//  LocationsViewController.h
 //  MyLocations
 //
-//  Created by mcxiaoke on 15/9/21.
+//  Created by mcxiaoke on 15/9/22.
 //  Copyright © 2015年 mcxiaoke. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentLocationViewController : UIViewController
+@interface LocationsViewController : UITableViewController
 
 @property(nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 

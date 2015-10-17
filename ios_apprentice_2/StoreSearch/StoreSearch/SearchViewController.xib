@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
@@ -17,15 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JzI-DZ-Hvc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="gX8-ae-Zcx"/>
-                        <outlet property="delegate" destination="-1" id="8mK-Nh-g3y"/>
-                    </connections>
-                </tableView>
                 <searchBar contentMode="redraw" placeholder="App name, artist, song, album, ebook" translatesAutoresizingMaskIntoConstraints="NO" id="uXJ-HO-Tkm">
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <animations/>
@@ -34,7 +25,7 @@
                         <outlet property="delegate" destination="-1" id="w7J-7V-wZL"/>
                     </connections>
                 </searchBar>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mSJ-tu-hSg">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mSJ-tu-hSg">
                     <rect key="frame" x="8" y="69" width="359" height="29"/>
                     <animations/>
                     <segments>
@@ -47,15 +38,30 @@
                         <action selector="segementChanged:" destination="-1" eventType="valueChanged" id="XkT-2T-Vap"/>
                     </connections>
                 </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JzI-DZ-Hvc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gX8-ae-Zcx"/>
+                        <outlet property="delegate" destination="-1" id="8mK-Nh-g3y"/>
+                    </connections>
+                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="mSJ-tu-hSg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="18o-9i-a9F"/>
+                <constraint firstItem="mSJ-tu-hSg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2Cc-sC-pjR"/>
                 <constraint firstItem="uXJ-HO-Tkm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="46w-Mo-lhX"/>
+                <constraint firstAttribute="trailing" secondItem="mSJ-tu-hSg" secondAttribute="trailing" constant="8" id="7Td-5s-5Xc"/>
                 <constraint firstItem="JzI-DZ-Hvc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="O4U-JQ-xVF"/>
                 <constraint firstItem="uXJ-HO-Tkm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tme-K5-lg2"/>
                 <constraint firstAttribute="trailing" secondItem="JzI-DZ-Hvc" secondAttribute="trailing" id="VRs-au-pOi"/>
+                <constraint firstAttribute="trailing" secondItem="mSJ-tu-hSg" secondAttribute="trailing" constant="8" id="Wbg-GL-ggD"/>
+                <constraint firstItem="mSJ-tu-hSg" firstAttribute="top" secondItem="uXJ-HO-Tkm" secondAttribute="bottom" constant="5" id="fih-Sz-Cbg"/>
                 <constraint firstItem="JzI-DZ-Hvc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hrg-fh-xAY"/>
+                <constraint firstItem="mSJ-tu-hSg" firstAttribute="top" secondItem="uXJ-HO-Tkm" secondAttribute="bottom" constant="5" id="k9a-OE-VB8"/>
                 <constraint firstAttribute="trailing" secondItem="uXJ-HO-Tkm" secondAttribute="trailing" id="kE5-9m-Gag"/>
                 <constraint firstItem="uXJ-HO-Tkm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="scH-gT-apA"/>
                 <constraint firstAttribute="bottom" secondItem="JzI-DZ-Hvc" secondAttribute="bottom" id="zcO-zO-zI5"/>

@@ -10,12 +10,22 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
 
+  @IBOutlet weak var allowSpecialCharsCheckBox: NSButton!
   @IBOutlet weak var textField: NSTextField!
+  @IBOutlet weak var lengthSlider: NSSlider!
   
   
+  
+  @IBAction func lengthChanged(sender: NSSlider) {
+    self.lengthLabel.stringValue = "Length: \(sender.intValue)"
+  }
+  
+  @IBOutlet weak var lengthLabel: NSTextField!
   
   @IBAction func generatePassword(sender: AnyObject) {
-    let password = generateRandomString(8)
+    let length = self.lengthSlider.intValue
+    let special = self.allowSpecialCharsCheckBox.state == NSOnState
+    let password = generateRandomString(Int(length),special: special)
     textField.stringValue = password
     
   }

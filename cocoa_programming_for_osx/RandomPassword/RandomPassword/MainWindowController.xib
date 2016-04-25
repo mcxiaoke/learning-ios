@@ -7,6 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="RandomPassword" customModuleProvider="target">
             <connections>
+                <outlet property="allowSpecialCharsCheckBox" destination="RN2-FF-97S" id="UuK-2d-f7f"/>
+                <outlet property="lengthLabel" destination="qpc-I7-Gpt" id="ovH-bN-E87"/>
+                <outlet property="lengthSlider" destination="D2X-Tt-ata" id="lan-Wn-Cdg"/>
                 <outlet property="textField" destination="P0A-Lw-Btt" id="zDc-2D-ePa"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -23,21 +26,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMV-Rq-NuJ">
-                        <rect key="frame" x="161" y="118" width="158" height="32"/>
+                        <rect key="frame" x="144" y="50" width="192" height="32"/>
                         <buttonCell key="cell" type="push" title="Generate Password" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cC8-DN-MsZ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="system" size="17"/>
                         </buttonCell>
                         <connections>
                             <action selector="generatePassword:" target="-2" id="IYZ-Fp-Lhh"/>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0A-Lw-Btt">
-                        <rect key="frame" x="140" y="175" width="200" height="36"/>
+                        <rect key="frame" x="90" y="185" width="300" height="40"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="zNX-nA-mnD">
-                            <font key="font" metaFont="system" size="26"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <font key="font" metaFont="system" size="24"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN2-FF-97S">
+                        <rect key="frame" x="88" y="149" width="173" height="17"/>
+                        <buttonCell key="cell" type="check" title="Allow Special Characters" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="YRL-WS-fBr">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D2X-Tt-ata">
+                        <rect key="frame" x="180" y="125" width="144" height="20"/>
+                        <sliderCell key="cell" state="on" alignment="left" maxValue="20" doubleValue="8" tickMarkPosition="above" sliderType="linear" id="JW6-um-g1j"/>
+                        <connections>
+                            <action selector="lengthChanged:" target="-2" id="aSg-z1-fAt"/>
+                        </connections>
+                    </slider>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpc-I7-Gpt">
+                        <rect key="frame" x="88" y="126" width="83" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Length: 8" id="l8c-J7-v3Z">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>

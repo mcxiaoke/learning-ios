@@ -69,6 +69,18 @@ class MainWindowController: NSWindowController {
     gSlider.doubleValue = g
     bSlider.doubleValue = b
     updateColor()
+    setupGesture()
+  }
+  
+  func setupGesture() {
+    let action = #selector(copyColorText(_:))
+    let gesture = NSClickGestureRecognizer(target: self, action:action)
+    gesture.numberOfClicksRequired = 2
+    self.colorLabel.addGestureRecognizer(gesture)
+  }
+  
+  func copyColorText(gesture:NSClickGestureRecognizer!) {
+    print("copyColorText")
   }
 
 

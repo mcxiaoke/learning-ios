@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAD681181CD0C2F400DD69EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD681171CD0C2F400DD69EE /* AppDelegate.swift */; };
+		AAD6811A1CD0C2F400DD69EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD681191CD0C2F400DD69EE /* Assets.xcassets */; };
+		AAD6811D1CD0C2F400DD69EE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAD6811B1CD0C2F400DD69EE /* MainMenu.xib */; };
+		AAD681261CD0C31000DD69EE /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD681241CD0C31000DD69EE /* MainWindowController.swift */; };
+		AAD681271CD0C31000DD69EE /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAD681251CD0C31000DD69EE /* MainWindowController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAD681141CD0C2F400DD69EE /* SimpleToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD681171CD0C2F400DD69EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAD681191CD0C2F400DD69EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAD6811C1CD0C2F400DD69EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AAD6811E1CD0C2F400DD69EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAD681241CD0C31000DD69EE /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		AAD681251CD0C31000DD69EE /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAD681111CD0C2F400DD69EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAD6810B1CD0C2F400DD69EE = {
+			isa = PBXGroup;
+			children = (
+				AAD681161CD0C2F400DD69EE /* SimpleToDo */,
+				AAD681151CD0C2F400DD69EE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAD681151CD0C2F400DD69EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAD681141CD0C2F400DD69EE /* SimpleToDo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAD681161CD0C2F400DD69EE /* SimpleToDo */ = {
+			isa = PBXGroup;
+			children = (
+				AAD681171CD0C2F400DD69EE /* AppDelegate.swift */,
+				AAD681191CD0C2F400DD69EE /* Assets.xcassets */,
+				AAD6811B1CD0C2F400DD69EE /* MainMenu.xib */,
+				AAD6811E1CD0C2F400DD69EE /* Info.plist */,
+				AAD681241CD0C31000DD69EE /* MainWindowController.swift */,
+				AAD681251CD0C31000DD69EE /* MainWindowController.xib */,
+			);
+			path = SimpleToDo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAD681131CD0C2F400DD69EE /* SimpleToDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD681211CD0C2F400DD69EE /* Build configuration list for PBXNativeTarget "SimpleToDo" */;
+			buildPhases = (
+				AAD681101CD0C2F400DD69EE /* Sources */,
+				AAD681111CD0C2F400DD69EE /* Frameworks */,
+				AAD681121CD0C2F400DD69EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleToDo;
+			productName = SimpleToDo;
+			productReference = AAD681141CD0C2F400DD69EE /* SimpleToDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAD6810C1CD0C2F400DD69EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mcxiaoke;
+				TargetAttributes = {
+					AAD681131CD0C2F400DD69EE = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = AAD6810F1CD0C2F400DD69EE /* Build configuration list for PBXProject "SimpleToDo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAD6810B1CD0C2F400DD69EE;
+			productRefGroup = AAD681151CD0C2F400DD69EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAD681131CD0C2F400DD69EE /* SimpleToDo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAD681121CD0C2F400DD69EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD6811A1CD0C2F400DD69EE /* Assets.xcassets in Resources */,
+				AAD681271CD0C31000DD69EE /* MainWindowController.xib in Resources */,
+				AAD6811D1CD0C2F400DD69EE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAD681101CD0C2F400DD69EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD681261CD0C31000DD69EE /* MainWindowController.swift in Sources */,
+				AAD681181CD0C2F400DD69EE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAD6811B1CD0C2F400DD69EE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAD6811C1CD0C2F400DD69EE /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAD6811F1CD0C2F400DD69EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAD681201CD0C2F400DD69EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AAD681221CD0C2F400DD69EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SimpleToDo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.SimpleToDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAD681231CD0C2F400DD69EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SimpleToDo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.SimpleToDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAD6810F1CD0C2F400DD69EE /* Build configuration list for PBXProject "SimpleToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD6811F1CD0C2F400DD69EE /* Debug */,
+				AAD681201CD0C2F400DD69EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAD681211CD0C2F400DD69EE /* Build configuration list for PBXNativeTarget "SimpleToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD681221CD0C2F400DD69EE /* Debug */,
+				AAD681231CD0C2F400DD69EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAD6810C1CD0C2F400DD69EE /* Project object */;
+}

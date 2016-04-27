@@ -13,7 +13,6 @@ class MainWindowController: NSWindowController {
   var g = 0.0
   var b = 0.0
   let a = 1.0
-  let max = 255.0
   
   @IBOutlet weak var colorWell:NSColorWell!
   @IBOutlet weak var rSlider:NSSlider!
@@ -33,11 +32,16 @@ class MainWindowController: NSWindowController {
     }
     colorWell.color = newColor
     colorLabel.textColor = newColor
+    colorLabel.stringValue = formatColor(r, g: g, b: b)
+    
+  }
+  
+  func formatColor(r:Double, g:Double, b:Double) -> String {
+    let max = 255.0
     let ri = Int(r * max)
     let gi = Int(g * max)
     let bi = Int(b * max)
-    colorLabel.stringValue = String(format: "#%02X%02X%02X",ri,gi,bi)
-    
+    return String(format: "#%02X%02X%02X",ri,gi,bi)
   }
   
   override var windowNibName: String? {
@@ -45,19 +49,16 @@ class MainWindowController: NSWindowController {
   }
   
   @IBAction func adjustRed(sender:NSSlider) {
-    print("R slider's value is \(sender.floatValue)")
     r = sender.doubleValue
     updateColor()
   }
   
   @IBAction func adjustGreen(sender:NSSlider) {
-    print("G slider's value is \(sender.floatValue)")
     g = sender.doubleValue
     updateColor()
   }
   
   @IBAction func adjustBlue(sender:NSSlider) {
-    print("B slider's value is \(sender.floatValue)")
     b = sender.doubleValue
     updateColor()
   }
@@ -73,14 +74,24 @@ class MainWindowController: NSWindowController {
   }
   
   func setupGesture() {
-    let action = #selector(copyColorText(_:))
+    let action = #selector(copyColor(_:))
     let gesture = NSClickGestureRecognizer(target: self, action:action)
     gesture.numberOfClicksRequired = 2
     self.colorLabel.addGestureRecognizer(gesture)
   }
   
-  func copyColorText(gesture:NSClickGestureRecognizer!) {
-    print("copyColorText")
+  func copyColor(gesture:NSClickGestureRecognizer!) {
+    let color = formatColor(r, g: g, b: b)
+    let pasteBoard = NSPasteboard.generalPasteboard()
+    pasteBoard.clearContents()
+    pasteBoard.setString(color, forType: NSStringPboardType)
+    let alert = NSAlert()
+    alert.alertStyle = NSAlertStyle.InformationalAlertStyle
+    alert.messageText = "Copy Color"
+    alert.informativeText = "Color:\(color) is copied to pasteboard."
+    alert.addButtonWithTitle("OK")
+//    alert.runModal()
+    alert.beginSheetModalForWindow(self.window!, completionHandler: nil)
   }
 
 

@@ -50,10 +50,16 @@ class MainWindowController: NSWindowController,
   func windowShouldClose(sender: AnyObject) -> Bool {
     return !isStarted
   }
+  
+  func windowWillResize(sender: NSWindow, toSize frameSize: NSSize) -> NSSize {
+    print("frameSize is \(frameSize.width) wide and \(frameSize.height) tall")
+    return frameSize
+  }
 
   override var windowNibName: String? {
     return "MainWindowController"
   }
+  
   
     override func windowDidLoad() {
         super.windowDidLoad()

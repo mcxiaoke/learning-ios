@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="RGBWell" customModuleProvider="target">
             <connections>
                 <outlet property="bSlider" destination="0DM-Bc-7qt" id="jgr-rp-EKP"/>
+                <outlet property="colorLabel" destination="pvE-6y-bjX" id="pV5-FF-Ggn"/>
                 <outlet property="colorWell" destination="BsL-Dd-3T3" id="nOI-ck-QRn"/>
                 <outlet property="gSlider" destination="YrX-OC-LqB" id="CKL-IH-mEJ"/>
                 <outlet property="rSlider" destination="cbt-lr-Yi5" id="Tey-As-xFM"/>
@@ -72,6 +73,14 @@
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-6y-bjX">
+                        <rect key="frame" x="140" y="224" width="200" height="32"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="C2j-5K-psf">
+                            <font key="font" size="20" name="Monaco"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>

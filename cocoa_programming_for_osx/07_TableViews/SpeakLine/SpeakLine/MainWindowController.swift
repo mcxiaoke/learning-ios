@@ -10,18 +10,24 @@ import Cocoa
 
 class MainWindowController: NSWindowController,
         NSSpeechSynthesizerDelegate,
-        NSWindowDelegate{
+        NSWindowDelegate,
+        NSTableViewDelegate,
+        NSTableViewDataSource{
   
   @IBOutlet weak var textField:NSTextField!
   @IBOutlet weak var speakButton:NSButton!
   @IBOutlet weak var stopButton:NSButton!
-  
+  let voices = NSSpeechSynthesizer.availableVoices() 
   let speaker = NSSpeechSynthesizer()
   var isStarted:Bool = false {
     didSet {
       updateUI()
     }
   }
+  
+  
+  @IBOutlet weak var tableView: NSTableView!
+  
   
   @IBAction func speakIt(sender:NSButton) {
     let string = textField.stringValue
@@ -60,11 +66,38 @@ class MainWindowController: NSWindowController,
     return "MainWindowController"
   }
   
+  func voiceNameForIdentifier( identifier:String) -> String? {
+    return NSSpeechSynthesizer.attributesForVoice(identifier)[NSVoiceName] as? String
+  }
+  
+  // mark: tableView
+  func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    return voices.count
+  }
+  
+  func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
+    return voiceNameForIdentifier(voices[row])
+  }
+  
+  func tableViewSelectionDidChange(notification: NSNotification) {
+    let row = tableView.selectedRow
+    speaker.setVoice(row == -1 ? nil : voices[row])
+  }
+  
   
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.speaker.delegate = self
         updateUI()
+        self.speaker.delegate = self
+        let defaultVoice = NSSpeechSynthesizer.defaultVoice()
+        print("default voice is \(voiceNameForIdentifier(defaultVoice))")
+        if let defaultRow = voices.indexOf(defaultVoice) {
+          let row = voices.startIndex.distanceTo(defaultRow)
+          print("default row is \(row)")
+          let indices = NSIndexSet(index:row)
+          tableView.selectRowIndexes(indices, byExtendingSelection: false)
+          tableView.scrollRowToVisible(row)
+      }
     }
     
 }

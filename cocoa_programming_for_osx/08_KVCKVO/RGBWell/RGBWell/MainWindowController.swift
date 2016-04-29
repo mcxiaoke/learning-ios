@@ -9,66 +9,48 @@
 import Cocoa
 
 class MainWindowController: NSWindowController {
-  var r = 0.0
-  var g = 0.0
-  var b = 0.0
-  let a = 1.0
   
-  @IBOutlet weak var colorWell:NSColorWell!
-  @IBOutlet weak var rSlider:NSSlider!
-  @IBOutlet weak var gSlider:NSSlider!
-  @IBOutlet weak var bSlider:NSSlider!
   @IBOutlet weak var colorLabel: NSTextField!
   
-  func updateColor() {
-    let newColor = NSColor(calibratedRed: CGFloat(r),
-                           green: CGFloat(g),
-                           blue: CGFloat(b),
-                           alpha: CGFloat(a))
-    if newColor.brightnessComponent > 0.9 {
-      colorLabel.backgroundColor = NSColor.blackColor()
-    }else {
-      colorLabel.backgroundColor = NSColor.whiteColor()
-    }
-    colorWell.color = newColor
-    colorLabel.textColor = newColor
-    colorLabel.stringValue = formatColor(r, g: g, b: b)
-    
+  private let a = 1.0
+  
+  dynamic  var r = 0.0
+  dynamic  var g = 0.0
+  dynamic  var b = 0.0
+  
+  dynamic var color:NSColor {
+    return NSColor(calibratedRed: CGFloat(r),
+                   green: CGFloat(g),
+                   blue: CGFloat(b),
+                   alpha: CGFloat(a))
   }
   
-  func formatColor(r:Double, g:Double, b:Double) -> String {
-    let max = 255.0
-    let ri = Int(r * max)
-    let gi = Int(g * max)
-    let bi = Int(b * max)
-    return String(format: "#%02X%02X%02X",ri,gi,bi)
+  dynamic var colorHex: String {
+    return color.hexString
+  }
+  
+  class func keyPathsForValuesAffectingColor() -> NSSet {
+    return Set(["r", "g", "b"])
+  }
+  
+  class func keyPathsForValuesAffectingColorHex() -> NSSet {
+    return Set(["r", "g", "b"])
+  }
+  
+  @IBAction func colorChanged(sender:AnyObject) {
+    updateColor()
+  }
+  
+  func updateColor() {
+    colorLabel.textColor = color
   }
   
   override var windowNibName: String? {
     return "MainWindowController"
   }
   
-  @IBAction func adjustRed(sender:NSSlider) {
-    r = sender.doubleValue
-    updateColor()
-  }
-  
-  @IBAction func adjustGreen(sender:NSSlider) {
-    g = sender.doubleValue
-    updateColor()
-  }
-  
-  @IBAction func adjustBlue(sender:NSSlider) {
-    b = sender.doubleValue
-    updateColor()
-  }
-  
   override func windowDidLoad() {
     super.windowDidLoad()
-    colorLabel.alignment = NSTextAlignment.Center
-    rSlider.doubleValue = r
-    gSlider.doubleValue = g
-    bSlider.doubleValue = b
     updateColor()
     setupGesture()
   }
@@ -81,14 +63,13 @@ class MainWindowController: NSWindowController {
   }
   
   func copyColor(gesture:NSClickGestureRecognizer!) {
-    let color = formatColor(r, g: g, b: b)
     let pasteBoard = NSPasteboard.generalPasteboard()
     pasteBoard.clearContents()
-    pasteBoard.setString(color, forType: NSStringPboardType)
+    pasteBoard.setString(colorHex, forType: NSStringPboardType)
     let alert = NSAlert()
     alert.alertStyle = NSAlertStyle.InformationalAlertStyle
     alert.messageText = "Copy Color"
-    alert.informativeText = "Color:\(color) is copied to pasteboard."
+    alert.informativeText = "Color:\(colorHex) is copied to pasteboard."
     alert.addButtonWithTitle("OK")
 //    alert.runModal()
     alert.beginSheetModalForWindow(self.window!, completionHandler: nil)

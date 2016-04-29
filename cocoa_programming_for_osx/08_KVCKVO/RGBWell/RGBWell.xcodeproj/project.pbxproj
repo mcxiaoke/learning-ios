@@ -12,6 +12,8 @@
 		AA4B54811CCF686600B8DC76 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4B547F1CCF686600B8DC76 /* MainMenu.xib */; };
 		AA4B54891CCF688100B8DC76 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B54881CCF688100B8DC76 /* MainWindowController.swift */; };
 		AA4B548B1CCF68D000B8DC76 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4B548A1CCF68D000B8DC76 /* MainWindowController.xib */; };
+		AAA8BD471CD3501B00BA22B7 /* ColorValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8BD461CD3501B00BA22B7 /* ColorValueTransformer.swift */; };
+		AAA8BD491CD3542700BA22B7 /* NSColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8BD481CD3542700BA22B7 /* NSColor+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		AA4B54821CCF686600B8DC76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA4B54881CCF688100B8DC76 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		AA4B548A1CCF68D000B8DC76 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		AAA8BD461CD3501B00BA22B7 /* ColorValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorValueTransformer.swift; sourceTree = "<group>"; };
+		AAA8BD481CD3542700BA22B7 /* NSColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				AA4B54821CCF686600B8DC76 /* Info.plist */,
 				AA4B54881CCF688100B8DC76 /* MainWindowController.swift */,
 				AA4B548A1CCF68D000B8DC76 /* MainWindowController.xib */,
+				AAA8BD461CD3501B00BA22B7 /* ColorValueTransformer.swift */,
+				AAA8BD481CD3542700BA22B7 /* NSColor+Utils.swift */,
 			);
 			path = RGBWell;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA4B54891CCF688100B8DC76 /* MainWindowController.swift in Sources */,
+				AAA8BD471CD3501B00BA22B7 /* ColorValueTransformer.swift in Sources */,
+				AAA8BD491CD3542700BA22B7 /* NSColor+Utils.swift in Sources */,
 				AA4B547C1CCF686600B8DC76 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +287,7 @@
 				AA4B54871CCF686600B8DC76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

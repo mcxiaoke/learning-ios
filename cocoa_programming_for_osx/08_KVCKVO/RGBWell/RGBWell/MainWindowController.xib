@@ -7,11 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="RGBWell" customModuleProvider="target">
             <connections>
-                <outlet property="bSlider" destination="0DM-Bc-7qt" id="jgr-rp-EKP"/>
                 <outlet property="colorLabel" destination="pvE-6y-bjX" id="pV5-FF-Ggn"/>
-                <outlet property="colorWell" destination="BsL-Dd-3T3" id="nOI-ck-QRn"/>
-                <outlet property="gSlider" destination="YrX-OC-LqB" id="CKL-IH-mEJ"/>
-                <outlet property="rSlider" destination="cbt-lr-Yi5" id="Tey-As-xFM"/>
                 <outlet property="window" destination="s7R-cc-sBY" id="p6x-bz-1UF"/>
             </connections>
         </customObject>
@@ -30,21 +26,24 @@
                         <rect key="frame" x="350" y="184" width="96" height="20"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="a0V-ip-6la"/>
                         <connections>
-                            <action selector="adjustRed:" target="-2" id="Yir-lO-XXx"/>
+                            <action selector="colorChanged:" target="-2" id="rtq-pj-J0D"/>
+                            <binding destination="-2" name="value" keyPath="r" id="j8W-Vd-Ind"/>
                         </connections>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrX-OC-LqB">
                         <rect key="frame" x="350" y="126" width="96" height="20"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="tYP-pj-d2b"/>
                         <connections>
-                            <action selector="adjustGreen:" target="-2" id="1Ll-vB-mzA"/>
+                            <action selector="colorChanged:" target="-2" id="MqF-Wr-Wfe"/>
+                            <binding destination="-2" name="value" keyPath="g" id="moW-WV-vXA"/>
                         </connections>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DM-Bc-7qt">
                         <rect key="frame" x="350" y="70" width="96" height="20"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="VyR-OK-ruo"/>
                         <connections>
-                            <action selector="adjustBlue:" target="-2" id="Q4J-rR-Bgr"/>
+                            <action selector="colorChanged:" target="-2" id="8FZ-s8-kfj"/>
+                            <binding destination="-2" name="value" keyPath="b" id="7nx-Eo-QzL"/>
                         </connections>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8K3-hf-DeM">
@@ -66,6 +65,9 @@
                     <colorWell fixedFrame="YES" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-Dd-3T3">
                         <rect key="frame" x="80" y="72" width="158" height="130"/>
                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="color" id="GWM-Qo-tf3"/>
+                        </connections>
                     </colorWell>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6F-aP-RKx">
                         <rect key="frame" x="295" y="186" width="13" height="17"/>
@@ -82,6 +84,9 @@
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="colorHex" id="Gj6-rJ-wIu"/>
+                        </connections>
                     </textField>
                 </subviews>
             </view>

@@ -71,7 +71,7 @@
                                         </tableColumn>
                                         <tableColumn width="271" minWidth="40" maxWidth="1000" id="AUa-m2-iHS">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Raise">
-                                                <font key="font" metaFont="systemMedium" size="11"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -98,7 +98,11 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="zkB-XP-UZd" name="value" keyPath="objectValue.raise" id="Yro-kC-Yny"/>
+                                                                <binding destination="zkB-XP-UZd" name="value" keyPath="objectValue.raise" id="eIU-k8-2dE">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSValidatesImmediately" value="YES"/>
+                                                                    </dictionary>
+                                                                </binding>
                                                             </connections>
                                                         </textField>
                                                     </subviews>

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DieView: NSView {
+@IBDesignable class DieView: NSView {
   
   var intValue : Int? = 5 {
     didSet {

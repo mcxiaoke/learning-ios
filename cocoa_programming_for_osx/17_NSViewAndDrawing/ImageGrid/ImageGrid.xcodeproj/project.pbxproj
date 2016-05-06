@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAC5205A1CDB4F6800FA610F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC520591CDB4F6800FA610F /* AppDelegate.swift */; };
+		AAC5205C1CDB4F6800FA610F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC5205B1CDB4F6800FA610F /* Assets.xcassets */; };
+		AAC5205F1CDB4F6800FA610F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC5205D1CDB4F6800FA610F /* MainMenu.xib */; };
+		AAC520681CDB4F7F00FA610F /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC520661CDB4F7F00FA610F /* MainWindowController.swift */; };
+		AAC520691CDB4F7F00FA610F /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC520671CDB4F7F00FA610F /* MainWindowController.xib */; };
+		AAC5206B1CDB52E200FA610F /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5206A1CDB52E200FA610F /* ImageGridView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAC520561CDB4F6800FA610F /* ImageGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC520591CDB4F6800FA610F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAC5205B1CDB4F6800FA610F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAC5205E1CDB4F6800FA610F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AAC520601CDB4F6800FA610F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC520661CDB4F7F00FA610F /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		AAC520671CDB4F7F00FA610F /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		AAC5206A1CDB52E200FA610F /* ImageGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAC520531CDB4F6800FA610F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAC5204D1CDB4F6800FA610F = {
+			isa = PBXGroup;
+			children = (
+				AAC520581CDB4F6800FA610F /* ImageGrid */,
+				AAC520571CDB4F6800FA610F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAC520571CDB4F6800FA610F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAC520561CDB4F6800FA610F /* ImageGrid.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAC520581CDB4F6800FA610F /* ImageGrid */ = {
+			isa = PBXGroup;
+			children = (
+				AAC520591CDB4F6800FA610F /* AppDelegate.swift */,
+				AAC5205B1CDB4F6800FA610F /* Assets.xcassets */,
+				AAC5205D1CDB4F6800FA610F /* MainMenu.xib */,
+				AAC520601CDB4F6800FA610F /* Info.plist */,
+				AAC520661CDB4F7F00FA610F /* MainWindowController.swift */,
+				AAC520671CDB4F7F00FA610F /* MainWindowController.xib */,
+				AAC5206A1CDB52E200FA610F /* ImageGridView.swift */,
+			);
+			path = ImageGrid;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAC520551CDB4F6800FA610F /* ImageGrid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC520631CDB4F6800FA610F /* Build configuration list for PBXNativeTarget "ImageGrid" */;
+			buildPhases = (
+				AAC520521CDB4F6800FA610F /* Sources */,
+				AAC520531CDB4F6800FA610F /* Frameworks */,
+				AAC520541CDB4F6800FA610F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageGrid;
+			productName = ImageGrid;
+			productReference = AAC520561CDB4F6800FA610F /* ImageGrid.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAC5204E1CDB4F6800FA610F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mcxiaoke;
+				TargetAttributes = {
+					AAC520551CDB4F6800FA610F = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = AAC520511CDB4F6800FA610F /* Build configuration list for PBXProject "ImageGrid" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAC5204D1CDB4F6800FA610F;
+			productRefGroup = AAC520571CDB4F6800FA610F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAC520551CDB4F6800FA610F /* ImageGrid */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAC520541CDB4F6800FA610F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC5205C1CDB4F6800FA610F /* Assets.xcassets in Resources */,
+				AAC520691CDB4F7F00FA610F /* MainWindowController.xib in Resources */,
+				AAC5205F1CDB4F6800FA610F /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAC520521CDB4F6800FA610F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC5206B1CDB52E200FA610F /* ImageGridView.swift in Sources */,
+				AAC520681CDB4F7F00FA610F /* MainWindowController.swift in Sources */,
+				AAC5205A1CDB4F6800FA610F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAC5205D1CDB4F6800FA610F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAC5205E1CDB4F6800FA610F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAC520611CDB4F6800FA610F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAC520621CDB4F6800FA610F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AAC520641CDB4F6800FA610F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ImageGrid/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ImageGrid;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAC520651CDB4F6800FA610F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ImageGrid/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ImageGrid;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAC520511CDB4F6800FA610F /* Build configuration list for PBXProject "ImageGrid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC520611CDB4F6800FA610F /* Debug */,
+				AAC520621CDB4F6800FA610F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC520631CDB4F6800FA610F /* Build configuration list for PBXNativeTarget "ImageGrid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC520641CDB4F6800FA610F /* Debug */,
+				AAC520651CDB4F6800FA610F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAC5204E1CDB4F6800FA610F /* Project object */;
+}

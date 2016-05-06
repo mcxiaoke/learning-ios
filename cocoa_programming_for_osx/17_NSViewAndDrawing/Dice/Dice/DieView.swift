@@ -10,7 +10,7 @@ import Cocoa
 
 class DieView: NSView {
   
-  var intValue : Int? = 3 {
+  var intValue : Int? = 5 {
     didSet {
       needsDisplay = true
     }
@@ -32,7 +32,7 @@ class DieView: NSView {
     drawDieWithSize(bounds.size)
   }
   
-  func metricsForSize(size:CGSize) -> (edgeLength: CGFloat, dieFrame: CGRect) {
+  func metricsForSize(size:CGSize) -> (edgeLength: CGFloat, dieFrame: CGRect, drawingBounds:CGRect) {
     let edgeLength = min(size.width, size.height)
     let padding = edgeLength / 10.0
     // at center
@@ -40,12 +40,12 @@ class DieView: NSView {
     let oy = (size.height - edgeLength)/2
     let drawingBounds = CGRect(x: ox, y: oy, width: edgeLength, height: edgeLength)
     let dieFrame = drawingBounds.insetBy(dx: padding, dy: padding)
-    return (edgeLength, dieFrame)
+    return (edgeLength, dieFrame, drawingBounds)
   }
   
   func drawDieWithSize(size:CGSize) {
     if let intValue = intValue {
-      let (edgeLength, dieFrame) = metricsForSize(size)
+      let (edgeLength, dieFrame, drawingBounds) = metricsForSize(size)
       let cornerRadius:CGFloat = edgeLength / 5.0
       let dotRadius = edgeLength / 12.0
       let dotFrame = dieFrame.insetBy(dx: dotRadius * 2.5, dy: dotRadius * 2.5)
@@ -62,12 +62,17 @@ class DieView: NSView {
       
       NSGraphicsContext.restoreGraphicsState()
       
-      NSColor.blackColor().set()
+      NSColor.redColor().set()
+      
+      let gradient = NSGradient(startingColor: NSColor.redColor(), endingColor: NSColor.greenColor())
+//      gradient?.drawInRect(drawingBounds, angle: 180.0)
+      
       func drawDot(u: CGFloat, v:CGFloat) {
         let dotOrigin = CGPoint(x: dotFrame.minX + dotFrame.width * u,
                                 y: dotFrame.minY + dotFrame.height * v)
         let dotRect = CGRect(origin: dotOrigin, size: CGSizeZero).insetBy(dx: -dotRadius, dy: -dotRadius)
-        NSBezierPath(ovalInRect: dotRect).fill()
+        let path = NSBezierPath(ovalInRect: dotRect)
+        path.fill()
       }
       
       if (1...6).indexOf(intValue) != nil {

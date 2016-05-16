@@ -219,4 +219,23 @@ import Cocoa
 
   }
   
+  @IBAction func saveAsPDF(sender: AnyObject!) {
+    let sp = NSSavePanel()
+    sp.allowedFileTypes = ["pdf"]
+    sp.beginSheetModalForWindow(window!) { [unowned sp] (result) in
+      if result == NSModalResponseOK {
+        //
+        let data = self.dataWithPDFInsideRect(self.bounds)
+        do {
+          try data.writeToURL(sp.URL!, options: NSDataWritingOptions.DataWritingAtomic)
+        }catch {
+          let alert = NSAlert()
+          alert.messageText = "Save Error"
+          alert.informativeText = "Can not save as PDF!"
+          alert.runModal()
+        }
+      }
+    }
+  }
+  
 }

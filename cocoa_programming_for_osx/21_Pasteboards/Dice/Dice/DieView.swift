@@ -240,8 +240,13 @@ import Cocoa
   // pasteboard
   func writeToPasteboard(pasteboard: NSPasteboard) {
     if let value = intValue {
+      let text = "\(value)"
+      let image = self.bitmapImageRepForCachingDisplayInRect(self.bounds)!
+      self.cacheDisplayInRect(self.bounds, toBitmapImageRep: image)
       pasteboard.clearContents()
-      pasteboard.writeObjects(["\(value)"])
+      pasteboard.setString(text, forType: NSPasteboardTypeString)
+      pasteboard.setData(image.representationUsingType(.NSPNGFileType, properties: [:]), forType: NSPasteboardTypePNG)
+      self.writePDFInsideRect(self.bounds, toPasteboard: pasteboard)
     }
   }
   

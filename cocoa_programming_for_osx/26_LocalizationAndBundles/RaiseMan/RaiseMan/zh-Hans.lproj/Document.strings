@@ -1,0 +1,27 @@
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "429-a9-5e0"; */
+"429-a9-5e0.headerCell.title" = "姓名";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "4e7-L2-NNo"; */
+"4e7-L2-NNo.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Remove"; ObjectID = "9U8-nn-pyo"; */
+"9U8-nn-pyo.title" = "移除成员";
+
+/* Class = "NSTableColumn"; headerCell.title = "Raise"; ObjectID = "AUa-m2-iHS"; */
+"AUa-m2-iHS.headerCell.title" = "工资";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "JWK-P7-NlG"; */
+"JWK-P7-NlG.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "bgk-ag-rop"; */
+"bgk-ag-rop.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "hMz-V7-Fv8"; */
+"hMz-V7-Fv8.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Add Employee"; ObjectID = "jSa-kj-1v2"; */
+"jSa-kj-1v2.title" = "添加成员";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "xOd-HO-29H"; */
+"xOd-HO-29H.title" = "Window";

@@ -29,7 +29,7 @@ class MainWindowController: NSWindowController {
     columnViewController.title = "Cloudy"
     columnViewController.image = NSImage(named: "cloudy")
     
-    let tabViewController = NerdTabViewController()
+    let tabViewController = NerdTabViewController2()
     tabViewController.addChildViewController(flowViewController)
     tabViewController.addChildViewController(columnViewController)
     self.contentViewController = tabViewController

@@ -16,12 +16,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     let flowViewController = ImageViewController()
-    flowViewController.title = "Flow"
-    flowViewController.image = NSImage(named: NSImageNameFlowViewTemplate)
+    flowViewController.title = "Rainy"
+    flowViewController.image = NSImage(named: "rainy")
     
     let columnViewController = ImageViewController()
-    columnViewController.title = "Column"
-    columnViewController.image = NSImage(named: NSImageNameColumnViewTemplate)
+    columnViewController.title = "Cloudy"
+    columnViewController.image = NSImage(named: "cloudy")
     
     let tabViewController = NSTabViewController()
     tabViewController.addChildViewController(flowViewController)

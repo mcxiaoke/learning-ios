@@ -383,6 +383,7 @@
 				AA701EB41CF2FFC50060CB5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA701EB51CF2FFC50060CB5E /* Build configuration list for PBXNativeTarget "ViewControlTests" */ = {
 			isa = XCConfigurationList;
@@ -391,6 +392,7 @@
 				AA701EB71CF2FFC50060CB5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -15,7 +15,7 @@ class ImageViewController: NSViewController {
   
   override func loadView() {
     
-    self.view = NSView(frame: NSRect(x: 0,y: 0, width: 400, height: 240))
+    self.view = NSView(frame: CGRectZero)
     self.view.translatesAutoresizingMaskIntoConstraints = false
     let imageView = NSImageView(frame:CGRectZero)
     imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,6 @@ class ImageViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       self.imageView?.image = image
-      print("ImageView  = \(self.imageView?.bounds)")
     }
     
 }

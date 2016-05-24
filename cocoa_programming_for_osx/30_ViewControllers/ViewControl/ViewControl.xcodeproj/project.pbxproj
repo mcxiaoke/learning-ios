@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA67F6D71CF408E10090B16D /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67F6D51CF408E10090B16D /* MainWindowController.swift */; };
+		AA67F6D81CF408E10090B16D /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA67F6D61CF408E10090B16D /* MainWindowController.xib */; };
 		AA701E9E1CF2FFC50060CB5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA701E9D1CF2FFC50060CB5E /* AppDelegate.swift */; };
 		AA701EA01CF2FFC50060CB5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA701E9F1CF2FFC50060CB5E /* Assets.xcassets */; };
 		AA701EA31CF2FFC50060CB5E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA701EA11CF2FFC50060CB5E /* MainMenu.xib */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA67F6D51CF408E10090B16D /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		AA67F6D61CF408E10090B16D /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		AA701E9A1CF2FFC50060CB5E /* ViewControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA701E9D1CF2FFC50060CB5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA701E9F1CF2FFC50060CB5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				AA701EA41CF2FFC50060CB5E /* Info.plist */,
 				AA701EB81CF300020060CB5E /* ImageViewController.swift */,
 				AA701EB91CF300020060CB5E /* ImageViewController.xib */,
+				AA67F6D51CF408E10090B16D /* MainWindowController.swift */,
+				AA67F6D61CF408E10090B16D /* MainWindowController.xib */,
 			);
 			path = ViewControl;
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 			files = (
 				AA701EA01CF2FFC50060CB5E /* Assets.xcassets in Resources */,
 				AA701EBB1CF300020060CB5E /* ImageViewController.xib in Resources */,
+				AA67F6D81CF408E10090B16D /* MainWindowController.xib in Resources */,
 				AA701EA31CF2FFC50060CB5E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +206,7 @@
 			files = (
 				AA701EBA1CF300020060CB5E /* ImageViewController.swift in Sources */,
 				AA701E9E1CF2FFC50060CB5E /* AppDelegate.swift in Sources */,
+				AA67F6D71CF408E10090B16D /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

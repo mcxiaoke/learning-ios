@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA3398591CF44E3400ED4105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3398581CF44E3400ED4105 /* AppDelegate.swift */; };
+		AA33985B1CF44E3400ED4105 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA33985A1CF44E3400ED4105 /* ViewController.swift */; };
+		AA33985D1CF44E3400ED4105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA33985C1CF44E3400ED4105 /* Assets.xcassets */; };
+		AA3398601CF44E3400ED4105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA33985E1CF44E3400ED4105 /* Main.storyboard */; };
+		AA33986B1CF44E3400ED4105 /* ScatteredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA33986A1CF44E3400ED4105 /* ScatteredTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA3398671CF44E3400ED4105 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA33984D1CF44E3400ED4105 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA3398541CF44E3400ED4105;
+			remoteInfo = Scattered;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA3398551CF44E3400ED4105 /* Scattered.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scattered.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA3398581CF44E3400ED4105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA33985A1CF44E3400ED4105 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA33985C1CF44E3400ED4105 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA33985F1CF44E3400ED4105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA3398611CF44E3400ED4105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA3398661CF44E3400ED4105 /* ScatteredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScatteredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA33986A1CF44E3400ED4105 /* ScatteredTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatteredTests.swift; sourceTree = "<group>"; };
+		AA33986C1CF44E3400ED4105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA3398521CF44E3400ED4105 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3398631CF44E3400ED4105 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA33984C1CF44E3400ED4105 = {
+			isa = PBXGroup;
+			children = (
+				AA3398571CF44E3400ED4105 /* Scattered */,
+				AA3398691CF44E3400ED4105 /* ScatteredTests */,
+				AA3398561CF44E3400ED4105 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA3398561CF44E3400ED4105 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA3398551CF44E3400ED4105 /* Scattered.app */,
+				AA3398661CF44E3400ED4105 /* ScatteredTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA3398571CF44E3400ED4105 /* Scattered */ = {
+			isa = PBXGroup;
+			children = (
+				AA3398581CF44E3400ED4105 /* AppDelegate.swift */,
+				AA33985A1CF44E3400ED4105 /* ViewController.swift */,
+				AA33985C1CF44E3400ED4105 /* Assets.xcassets */,
+				AA33985E1CF44E3400ED4105 /* Main.storyboard */,
+				AA3398611CF44E3400ED4105 /* Info.plist */,
+			);
+			path = Scattered;
+			sourceTree = "<group>";
+		};
+		AA3398691CF44E3400ED4105 /* ScatteredTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA33986A1CF44E3400ED4105 /* ScatteredTests.swift */,
+				AA33986C1CF44E3400ED4105 /* Info.plist */,
+			);
+			path = ScatteredTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA3398541CF44E3400ED4105 /* Scattered */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA33986F1CF44E3400ED4105 /* Build configuration list for PBXNativeTarget "Scattered" */;
+			buildPhases = (
+				AA3398511CF44E3400ED4105 /* Sources */,
+				AA3398521CF44E3400ED4105 /* Frameworks */,
+				AA3398531CF44E3400ED4105 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scattered;
+			productName = Scattered;
+			productReference = AA3398551CF44E3400ED4105 /* Scattered.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA3398651CF44E3400ED4105 /* ScatteredTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA3398721CF44E3400ED4105 /* Build configuration list for PBXNativeTarget "ScatteredTests" */;
+			buildPhases = (
+				AA3398621CF44E3400ED4105 /* Sources */,
+				AA3398631CF44E3400ED4105 /* Frameworks */,
+				AA3398641CF44E3400ED4105 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA3398681CF44E3400ED4105 /* PBXTargetDependency */,
+			);
+			name = ScatteredTests;
+			productName = ScatteredTests;
+			productReference = AA3398661CF44E3400ED4105 /* ScatteredTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA33984D1CF44E3400ED4105 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mcxiaoke;
+				TargetAttributes = {
+					AA3398541CF44E3400ED4105 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					AA3398651CF44E3400ED4105 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AA3398541CF44E3400ED4105;
+					};
+				};
+			};
+			buildConfigurationList = AA3398501CF44E3400ED4105 /* Build configuration list for PBXProject "Scattered" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA33984C1CF44E3400ED4105;
+			productRefGroup = AA3398561CF44E3400ED4105 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA3398541CF44E3400ED4105 /* Scattered */,
+				AA3398651CF44E3400ED4105 /* ScatteredTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA3398531CF44E3400ED4105 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA33985D1CF44E3400ED4105 /* Assets.xcassets in Resources */,
+				AA3398601CF44E3400ED4105 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3398641CF44E3400ED4105 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA3398511CF44E3400ED4105 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA33985B1CF44E3400ED4105 /* ViewController.swift in Sources */,
+				AA3398591CF44E3400ED4105 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3398621CF44E3400ED4105 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA33986B1CF44E3400ED4105 /* ScatteredTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA3398681CF44E3400ED4105 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA3398541CF44E3400ED4105 /* Scattered */;
+			targetProxy = AA3398671CF44E3400ED4105 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA33985E1CF44E3400ED4105 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA33985F1CF44E3400ED4105 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA33986D1CF44E3400ED4105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA33986E1CF44E3400ED4105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AA3398701CF44E3400ED4105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Scattered/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.Scattered;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA3398711CF44E3400ED4105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Scattered/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.Scattered;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA3398731CF44E3400ED4105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ScatteredTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ScatteredTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scattered.app/Contents/MacOS/Scattered";
+			};
+			name = Debug;
+		};
+		AA3398741CF44E3400ED4105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ScatteredTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ScatteredTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scattered.app/Contents/MacOS/Scattered";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA3398501CF44E3400ED4105 /* Build configuration list for PBXProject "Scattered" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA33986D1CF44E3400ED4105 /* Debug */,
+				AA33986E1CF44E3400ED4105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA33986F1CF44E3400ED4105 /* Build configuration list for PBXNativeTarget "Scattered" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA3398701CF44E3400ED4105 /* Debug */,
+				AA3398711CF44E3400ED4105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA3398721CF44E3400ED4105 /* Build configuration list for PBXNativeTarget "ScatteredTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA3398731CF44E3400ED4105 /* Debug */,
+				AA3398741CF44E3400ED4105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA33984D1CF44E3400ED4105 /* Project object */;
+}

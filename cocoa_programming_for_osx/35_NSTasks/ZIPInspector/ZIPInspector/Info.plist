@@ -8,22 +8,14 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>dra</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
+			<array/>
 			<key>CFBundleTypeName</key>
-			<string>DocumentType</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>????</string>
-			</array>
+			<string>Archive</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.pkware.zip-archive</string>
+				<string>public.archive</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>$(PRODUCT_MODULE_NAME).Document</string>

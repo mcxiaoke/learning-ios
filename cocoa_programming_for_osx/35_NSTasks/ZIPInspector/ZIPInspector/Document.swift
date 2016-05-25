@@ -27,17 +27,39 @@ class Document: NSDocument, NSTableViewDelegate, NSTableViewDataSource {
   override init() {
     super.init()
   }
+  
+  /**
+ 
+   https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+   
+ **/
+  private func findLauchCommand(fileURL: NSURL) -> (String, [String]) {
+    let fileName = fileURL.path!
+    let ext = fileURL.pathExtension ?? ""
+    Swift.print("file extension: \(ext)")
+    if fileName.hasSuffix(".tar.gz") {
+      return ("/usr/bin/tar",["-tf", fileName])
+    }
+    switch ext {
+    case "jar", "zip", "apk":
+      return ("/usr/bin/zipinfo",["-1", fileName])
+    case "tar", "tgz", "xz", "bz2":
+      return ("/usr/bin/tar",["-tf", fileName])
+    default:
+      return ("/usr/bin/file",[fileName])
+    }
+  }
 
   override var windowNibName: String? {
     return "Document"
   }
 
   override func readFromURL(url: NSURL, ofType typeName: String) throws {
-    Swift.print("url = \(url.path)")
-    let fileName = url.path!
+    Swift.print("url = \(url)")
+    let (launchPath, arguments) = findLauchCommand(url)
     let task = NSTask()
-    task.launchPath = "/usr/bin/zipinfo"
-    task.arguments = ["-1", fileName]
+    task.launchPath = launchPath
+    task.arguments = arguments
     
     let outPipe = NSPipe()
     task.standardOutput = outPipe
@@ -58,7 +80,7 @@ class Document: NSDocument, NSTableViewDelegate, NSTableViewDataSource {
     
     if let string = String(data: data, encoding: NSUTF8StringEncoding) {
       fileNames = string.componentsSeparatedByString("\n") as [String]
-      Swift.print("fileNames = \(fileName)")
+      Swift.print("fileNames = \(fileNames)")
       tableView?.reloadData()
     }
     

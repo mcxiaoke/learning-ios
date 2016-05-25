@@ -391,6 +391,7 @@
 				AAFDAF571CF5467D00EC8923 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAFDAF581CF5467D00EC8923 /* Build configuration list for PBXNativeTarget "ZIPInspectorTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +400,7 @@
 				AAFDAF5A1CF5467D00EC8923 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

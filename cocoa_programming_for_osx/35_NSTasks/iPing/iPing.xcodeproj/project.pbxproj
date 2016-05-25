@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAFDAF681CF5586700EC8923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF671CF5586700EC8923 /* AppDelegate.swift */; };
+		AAFDAF6A1CF5586700EC8923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF691CF5586700EC8923 /* ViewController.swift */; };
+		AAFDAF6C1CF5586700EC8923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF6B1CF5586700EC8923 /* Assets.xcassets */; };
+		AAFDAF6F1CF5586700EC8923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF6D1CF5586700EC8923 /* Main.storyboard */; };
+		AAFDAF7A1CF5586700EC8923 /* iPingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF791CF5586700EC8923 /* iPingTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAFDAF761CF5586700EC8923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAFDAF5C1CF5586700EC8923 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAFDAF631CF5586700EC8923;
+			remoteInfo = iPing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAFDAF641CF5586700EC8923 /* iPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFDAF671CF5586700EC8923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAFDAF691CF5586700EC8923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAFDAF6B1CF5586700EC8923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAFDAF6E1CF5586700EC8923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAFDAF701CF5586700EC8923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFDAF751CF5586700EC8923 /* iPingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFDAF791CF5586700EC8923 /* iPingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPingTests.swift; sourceTree = "<group>"; };
+		AAFDAF7B1CF5586700EC8923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAFDAF611CF5586700EC8923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFDAF721CF5586700EC8923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAFDAF5B1CF5586700EC8923 = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF661CF5586700EC8923 /* iPing */,
+				AAFDAF781CF5586700EC8923 /* iPingTests */,
+				AAFDAF651CF5586700EC8923 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAFDAF651CF5586700EC8923 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF641CF5586700EC8923 /* iPing.app */,
+				AAFDAF751CF5586700EC8923 /* iPingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAFDAF661CF5586700EC8923 /* iPing */ = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF671CF5586700EC8923 /* AppDelegate.swift */,
+				AAFDAF691CF5586700EC8923 /* ViewController.swift */,
+				AAFDAF6B1CF5586700EC8923 /* Assets.xcassets */,
+				AAFDAF6D1CF5586700EC8923 /* Main.storyboard */,
+				AAFDAF701CF5586700EC8923 /* Info.plist */,
+			);
+			path = iPing;
+			sourceTree = "<group>";
+		};
+		AAFDAF781CF5586700EC8923 /* iPingTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF791CF5586700EC8923 /* iPingTests.swift */,
+				AAFDAF7B1CF5586700EC8923 /* Info.plist */,
+			);
+			path = iPingTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAFDAF631CF5586700EC8923 /* iPing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFDAF7E1CF5586700EC8923 /* Build configuration list for PBXNativeTarget "iPing" */;
+			buildPhases = (
+				AAFDAF601CF5586700EC8923 /* Sources */,
+				AAFDAF611CF5586700EC8923 /* Frameworks */,
+				AAFDAF621CF5586700EC8923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPing;
+			productName = iPing;
+			productReference = AAFDAF641CF5586700EC8923 /* iPing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAFDAF741CF5586700EC8923 /* iPingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFDAF811CF5586700EC8923 /* Build configuration list for PBXNativeTarget "iPingTests" */;
+			buildPhases = (
+				AAFDAF711CF5586700EC8923 /* Sources */,
+				AAFDAF721CF5586700EC8923 /* Frameworks */,
+				AAFDAF731CF5586700EC8923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAFDAF771CF5586700EC8923 /* PBXTargetDependency */,
+			);
+			name = iPingTests;
+			productName = iPingTests;
+			productReference = AAFDAF751CF5586700EC8923 /* iPingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAFDAF5C1CF5586700EC8923 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mcxiaoke;
+				TargetAttributes = {
+					AAFDAF631CF5586700EC8923 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					AAFDAF741CF5586700EC8923 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AAFDAF631CF5586700EC8923;
+					};
+				};
+			};
+			buildConfigurationList = AAFDAF5F1CF5586700EC8923 /* Build configuration list for PBXProject "iPing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAFDAF5B1CF5586700EC8923;
+			productRefGroup = AAFDAF651CF5586700EC8923 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAFDAF631CF5586700EC8923 /* iPing */,
+				AAFDAF741CF5586700EC8923 /* iPingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAFDAF621CF5586700EC8923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFDAF6C1CF5586700EC8923 /* Assets.xcassets in Resources */,
+				AAFDAF6F1CF5586700EC8923 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFDAF731CF5586700EC8923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAFDAF601CF5586700EC8923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFDAF6A1CF5586700EC8923 /* ViewController.swift in Sources */,
+				AAFDAF681CF5586700EC8923 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFDAF711CF5586700EC8923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFDAF7A1CF5586700EC8923 /* iPingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAFDAF771CF5586700EC8923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAFDAF631CF5586700EC8923 /* iPing */;
+			targetProxy = AAFDAF761CF5586700EC8923 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAFDAF6D1CF5586700EC8923 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAFDAF6E1CF5586700EC8923 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAFDAF7C1CF5586700EC8923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAFDAF7D1CF5586700EC8923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AAFDAF7F1CF5586700EC8923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = iPing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.iPing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAFDAF801CF5586700EC8923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = iPing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.iPing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AAFDAF821CF5586700EC8923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = iPingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.iPingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPing.app/Contents/MacOS/iPing";
+			};
+			name = Debug;
+		};
+		AAFDAF831CF5586700EC8923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = iPingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.iPingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPing.app/Contents/MacOS/iPing";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAFDAF5F1CF5586700EC8923 /* Build configuration list for PBXProject "iPing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDAF7C1CF5586700EC8923 /* Debug */,
+				AAFDAF7D1CF5586700EC8923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAFDAF7E1CF5586700EC8923 /* Build configuration list for PBXNativeTarget "iPing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDAF7F1CF5586700EC8923 /* Debug */,
+				AAFDAF801CF5586700EC8923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AAFDAF811CF5586700EC8923 /* Build configuration list for PBXNativeTarget "iPingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDAF821CF5586700EC8923 /* Debug */,
+				AAFDAF831CF5586700EC8923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAFDAF5C1CF5586700EC8923 /* Project object */;
+}

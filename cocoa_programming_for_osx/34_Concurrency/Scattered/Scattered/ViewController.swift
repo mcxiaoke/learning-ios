@@ -10,7 +10,9 @@ import Cocoa
 
 class ViewController: NSViewController {
   
-  let processingQueue: NSOperationQueue = {
+  let processingQueue = NSOperationQueue()
+  
+  let ioQueue: NSOperationQueue = {
     let result = NSOperationQueue()
     result.maxConcurrentOperationCount = 4
     return result
@@ -97,23 +99,24 @@ class ViewController: NSViewController {
         _ = try? url.getResourceValue(&isDirectoryValue, forKey: NSURLIsDirectoryKey)
         if let isDirectory = isDirectoryValue as? NSNumber
           where isDirectory.boolValue == false {
-          
-          self.processingQueue.addOperationWithBlock{
-            let image = NSImage(contentsOfURL:url)
+          self.ioQueue.addOperationWithBlock{
+            let data = NSData(contentsOfURL: url)!
+            let image = NSImage(data: data)
             if let image = image {
-
-              let thumbImage = self.thumbImageFromImage(image)
-              var fileNameValue: AnyObject?
-              _ = try? url.getResourceValue(&fileNameValue, forKey: NSURLNameKey)
-              if let fileName = fileNameValue as? String {
-                print("fileName: \(fileName)")
-                NSOperationQueue.mainQueue().addOperationWithBlock{
-                  self.presentImage(thumbImage, fileName: fileName)
-                  let t1 = NSDate.timeIntervalSinceReferenceDate()
-                  let interval = t1 - t0
-                  self.text = String(format: "%0.1fs", interval)
+              self.processingQueue.addOperationWithBlock({ 
+                let thumbImage = self.thumbImageFromImage(image)
+                var fileNameValue: AnyObject?
+                _ = try? url.getResourceValue(&fileNameValue, forKey: NSURLNameKey)
+                if let fileName = fileNameValue as? String {
+                  print("fileName: \(fileName)")
+                  NSOperationQueue.mainQueue().addOperationWithBlock{
+                    self.presentImage(thumbImage, fileName: fileName)
+                    let t1 = NSDate.timeIntervalSinceReferenceDate()
+                    let interval = t1 - t0
+                    self.text = String(format: "%0.1fs", interval)
+                  }
                 }
-              }
+              })
             }
           }
         }

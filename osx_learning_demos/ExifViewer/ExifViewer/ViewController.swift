@@ -20,6 +20,8 @@ class ExifInfo: NSObject{
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
   
+  dynamic var image: NSImage?
+  
   @IBOutlet weak var label: NSTextField!
   @IBOutlet weak var tableView: NSTableView!
   
@@ -47,16 +49,20 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     panel.beginWithCompletionHandler { (result) in
       if result == NSFileHandlingPanelOKButton {
         print("openDocument: \(panel.URLs )")
-        self.parseExifInfo(panel.URLs.first!)
+        if let url = panel.URLs.first {
+          self.image = NSImage(contentsOfURL:url)
+          self.exifProperties = []
+          self.parseExifInfo(url)
+        }
       }
     }
   }
   
   func createExifInfo(key:String, value:AnyObject, prefix:String = "") -> ExifInfo {
-//    print("\(key)=\(value) Type:\(value.dynamicType)")
+//    print("\(key)=\(value) \(value.dynamicType)")
     let valueStr:String
     if let value2 = value as? NSArray {
-      valueStr = value2.componentsJoinedByString(" ")
+      valueStr = value2.componentsJoinedByString(", ")
     }else {
       valueStr = "\(value)"
     }
@@ -117,22 +123,28 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         print("Image \(url) saved to \(writePath)")
 //        _ = try? data.writeToURL(writePath, options: NSDataWritingOptions.AtomicWrite)
       }
+      
+      var properties: [ExifInfo] = []
       if let exif = exif as? Dictionary<String, AnyObject> {
         exif.forEach { (key,value) in
-          self.exifProperties.append(createExifInfo(key, value: value, prefix: "EXIF"))
+          properties.append(createExifInfo(key, value: value, prefix: "EXIF"))
         }
       }
       if let gps = gps as? Dictionary<String, AnyObject> {
         gps.forEach { (key,value) in
-          self.exifProperties.append(createExifInfo(key, value: value, prefix: "GPS"))
+          properties.append(createExifInfo(key, value: value, prefix: "GPS"))
         }
       }
       if let tiff = tiff as? Dictionary<String, AnyObject> {
         tiff.forEach { (key,value) in
-          self.exifProperties.append(createExifInfo(key, value: value, prefix: "TIFF"))
+          properties.append(createExifInfo(key, value: value, prefix: "TIFF"))
         }
       }
       
+      self.exifProperties = properties
+//      self.exifProperties = properties.sort({ (a, b) -> Bool in
+//        return a.key < b.key
+//      })
       self.tableView?.reloadData()
       self.label?.stringValue = url.path!
     }

@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAFDAF3C1CF5467D00EC8923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF3B1CF5467D00EC8923 /* AppDelegate.swift */; };
+		AAFDAF3E1CF5467D00EC8923 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF3D1CF5467D00EC8923 /* Document.swift */; };
+		AAFDAF411CF5467D00EC8923 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF3F1CF5467D00EC8923 /* Document.xib */; };
+		AAFDAF431CF5467D00EC8923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF421CF5467D00EC8923 /* Assets.xcassets */; };
+		AAFDAF461CF5467D00EC8923 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF441CF5467D00EC8923 /* MainMenu.xib */; };
+		AAFDAF511CF5467D00EC8923 /* ZIPInspectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF501CF5467D00EC8923 /* ZIPInspectorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAFDAF4D1CF5467D00EC8923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAFDAF301CF5467D00EC8923 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAFDAF371CF5467D00EC8923;
+			remoteInfo = ZIPInspector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAFDAF381CF5467D00EC8923 /* ZIPInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZIPInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFDAF3B1CF5467D00EC8923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAFDAF3D1CF5467D00EC8923 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		AAFDAF401CF5467D00EC8923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
+		AAFDAF421CF5467D00EC8923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAFDAF451CF5467D00EC8923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AAFDAF471CF5467D00EC8923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFDAF4C1CF5467D00EC8923 /* ZIPInspectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZIPInspectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFDAF501CF5467D00EC8923 /* ZIPInspectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZIPInspectorTests.swift; sourceTree = "<group>"; };
+		AAFDAF521CF5467D00EC8923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAFDAF351CF5467D00EC8923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFDAF491CF5467D00EC8923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAFDAF2F1CF5467D00EC8923 = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF3A1CF5467D00EC8923 /* ZIPInspector */,
+				AAFDAF4F1CF5467D00EC8923 /* ZIPInspectorTests */,
+				AAFDAF391CF5467D00EC8923 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAFDAF391CF5467D00EC8923 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF381CF5467D00EC8923 /* ZIPInspector.app */,
+				AAFDAF4C1CF5467D00EC8923 /* ZIPInspectorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAFDAF3A1CF5467D00EC8923 /* ZIPInspector */ = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF3B1CF5467D00EC8923 /* AppDelegate.swift */,
+				AAFDAF3D1CF5467D00EC8923 /* Document.swift */,
+				AAFDAF3F1CF5467D00EC8923 /* Document.xib */,
+				AAFDAF421CF5467D00EC8923 /* Assets.xcassets */,
+				AAFDAF441CF5467D00EC8923 /* MainMenu.xib */,
+				AAFDAF471CF5467D00EC8923 /* Info.plist */,
+			);
+			path = ZIPInspector;
+			sourceTree = "<group>";
+		};
+		AAFDAF4F1CF5467D00EC8923 /* ZIPInspectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAFDAF501CF5467D00EC8923 /* ZIPInspectorTests.swift */,
+				AAFDAF521CF5467D00EC8923 /* Info.plist */,
+			);
+			path = ZIPInspectorTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAFDAF371CF5467D00EC8923 /* ZIPInspector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFDAF551CF5467D00EC8923 /* Build configuration list for PBXNativeTarget "ZIPInspector" */;
+			buildPhases = (
+				AAFDAF341CF5467D00EC8923 /* Sources */,
+				AAFDAF351CF5467D00EC8923 /* Frameworks */,
+				AAFDAF361CF5467D00EC8923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZIPInspector;
+			productName = ZIPInspector;
+			productReference = AAFDAF381CF5467D00EC8923 /* ZIPInspector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAFDAF4B1CF5467D00EC8923 /* ZIPInspectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFDAF581CF5467D00EC8923 /* Build configuration list for PBXNativeTarget "ZIPInspectorTests" */;
+			buildPhases = (
+				AAFDAF481CF5467D00EC8923 /* Sources */,
+				AAFDAF491CF5467D00EC8923 /* Frameworks */,
+				AAFDAF4A1CF5467D00EC8923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAFDAF4E1CF5467D00EC8923 /* PBXTargetDependency */,
+			);
+			name = ZIPInspectorTests;
+			productName = ZIPInspectorTests;
+			productReference = AAFDAF4C1CF5467D00EC8923 /* ZIPInspectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAFDAF301CF5467D00EC8923 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mcxiaoke;
+				TargetAttributes = {
+					AAFDAF371CF5467D00EC8923 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					AAFDAF4B1CF5467D00EC8923 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AAFDAF371CF5467D00EC8923;
+					};
+				};
+			};
+			buildConfigurationList = AAFDAF331CF5467D00EC8923 /* Build configuration list for PBXProject "ZIPInspector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAFDAF2F1CF5467D00EC8923;
+			productRefGroup = AAFDAF391CF5467D00EC8923 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAFDAF371CF5467D00EC8923 /* ZIPInspector */,
+				AAFDAF4B1CF5467D00EC8923 /* ZIPInspectorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAFDAF361CF5467D00EC8923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFDAF431CF5467D00EC8923 /* Assets.xcassets in Resources */,
+				AAFDAF411CF5467D00EC8923 /* Document.xib in Resources */,
+				AAFDAF461CF5467D00EC8923 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFDAF4A1CF5467D00EC8923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAFDAF341CF5467D00EC8923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFDAF3E1CF5467D00EC8923 /* Document.swift in Sources */,
+				AAFDAF3C1CF5467D00EC8923 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFDAF481CF5467D00EC8923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFDAF511CF5467D00EC8923 /* ZIPInspectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAFDAF4E1CF5467D00EC8923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAFDAF371CF5467D00EC8923 /* ZIPInspector */;
+			targetProxy = AAFDAF4D1CF5467D00EC8923 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAFDAF3F1CF5467D00EC8923 /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAFDAF401CF5467D00EC8923 /* Base */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		AAFDAF441CF5467D00EC8923 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAFDAF451CF5467D00EC8923 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAFDAF531CF5467D00EC8923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAFDAF541CF5467D00EC8923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AAFDAF561CF5467D00EC8923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ZIPInspector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ZIPInspector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAFDAF571CF5467D00EC8923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ZIPInspector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ZIPInspector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AAFDAF591CF5467D00EC8923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ZIPInspectorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ZIPInspectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZIPInspector.app/Contents/MacOS/ZIPInspector";
+			};
+			name = Debug;
+		};
+		AAFDAF5A1CF5467D00EC8923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ZIPInspectorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.osx.ZIPInspectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZIPInspector.app/Contents/MacOS/ZIPInspector";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAFDAF331CF5467D00EC8923 /* Build configuration list for PBXProject "ZIPInspector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDAF531CF5467D00EC8923 /* Debug */,
+				AAFDAF541CF5467D00EC8923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAFDAF551CF5467D00EC8923 /* Build configuration list for PBXNativeTarget "ZIPInspector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDAF561CF5467D00EC8923 /* Debug */,
+				AAFDAF571CF5467D00EC8923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AAFDAF581CF5467D00EC8923 /* Build configuration list for PBXNativeTarget "ZIPInspectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFDAF591CF5467D00EC8923 /* Debug */,
+				AAFDAF5A1CF5467D00EC8923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAFDAF301CF5467D00EC8923 /* Project object */;
+}

@@ -18,22 +18,15 @@ class ExifInfo: NSObject{
   }
 }
 
-class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class ViewController: NSViewController {
   
   dynamic var image: NSImage?
   
   @IBOutlet weak var label: NSTextField!
-  @IBOutlet weak var tableView: NSTableView!
+  @IBOutlet weak var outlineView: NSOutlineView!
+  @IBOutlet weak var treeController: NSTreeController!
   
   var exifProperties: [ExifInfo] = []
-  
-  func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-    return exifProperties.count
-  }
-  
-  func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
-    return exifProperties[row]
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,26 +40,71 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     panel.canCreateDirectories = false
     panel.canChooseFiles = true
     panel.beginWithCompletionHandler { (result) in
-      if result == NSFileHandlingPanelOKButton {
-        print("openDocument: \(panel.URLs )")
-        if let url = panel.URLs.first {
-          self.image = NSImage(contentsOfURL:url)
-          self.exifProperties = []
-          self.parseExifInfo(url)
+      if result != NSFileHandlingPanelOKButton {
+        return
+      }
+      print("openDocument: \(panel.URLs )")
+      if let url = panel.URLs.first {
+        self.parseExifInfo(url)
+        let globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        dispatch_async(globalQueue) {
+          let thumb = self.thumbImageFromImage(NSImage(contentsOfURL:url)!)
+          dispatch_async(dispatch_get_main_queue()){
+            self.image = thumb
+          }
         }
       }
     }
   }
   
+  func thumbImageFromImage(image: NSImage) -> NSImage {
+    let targetHeight: CGFloat = 160.0
+    let imageSize = image.size
+    let smallerSize = NSSize(width: targetHeight * imageSize.width / imageSize.height, height: targetHeight)
+    return NSImage(size: smallerSize, flipped: false) { (rect) -> Bool in
+      image.drawInRect(rect)
+      return true
+    }
+  }
+  
   func createExifInfo(key:String, value:AnyObject, prefix:String = "") -> ExifInfo {
-//    print("\(key)=\(value) \(value.dynamicType)")
+    return ExifInfo(key: "\(prefix) \(key)", value: normalizeValue(value))
+  }
+  
+  func normalizeValue(value:AnyObject) -> String {
     let valueStr:String
     if let value2 = value as? NSArray {
       valueStr = value2.componentsJoinedByString(", ")
     }else {
       valueStr = "\(value)"
     }
-    return ExifInfo(key: "\(prefix) \(key)", value: valueStr)
+    return valueStr
+  }
+  
+  class func ImageIOLocalizedString(key: String) -> String
+  {
+    let bundle = NSBundle(identifier:"com.apple.ImageIO.framework")
+    return bundle?.localizedStringForKey(key, value: key, table: "CGImageSource") ?? key
+  }
+  
+  func parseToTree(properties: NSDictionary) -> NSArray{
+    let keys = properties.allKeys.sort { (left, right) -> Bool in
+      return (left as! String) < (right as! String)
+    }
+    let array = NSMutableArray()
+    for i in 1..<keys.count {
+      let key = keys[i] as! String
+      let locKey = ViewController.ImageIOLocalizedString(key)
+      let obj = properties.objectForKey(key)!
+      let child: NSDictionary
+      if let obj = obj as? NSDictionary {
+        child =  ["key": locKey, "value":"", "children": self.parseToTree(obj)]
+      }else{
+        child =  ["key": locKey, "value": normalizeValue(obj)]
+      }
+      array.addObject(child)
+    }
+    return array
   }
   
   // https://github.com/oopww1992/WWimageExif
@@ -88,6 +126,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 //      })
 //    }
     if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary?{
+      let tree = parseToTree(imageProperties)
+      self.treeController.content = tree
+      self.outlineView.expandItem(nil, expandChildren: true)
+      
       let exif = imageProperties[kCGImagePropertyExifDictionary as String]
       let gps = imageProperties[kCGImagePropertyGPSDictionary as String]
       let tiff = imageProperties[kCGImagePropertyTIFFDictionary as String]
@@ -145,7 +187,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 //      self.exifProperties = properties.sort({ (a, b) -> Bool in
 //        return a.key < b.key
 //      })
-      self.tableView?.reloadData()
+//      self.tableView?.reloadData()
       self.label?.stringValue = url.path!
     }
     

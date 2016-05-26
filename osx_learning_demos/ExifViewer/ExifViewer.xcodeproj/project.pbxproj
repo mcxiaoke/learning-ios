@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA00DF971CF69F28000D242E /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF961CF69F28000D242E /* InfoPanel.swift */; };
+		AA00DF991CF6C1E7000D242E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF981CF6C1E7000D242E /* MainViewController.swift */; };
+		AA00DF9B1CF6C213000D242E /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */; };
+		AA00DF9D1CF6C22A000D242E /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9C1CF6C22A000D242E /* ImageDetailViewController.swift */; };
+		AA00DF9F1CF6D6A6000D242E /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */; };
 		AAFDAF921CF5784500EC8923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF911CF5784500EC8923 /* AppDelegate.swift */; };
 		AAFDAF941CF5784500EC8923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF931CF5784500EC8923 /* ViewController.swift */; };
 		AAFDAF961CF5784500EC8923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF951CF5784500EC8923 /* Assets.xcassets */; };
@@ -26,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA00DF961CF69F28000D242E /* InfoPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
+		AA00DF981CF6C1E7000D242E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
+		AA00DF9C1CF6C22A000D242E /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		AAFDAF8E1CF5784500EC8923 /* ExifViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExifViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFDAF911CF5784500EC8923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAFDAF931CF5784500EC8923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +93,11 @@
 				AAFDAF971CF5784500EC8923 /* Main.storyboard */,
 				AAFDAF9A1CF5784500EC8923 /* Info.plist */,
 				AAFDAFAE1CF588D700EC8923 /* MainWindowController.swift */,
+				AA00DF961CF69F28000D242E /* InfoPanel.swift */,
+				AA00DF981CF6C1E7000D242E /* MainViewController.swift */,
+				AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */,
+				AA00DF9C1CF6C22A000D242E /* ImageDetailViewController.swift */,
+				AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */,
 			);
 			path = ExifViewer;
 			sourceTree = "<group>";
@@ -197,9 +212,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA00DF9F1CF6D6A6000D242E /* NSURL+Extensions.swift in Sources */,
+				AA00DF9B1CF6C213000D242E /* ImageListViewController.swift in Sources */,
 				AAFDAF941CF5784500EC8923 /* ViewController.swift in Sources */,
+				AA00DF9D1CF6C22A000D242E /* ImageDetailViewController.swift in Sources */,
 				AAFDAF921CF5784500EC8923 /* AppDelegate.swift in Sources */,
+				AA00DF971CF69F28000D242E /* InfoPanel.swift in Sources */,
 				AAFDAFAF1CF588D700EC8923 /* MainWindowController.swift in Sources */,
+				AA00DF991CF6C1E7000D242E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +408,7 @@
 				AAFDAFAA1CF5784500EC8923 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAFDAFAB1CF5784500EC8923 /* Build configuration list for PBXNativeTarget "ExifViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +417,7 @@
 				AAFDAFAD1CF5784500EC8923 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

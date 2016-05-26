@@ -21,7 +21,7 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
   }
   
   dynamic var image:NSImage?
-//  dynamic var properties:NSArray?
+  dynamic var properties:[NSDictionary]?
   
   @IBOutlet weak var filePathLabel: NSTextField!
   @IBOutlet weak var fileSizeLabel: NSTextField!
@@ -85,11 +85,11 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
     return bundle?.localizedStringForKey(key, value: key, table: "CGImageSource") ?? key
   }
   
-  func parseToTree(properties: NSDictionary) -> NSArray{
+  func parseToTree(properties: NSDictionary) -> [NSDictionary]{
     let keys = properties.allKeys.sort { (left, right) -> Bool in
       return (left as! String) < (right as! String)
     }
-    let array = NSMutableArray()
+    var array:[NSDictionary] = []
     for i in 1..<keys.count {
       let key = keys[i] as! String
       let locKey = ImageIOLocalizedString(key)
@@ -100,7 +100,8 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
       }else{
         child =  ["key": locKey, "value": normalizeValue(obj)]
       }
-      array.addObject(child)
+//      array.addObject(child)
+      array.append(child)
     }
     return array
   }
@@ -128,7 +129,7 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
 //      })
 //    }
     if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource!, 0, nil) as Dictionary?{
-      self.treeController.content = parseToTree(imageProperties)
+      self.properties = parseToTree(imageProperties)
       self.outlineView.expandItem(nil, expandChildren: true)
       
 //      let exif = imageProperties[kCGImagePropertyExifDictionary as String]
@@ -163,7 +164,7 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
         dateFormatter.dateFormat="yyyyMMdd_HHmmss"
         let newFileName = "\(dateFormatter.stringFromDate(NSDate())).jpg"
         let writePath = NSURL(fileURLWithPath:directory).URLByAppendingPathComponent(newFileName)
-        print("Image \(url) saved to \(writePath)")
+//        print("Image \(url) saved to \(writePath)")
 //        _ = try? data.writeToURL(writePath, options: NSDataWritingOptions.AtomicWrite)
       }
       

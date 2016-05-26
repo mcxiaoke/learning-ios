@@ -14,9 +14,10 @@ protocol ImageListViewControllerDelegate: class {
 }
 
 // 左侧图片列表的VC
-class ImageListViewController: NSViewController {
+class ImageListViewController: NSViewController, NSMenuDelegate {
 
   @IBOutlet weak var label:NSTextField!
+  @IBOutlet weak var button: NSButton!
   @IBOutlet weak var tableView: NSTableView!
   @IBOutlet weak var arrayController: NSArrayController!
   
@@ -35,9 +36,23 @@ class ImageListViewController: NSViewController {
     delegate?.imageListViewController(self, selectedURL: selectedURL)
   }
   
+  @IBAction func modifySelectedImages(sender:AnyObject){
+    let selectedURLs = arrayController.selectedObjects
+    let alert = NSAlert()
+    alert.messageText = "Modify Exif"
+    alert.informativeText = "you selected \(selectedURLs.count) images"
+    alert.runModal()
+//    alert.beginSheetModalForWindow(self.view.window!) { (response) in
+//      //
+//    }
+  }
+  
+  func hello(sender:AnyObject){
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.selectImageURL(self)
+//    self.tableView.menu = 
   }
   
 }

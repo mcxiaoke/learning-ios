@@ -347,7 +347,7 @@
                     <connections>
                         <outlet property="arrayController" destination="MfX-EM-LiX" id="c23-KD-t40"/>
                         <outlet property="button" destination="0mv-3c-ArR" id="V94-c8-iKO"/>
-                        <outlet property="label" destination="Z8x-0f-QJw" id="Kl6-mE-MDJ"/>
+                        <outlet property="label" destination="Z8x-0f-QJw" id="wsF-mz-ACf"/>
                         <outlet property="tableView" destination="RMb-gl-1Lh" id="0f7-Pe-rFT"/>
                     </connections>
                 </viewController>
@@ -455,7 +455,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="100" id="8fF-L7-L8O"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Value Cell" id="I5O-Qb-BqW">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Value Cell" id="I5O-Qb-BqW">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -546,7 +546,6 @@
                         <outlet property="filePathLabel" destination="upJ-H0-Ehf" id="4RU-2X-b4z"/>
                         <outlet property="fileSizeLabel" destination="rQZ-PM-4D4" id="zRV-Yj-NbX"/>
                         <outlet property="fileTypeLabel" destination="VYQ-cn-Gbk" id="8kV-bc-Wli"/>
-                        <outlet property="label" destination="upJ-H0-Ehf" id="0Gf-3b-qDp"/>
                         <outlet property="outlineView" destination="WRt-tB-IFu" id="eDR-do-odB"/>
                         <outlet property="treeController" destination="q3Q-fP-ZnS" id="91B-9h-rc2"/>
                     </connections>

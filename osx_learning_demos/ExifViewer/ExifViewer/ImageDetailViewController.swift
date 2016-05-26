@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ImageDetailViewController: NSViewController {
+class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
   
   var imageURL:NSURL? {
     didSet {
@@ -21,6 +21,7 @@ class ImageDetailViewController: NSViewController {
   }
   
   dynamic var image:NSImage?
+//  dynamic var properties:NSArray?
   
   @IBOutlet weak var filePathLabel: NSTextField!
   @IBOutlet weak var fileSizeLabel: NSTextField!
@@ -33,7 +34,7 @@ class ImageDetailViewController: NSViewController {
   func loadFileInfo(url:NSURL){
     self.filePathLabel.stringValue = "Location: \(url.lastPathComponent!)"
     if let attrs = try? NSFileManager.defaultManager().attributesOfItemAtPath(url.path!){
-      print("attrs = \(attrs)")
+//      print("attrs = \(attrs)")
       self.fileSizeLabel.stringValue = "Size: \(attrs[NSFileSize]!)"
       self.fileTypeLabel.stringValue = "Date: \(attrs[NSFileCreationDate]!)"
     }
@@ -127,8 +128,7 @@ class ImageDetailViewController: NSViewController {
 //      })
 //    }
     if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource!, 0, nil) as Dictionary?{
-      let tree = parseToTree(imageProperties)
-      self.treeController.content = tree
+      self.treeController.content = parseToTree(imageProperties)
       self.outlineView.expandItem(nil, expandChildren: true)
       
 //      let exif = imageProperties[kCGImagePropertyExifDictionary as String]

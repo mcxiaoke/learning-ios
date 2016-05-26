@@ -31,7 +31,7 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
   weak var delegate: ImageListViewControllerDelegate? = nil
   
   @IBAction func selectImageURL(sender: AnyObject){
-    print("selectedObjects: \(arrayController.selectedObjects)")
+//    print("selectedObjects: \(arrayController.selectedObjects)")
     let selectedURL = arrayController.selectedObjects.first as? NSURL
     delegate?.imageListViewController(self, selectedURL: selectedURL)
   }

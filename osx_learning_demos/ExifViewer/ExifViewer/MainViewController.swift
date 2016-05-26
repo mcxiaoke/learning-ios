@@ -45,7 +45,7 @@ class MainViewController: NSSplitViewController, ImageListViewControllerDelegate
           }
         }
         }
-      print("openDocument: \(fileUrls)")
+//      print("openDocument: \(fileUrls)")
       self.imageListViewController.urls = fileUrls
       self.imageListViewController.directory = fileRoot
     }
@@ -57,7 +57,7 @@ class MainViewController: NSSplitViewController, ImageListViewControllerDelegate
   }
   
   func imageListViewController(viewController: ImageListViewController, selectedURL: NSURL?) {
-    print("selectedURL: \(selectedURL)")
+//    print("selectedURL: \(selectedURL)")
     self.imageDetailViewController.imageURL = selectedURL
   }
     

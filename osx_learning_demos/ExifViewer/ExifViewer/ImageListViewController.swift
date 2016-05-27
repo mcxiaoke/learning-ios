@@ -11,6 +11,9 @@ import Cocoa
 protocol ImageListViewControllerDelegate: class {
   func imageListViewController(viewController: ImageListViewController,
                                 selectedURL: NSURL?) -> Void
+  
+  func imageListViewController(viewController: ImageListViewController,
+                               removedURLs: [NSURL]) -> Void
 }
 
 // 左侧图片列表的VC
@@ -33,7 +36,7 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
   @IBAction func selectImageURL(sender: AnyObject){
 //    print("selectedObjects: \(arrayController.selectedObjects)")
     let selectedURL = arrayController.selectedObjects.first as? NSURL
-    delegate?.imageListViewController(self, selectedURL: selectedURL)
+    self.delegate?.imageListViewController(self, selectedURL: selectedURL)
   }
   
   @IBAction func modifySelectedImages(sender:AnyObject){
@@ -52,8 +55,10 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
   }
   
   @IBAction func removeImages(sender: AnyObject){
-    let selectedImages = self.arrayController.selectedObjects
-    self.arrayController.removeObjects(selectedImages)
+    if let selectedImages = self.arrayController.selectedObjects as? [NSURL] {
+      self.arrayController.removeObjects(selectedImages)
+      self.delegate?.imageListViewController(self, removedURLs: selectedImages)
+    }
   }
   
   @IBAction func openDocument(sender:AnyObject) {
@@ -87,8 +92,8 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
           }
         }
       }
-      print("openDocument: \(fileUrls)")
-      self.urls = fileUrls
+//      print("showOpenPanel: \(fileUrls)")
+      self.urls += fileUrls
       self.directory = fileRoot
     }
   }

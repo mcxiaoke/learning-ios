@@ -37,20 +37,41 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
         loadFileInfo(url)
         loadImageThumb(url)
         loadImageProperties(url)
+      }else{
+        self.image = nil
+        self.treeController.content = nil
       }
     }
   }
   
   dynamic var image:NSImage?
-  dynamic var properties:[NSDictionary]?
+  dynamic var properties: [NSMutableDictionary]?
   
   @IBOutlet weak var filePathLabel: NSTextField!
   @IBOutlet weak var fileSizeLabel: NSTextField!
   @IBOutlet weak var fileTypeLabel: NSTextField!
+  @IBOutlet weak var filePixelLabel:NSTextField!
   @IBOutlet weak var outlineView: NSOutlineView!
   @IBOutlet weak var treeController: NSTreeController!
   
   let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+  
+  @IBAction func textValueChanged(sender: NSTextField) {
+    print("textValueChanged: \(sender.stringValue)")
+    if let object = self.treeController.selectedObjects.first {
+      let row  = self.outlineView.selectedRow
+      print("outlineViewSelectionDidChange selectedRow = \(row)")
+      print("outlineViewSelectionDidChange selectedObject = \(object)")
+    }
+  }
+  
+  func outlineView(outlineView: NSOutlineView, shouldEditTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> Bool {
+    return  false
+  }
+  
+  func outlineViewSelectionDidChange(notification: NSNotification) {
+  }
+  
   
   func loadFileInfo(url:NSURL){
     self.filePathLabel.stringValue = url.lastPathComponent!
@@ -97,25 +118,48 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
     return bundle?.localizedStringForKey(key, value: key, table: "CGImageSource") ?? key
   }
   
-  func parseToTree(properties: NSDictionary) -> [NSDictionary]{
+  func parseToTree(properties: NSDictionary) -> [NSMutableDictionary]{
     let keys = properties.allKeys.sort { (left, right) -> Bool in
       return (left as! String) < (right as! String)
     }
-    var array:[NSDictionary] = []
+    var array:[NSMutableDictionary] = []
     for i in 1..<keys.count {
       let key = keys[i] as! String
       let locKey = ImageIOLocalizedString(key)
       let obj = properties.objectForKey(key)!
-      let child: NSDictionary
+      let child: NSMutableDictionary
       if let obj = obj as? NSDictionary {
-        child =  ["key": locKey, "value":"", "children": self.parseToTree(obj)]
+        child =  ["key": locKey, "key2": key, "value":"", "children": self.parseToTree(obj)]
       }else{
-        child =  ["key": locKey, "value": normalizeValue(obj)]
+        child =  ["key": locKey, "key2": key, "value": normalizeValue(obj)]
       }
-//      array.addObject(child)
       array.append(child)
     }
     return array
+  }
+  
+  func parseProperties(properties: NSDictionary) -> [NSMutableDictionary] {
+    var dict = parseToTree(properties)
+    let dummyChild: NSMutableDictionary = ["key": "No Entry Found", "key2": "NoEntryFound", "value": ""]
+    if properties[kCGImagePropertyExifDictionary as String] == nil {
+      let key = kCGImagePropertyExifDictionary as String
+      let locKey = ImageIOLocalizedString(key)
+      let newChild:NSMutableDictionary  = ["key": locKey, "key2": key, "value":"", "children": [dummyChild]]
+      dict.append(newChild)
+    }
+    if properties[kCGImagePropertyGPSDictionary as String] == nil {
+      let key = kCGImagePropertyGPSDictionary as String
+      let locKey = ImageIOLocalizedString(key)
+      let newChild:NSMutableDictionary  = ["key": locKey, "key2": key, "value":"", "children": [dummyChild]]
+      dict.append(newChild)
+    }
+    if properties[kCGImagePropertyTIFFDictionary as String] == nil {
+      let key = kCGImagePropertyTIFFDictionary as String
+      let locKey = ImageIOLocalizedString(key)
+      let newChild:NSMutableDictionary  = ["key": locKey, "key2": key, "value":"", "children": [dummyChild]]
+      dict.append(newChild)
+    }
+    return dict
   }
   
   func loadImageProperties(url: NSURL){
@@ -124,15 +168,11 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
         if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary?{
           let width = imageProperties[kCGImagePropertyPixelWidth] as! Int
           let height = imageProperties[kCGImagePropertyPixelHeight] as! Int
-          print("Image width=\(width) height=\(height)")
-          
-          let properties = self.parseToTree(imageProperties)
+          let properties = self.parseProperties(imageProperties)
           dispatch_async(dispatch_get_main_queue(), {
+            self.filePixelLabel.stringValue = "\(width)X\(height)"
             self.properties = properties
             self.outlineView.expandItem(nil, expandChildren: true)
-            //      let exif = imageProperties[kCGImagePropertyExifDictionary as String]
-            //      let gps = imageProperties[kCGImagePropertyGPSDictionary as String]
-            //      let tiff = imageProperties[kCGImagePropertyTIFFDictionary as String]
           })
         }
       }

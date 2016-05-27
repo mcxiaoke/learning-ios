@@ -32,11 +32,11 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
   let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
   
   func loadFileInfo(url:NSURL){
-    self.filePathLabel.stringValue = "Location: \(url.lastPathComponent!)"
+    self.filePathLabel.stringValue = url.lastPathComponent!
     if let attrs = try? NSFileManager.defaultManager().attributesOfItemAtPath(url.path!){
 //      print("attrs = \(attrs)")
-      self.fileSizeLabel.stringValue = "Size: \(attrs[NSFileSize]!)"
-      self.fileTypeLabel.stringValue = "Date: \(attrs[NSFileCreationDate]!)"
+      self.fileSizeLabel.objectValue = attrs[NSFileSize]
+      self.fileTypeLabel.objectValue = attrs[NSFileCreationDate]
     }
   }
   

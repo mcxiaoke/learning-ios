@@ -427,12 +427,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView misplaced="YES" id="n18-kr-nkp">
-                                                            <rect key="frame" x="1" y="1" width="198" height="17"/>
+                                                        <tableCellView id="n18-kr-nkp">
+                                                            <rect key="frame" x="1" y="1" width="198" height="14"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wIa-rJ-r5Y">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="17"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wIa-rJ-r5Y">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="14"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="80" id="8gQ-xO-yHD"/>
                                                                     </constraints>
@@ -471,12 +471,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView misplaced="YES" id="phQ-0V-JRU">
-                                                            <rect key="frame" x="202" y="1" width="248" height="17"/>
+                                                        <tableCellView id="phQ-0V-JRU">
+                                                            <rect key="frame" x="202" y="1" width="248" height="14"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJL-rk-Y58">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="17"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="FJL-rk-Y58">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="14"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="80" id="8fF-L7-L8O"/>
                                                                     </constraints>

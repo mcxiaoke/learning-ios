@@ -9,68 +9,6 @@
 import Cocoa
 
 
-let imageIOBundle = NSBundle(identifier:"com.apple.ImageIO.framework")
-
-class PropertyItem:NSObject {
-  var key:String
-  var value:String
-  let cat:String?
-  let rawKey:String
-  let rawValue:AnyObject
-  let rawCat:String?
-  
-  init(rawKey:String, rawValue:AnyObject, rawCat:String?){
-    self.rawKey = rawKey
-    self.rawValue = rawValue
-    self.rawCat = rawCat
-    self.key = PropertyItem.normalizeKey(rawKey, rawCat: rawCat)
-    self.value = PropertyItem.normalizeValue(rawValue)
-    if let rawCat = rawCat {
-      self.cat = PropertyItem.getImageIOLocalizedString(rawCat)
-    }else{
-      self.cat = nil
-    }
-    super.init()
-  }
-  
-  override var description: String {
-    return "(\(rawKey) = \(rawValue) \(rawCat ?? ""))"
-  }
-  
-  class func normalizeKey(rawKey: String, rawCat:String?) -> String {
-    let key = getImageIOLocalizedString(rawKey)
-    if let prefix = getCategoryPrefix(rawCat) {
-      return "\(prefix) \(key)"
-    }else {
-      return key
-    }
-  }
-  
-  class func normalizeValue(value:AnyObject) -> String {
-    let valueStr:String
-    if let value = value as? NSArray {
-      valueStr = value.componentsJoinedByString(", ")
-    }else {
-      valueStr = "\(value)"
-    }
-    return valueStr
-  }
-  
-  class func getImageIOLocalizedString(key: String) -> String
-  {
-    return imageIOBundle?.localizedStringForKey(key, value: key, table: "CGImageSource") ?? key
-  }
-  
-  class func getCategoryPrefix(category: String?) -> String? {
-    if let category = category {
-      if let prefix = ImageCategoryPrefixKeys[category]{
-        return "\(prefix) "
-      }
-    }
-    return nil
-  }
-}
-
 class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   
   var imageURL:NSURL? {
@@ -87,7 +25,7 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   }
   
   dynamic var image:NSImage?
-  dynamic var properties: [PropertyItem] = []
+  dynamic var properties: [ImagePropertyItem] = []
   
   @IBOutlet weak var filePathLabel: NSTextField!
   @IBOutlet weak var fileSizeLabel: NSTextField!
@@ -105,8 +43,12 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   }
   
   func tableViewSelectionDidChange(notification: NSNotification) {
-    if let object = self.arrayController.selectedObjects.first {
+    if let object = self.arrayController.selectedObjects.first as? ImagePropertyItem{
       let row  = self.tableView.selectedRow
+      let view = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
+      if let textField = view?.subviews[0] as? NSTextField {
+        textField.editable = AllEditablePropertyKeys.contains(object.rawKey)
+      }
       print("outlineViewSelectionDidChange row =\(row) obj=\(object)")
     }
   }
@@ -123,35 +65,11 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   
   func loadImageThumb(url:NSURL){
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-      let image = self.thumbImageFromImage(url)
+      let image = ImageHelper.thumbFromImage(url)
       dispatch_async(dispatch_get_main_queue(), { 
         self.image = image
       })
     }
-  }
-  
-  func thumbImageFromImage(url: NSURL) -> NSImage {
-    let image = NSImage(contentsOfURL: url)!
-    let targetHeight: CGFloat = 160.0
-    let imageSize = image.size
-    let smallerSize = NSSize(width: targetHeight * imageSize.width / imageSize.height, height: targetHeight)
-    return NSImage(size: smallerSize, flipped: false) { (rect) -> Bool in
-      image.drawInRect(rect)
-      return true
-    }
-  }
-  
-  func parseProperties(properties: Dictionary<String,AnyObject>, category:String? = nil) -> [PropertyItem]{
-    var items:[PropertyItem] = []
-    properties.forEach { (key, value) in
-      if let child  = value as? Dictionary<String,AnyObject> {
-        items += parseProperties(child, category: key)
-      }else {
-        let newItem = PropertyItem(rawKey: key, rawValue: value, rawCat: category)
-        items.append(newItem)
-      }
-    }
-    return items
   }
   
   func loadImageProperties(url: NSURL){
@@ -161,7 +79,7 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
           let width = imageProperties[kCGImagePropertyPixelWidth] as! Int
           let height = imageProperties[kCGImagePropertyPixelHeight] as! Int
           if let imageProperties  = imageProperties as? Dictionary<String,AnyObject> {
-            let properties = self.parseProperties(imageProperties).sort { $0.key < $1.key }
+            let properties = ImagePropertyItem.parse(imageProperties).sort { $0.key < $1.key }
               dispatch_async(dispatch_get_main_queue(), {
                 self.filePixelLabel.stringValue = "\(width)X\(height)"
                 self.properties = properties

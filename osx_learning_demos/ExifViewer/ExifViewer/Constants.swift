@@ -5,6 +5,7 @@
 //  Created by mcxiaoke on 16/5/27.
 //  Copyright © 2016年 mcxiaoke. All rights reserved.
 //
+// https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CGImageProperties_Reference/index.html
 
 import Foundation
 
@@ -161,3 +162,5 @@ let TIFFPropertyKeys:[String] = [
   kCGImagePropertyTIFFWhitePoint as String,
   kCGImagePropertyTIFFPrimaryChromaticities as String,
 ]
+
+let AllEditablePropertyKeys =  ExifPropertyKeys + GPSPropertyKeys + TIFFPropertyKeys

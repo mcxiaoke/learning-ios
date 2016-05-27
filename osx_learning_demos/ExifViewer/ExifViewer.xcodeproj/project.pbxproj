@@ -11,6 +11,9 @@
 		AA00DF9B1CF6C213000D242E /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */; };
 		AA00DF9F1CF6D6A6000D242E /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */; };
 		AAD06AFF1CF8387B003DC181 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06AFE1CF8387B003DC181 /* Constants.swift */; };
+		AAD06B011CF83D25003DC181 /* ImagePropertyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06B001CF83D25003DC181 /* ImagePropertyItem.swift */; };
+		AAD06B031CF83DB3003DC181 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06B021CF83DB3003DC181 /* ImageHelper.swift */; };
+		AAD06B051CF83E1F003DC181 /* ImagePropertyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06B041CF83E1F003DC181 /* ImagePropertyContainer.swift */; };
 		AAFDAF921CF5784500EC8923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF911CF5784500EC8923 /* AppDelegate.swift */; };
 		AAFDAF941CF5784500EC8923 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAF931CF5784500EC8923 /* ImageDetailViewController.swift */; };
 		AAFDAF961CF5784500EC8923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAFDAF951CF5784500EC8923 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 		AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
 		AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		AAD06AFE1CF8387B003DC181 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AAD06B001CF83D25003DC181 /* ImagePropertyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePropertyItem.swift; sourceTree = "<group>"; };
+		AAD06B021CF83DB3003DC181 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		AAD06B041CF83E1F003DC181 /* ImagePropertyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePropertyContainer.swift; sourceTree = "<group>"; };
 		AAFDAF8E1CF5784500EC8923 /* ExifViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExifViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFDAF911CF5784500EC8923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAFDAF931CF5784500EC8923 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				AAFDAF951CF5784500EC8923 /* Assets.xcassets */,
 				AAFDAF971CF5784500EC8923 /* Main.storyboard */,
 				AAD06AFE1CF8387B003DC181 /* Constants.swift */,
+				AAD06B001CF83D25003DC181 /* ImagePropertyItem.swift */,
+				AAD06B021CF83DB3003DC181 /* ImageHelper.swift */,
+				AAD06B041CF83E1F003DC181 /* ImagePropertyContainer.swift */,
 			);
 			path = ExifViewer;
 			sourceTree = "<group>";
@@ -210,9 +219,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA00DF9F1CF6D6A6000D242E /* NSURL+Extensions.swift in Sources */,
+				AAD06B011CF83D25003DC181 /* ImagePropertyItem.swift in Sources */,
+				AAD06B031CF83DB3003DC181 /* ImageHelper.swift in Sources */,
 				AA00DF9B1CF6C213000D242E /* ImageListViewController.swift in Sources */,
 				AAFDAF941CF5784500EC8923 /* ImageDetailViewController.swift in Sources */,
 				AAFDAF921CF5784500EC8923 /* AppDelegate.swift in Sources */,
+				AAD06B051CF83E1F003DC181 /* ImagePropertyContainer.swift in Sources */,
 				AAD06AFF1CF8387B003DC181 /* Constants.swift in Sources */,
 				AAFDAFAF1CF588D700EC8923 /* MainWindowController.swift in Sources */,
 				AA00DF991CF6C1E7000D242E /* MainViewController.swift in Sources */,

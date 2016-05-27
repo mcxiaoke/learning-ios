@@ -8,33 +8,16 @@
 
 import Cocoa
 
-let categoriesTable:[String:String] = [
-  kCGImagePropertyExifDictionary as String:"Exif",
-  kCGImagePropertyExifAuxDictionary as String:"Exif Aux",
-  kCGImagePropertyGPSDictionary as String:"GPS",
-  kCGImagePropertyTIFFDictionary as String:"TIFF",
-  kCGImagePropertyIPTCDictionary as String:"IPTC",
-  kCGImagePropertyJFIFDictionary as String:"JFTF",
-  kCGImagePropertyRawDictionary as String:"Raw",
-  kCGImagePropertyDNGDictionary  as String:"DNG",
-  kCGImagePropertyPNGDictionary as String:"PNG",
-  kCGImagePropertyGIFDictionary  as String:"GIF",
-  kCGImagePropertyMakerAppleDictionary  as String:"Apple",
-  kCGImagePropertyMakerNikonDictionary  as String:"Nikon",
-  kCGImagePropertyMakerCanonDictionary  as String:"Canon",
-  kCGImagePropertyMakerFujiDictionary  as String:"Fuji",
-  kCGImagePropertyMakerOlympusDictionary  as String:"Olympus",
-  kCGImagePropertyMakerPentaxDictionary as String: "Pentax"
-]
+
 let imageIOBundle = NSBundle(identifier:"com.apple.ImageIO.framework")
 
 class PropertyItem:NSObject {
-  let key:String
-  let value:String
+  var key:String
+  var value:String
   let cat:String?
   let rawKey:String
   let rawValue:AnyObject
-  var rawCat:String?
+  let rawCat:String?
   
   init(rawKey:String, rawValue:AnyObject, rawCat:String?){
     self.rawKey = rawKey
@@ -48,6 +31,10 @@ class PropertyItem:NSObject {
       self.cat = nil
     }
     super.init()
+  }
+  
+  override var description: String {
+    return "(\(rawKey) = \(rawValue) \(rawCat ?? ""))"
   }
   
   class func normalizeKey(rawKey: String, rawCat:String?) -> String {
@@ -76,7 +63,7 @@ class PropertyItem:NSObject {
   
   class func getCategoryPrefix(category: String?) -> String? {
     if let category = category {
-      if let prefix = categoriesTable[category]{
+      if let prefix = ImageCategoryPrefixKeys[category]{
         return "\(prefix) "
       }
     }
@@ -84,18 +71,7 @@ class PropertyItem:NSObject {
   }
 }
 
-class ImageInfo:NSObject {
-  let fileName:String
-  let width:Int = 0
-  let height:Int = 0
-  var properties:[[String:PropertyItem]] = []
-  
-  init(fileName: String){
-    self.fileName = fileName
-  }
-}
-
-class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
+class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   
   var imageURL:NSURL? {
     didSet {
@@ -120,22 +96,18 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
   @IBOutlet weak var tableView: NSTableView!
   @IBOutlet weak var arrayController: NSArrayController!
   
-  let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-  
-  @IBAction func textValueChanged(sender: NSTextField) {
-    print("textValueChanged: \(sender.stringValue)")
+  @IBAction func textValueDidChange(sender: NSTextField) {
     if let object = self.arrayController.selectedObjects.first {
       let row  = self.tableView.selectedRow
-      print("outlineViewSelectionDidChange selectedRow = \(row)")
-      print("outlineViewSelectionDidChange selectedObject = \(object)")
+      print("textValueDidChange row=\(row) obj=\(object)")
     }
+    print("textValueDidChange text = \(sender.objectValue)")
   }
   
-  func outlineViewSelectionDidChange(notification: NSNotification) {
+  func tableViewSelectionDidChange(notification: NSNotification) {
     if let object = self.arrayController.selectedObjects.first {
       let row  = self.tableView.selectedRow
-      print("outlineViewSelectionDidChange selectedRow = \(row)")
-      print("outlineViewSelectionDidChange selectedObject = \(object)")
+      print("outlineViewSelectionDidChange row =\(row) obj=\(object)")
     }
   }
   
@@ -150,7 +122,7 @@ class ImageDetailViewController: NSViewController, NSOutlineViewDelegate {
   }
   
   func loadImageThumb(url:NSURL){
-    dispatch_async(queue) { 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
       let image = self.thumbImageFromImage(url)
       dispatch_async(dispatch_get_main_queue(), { 
         self.image = image

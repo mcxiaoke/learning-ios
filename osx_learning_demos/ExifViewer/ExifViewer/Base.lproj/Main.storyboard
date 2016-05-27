@@ -500,9 +500,9 @@
                                                             <rect key="frame" x="1" y="1" width="242" height="14"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-Ww-CRd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="14"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Key Cell" id="1Cp-Av-PVf">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-Ww-CRd">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="242" height="14"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Key Cell" id="1Cp-Av-PVf">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -543,12 +543,13 @@
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9xe-u2-t1X">
                                                                     <rect key="frame" x="0.0" y="0.0" width="266" height="14"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Value Cell" id="FPj-ij-rfO">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" title="Value Cell" id="FPj-ij-rfO">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
+                                                                        <action selector="textValueDidChange:" target="XfG-lQ-9wD" id="EFv-nV-biG"/>
                                                                         <binding destination="4by-CU-QU3" name="value" keyPath="objectValue.value" id="7aK-w2-9x9"/>
                                                                     </connections>
                                                                 </textField>
@@ -569,6 +570,7 @@
                                             <connections>
                                                 <binding destination="Uq2-H3-ecj" name="content" keyPath="arrangedObjects" id="n03-mG-jpW"/>
                                                 <binding destination="Uq2-H3-ecj" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="n03-mG-jpW" id="j0z-Cn-FC8"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="gac-zY-1Jp"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -615,10 +617,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrayController" destination="Uq2-H3-ecj" id="WGh-Ik-LrU"/>
                         <outlet property="filePathLabel" destination="upJ-H0-Ehf" id="4RU-2X-b4z"/>
                         <outlet property="filePixelLabel" destination="ksI-pZ-jux" id="pyu-4Q-YJY"/>
                         <outlet property="fileSizeLabel" destination="rQZ-PM-4D4" id="zRV-Yj-NbX"/>
                         <outlet property="fileTypeLabel" destination="VYQ-cn-Gbk" id="8kV-bc-Wli"/>
+                        <outlet property="tableView" destination="fnB-d4-uWM" id="boC-ew-gQ9"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

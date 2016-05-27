@@ -74,19 +74,16 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   
   func loadImageProperties(url: NSURL){
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-      if let imageSource = CGImageSourceCreateWithURL(url, nil) {
-        if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary?{
-          let width = imageProperties[kCGImagePropertyPixelWidth] as! Int
-          let height = imageProperties[kCGImagePropertyPixelHeight] as! Int
-          if let imageProperties  = imageProperties as? Dictionary<String,AnyObject> {
-            let properties = ImagePropertyItem.parse(imageProperties).sort { $0.key < $1.key }
-              dispatch_async(dispatch_get_main_queue(), {
-                self.filePixelLabel.stringValue = "\(width)X\(height)"
-                self.properties = properties
-              })
-          }
-        }
-      }
+      guard let imageSource = CGImageSourceCreateWithURL(url, nil) else { return }
+      guard let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? else { return }
+      guard let props  = imageProperties as? Dictionary<String,AnyObject> else { return }
+      let width = props[kCGImagePropertyPixelWidth as String] as! Int
+      let height = props[kCGImagePropertyPixelHeight as String] as! Int
+      let properties = ImagePropertyItem.parse(props).sort { $0.key < $1.key }
+      dispatch_async(dispatch_get_main_queue(), {
+        self.filePixelLabel.stringValue = "\(width)X\(height)"
+        self.properties = properties
+      })
     }
   }
   
@@ -97,12 +94,7 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
     }
     let uti = CGImageSourceGetType(imageSource!)!
     let data = NSMutableData()
-    let imageDestination = CGImageDestinationCreateWithData(data, uti, 1, nil)
-    
-    if imageDestination == nil {
-      return
-    }
-    
+    guard let imageDestination = CGImageDestinationCreateWithData(data, uti, 1, nil) else { return }
     let gpsDict = [
       kCGImagePropertyGPSDateStamp as String : "2016:05:08",
       kCGImagePropertyGPSTimeStamp as String : "05:44:00",
@@ -113,8 +105,8 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
     ]
     let metaDict = [kCGImagePropertyGPSDictionary as String : gpsDict]
     
-    CGImageDestinationAddImageFromSource(imageDestination!, imageSource!, 0, metaDict)
-    CGImageDestinationFinalize(imageDestination!)
+    CGImageDestinationAddImageFromSource(imageDestination, imageSource!, 0, metaDict)
+    CGImageDestinationFinalize(imageDestination)
       
 //      let directory = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true).first!
 //      let dateFormatter = NSDateFormatter()

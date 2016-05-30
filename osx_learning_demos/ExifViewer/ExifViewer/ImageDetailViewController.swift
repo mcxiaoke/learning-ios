@@ -11,6 +11,8 @@ import Cocoa
 
 class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   
+  let saveProperties = NSMutableDictionary()
+  
   var imageURL:NSURL? {
     didSet {
       if let url = imageURL {
@@ -34,22 +36,40 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   @IBOutlet weak var tableView: NSTableView!
   @IBOutlet weak var arrayController: NSArrayController!
   
-  @IBAction func textValueDidChange(sender: NSTextField) {
-    if let object = self.arrayController.selectedObjects.first {
-      let row  = self.tableView.selectedRow
-      print("textValueDidChange row=\(row) obj=\(object)")
+  func addChangedProperty(item: ImagePropertyItem, value:AnyObject?){
+    let key = item.rawKey
+    print("addChangedProperty: \(key)=\(value) Type:\(value.dynamicType)")
+    if ExifPropertyKeys.contains(key){
+      let exifDict = saveProperties[kCGImagePropertyExifDictionary as String] as? NSMutableDictionary ?? NSMutableDictionary()
+      exifDict[key] = value
+      saveProperties[kCGImagePropertyExifDictionary as String] = exifDict
+    }else if GPSPropertyKeys.contains(key){
+      let gpsDict = saveProperties[kCGImagePropertyGPSDictionary as String] as? NSMutableDictionary ?? NSMutableDictionary()
+      gpsDict[key] = value
+      saveProperties[kCGImagePropertyGPSDictionary as String] = gpsDict
+    }else if ImagePropertyKeys.contains(key) {
+      saveProperties[key] = value
     }
-    print("textValueDidChange text = \(sender.objectValue)")
+  }
+  
+  @IBAction func textValueDidChange(sender: NSTextField) {
+    if let object = self.arrayController.selectedObjects.first as? ImagePropertyItem{
+      let row  = self.tableView.selectedRow
+      let objValue = ImagePropertyItem.getObjectValue(object, value: sender.stringValue)
+      print("textValueDidChange row=\(row) obj=\(objValue) type=\(objValue.dynamicType)")
+      addChangedProperty(object, value: objValue)
+    }
+//    print("textValueDidChange text = \(stringValue)")
   }
   
   func tableViewSelectionDidChange(notification: NSNotification) {
     if let object = self.arrayController.selectedObjects.first as? ImagePropertyItem{
       let row  = self.tableView.selectedRow
-      let view = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
-      if let textField = view?.subviews[0] as? NSTextField {
-        textField.editable = AllEditablePropertyKeys.contains(object.rawKey)
-      }
-      print("outlineViewSelectionDidChange row =\(row) obj=\(object)")
+      //let view = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
+      //if let textField = view?.subviews[0] as? NSTextField {
+        //textField.editable = object.editable
+      //}
+      print("tableViewSelectionDidChange row =\(row) obj=\(object)")
     }
   }
   
@@ -87,7 +107,22 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
     }
   }
   
+  func saveDocument(sender:AnyObject){
+    saveDocumentAs(sender)
+  }
+  
+  func saveDocumentAs(sender:AnyObject){
+    print("saveDocumentAs")
+    if let url = imageURL {
+      writeProperties(url)
+      saveProperties.removeAllObjects()
+    }
+  }
+  
   func writeProperties(url:NSURL){
+    if saveProperties.count == 0{
+      return
+    }
     let imageSource = CGImageSourceCreateWithURL(url, nil)
     if imageSource == nil {
       return
@@ -95,26 +130,23 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
     let uti = CGImageSourceGetType(imageSource!)!
     let data = NSMutableData()
     guard let imageDestination = CGImageDestinationCreateWithData(data, uti, 1, nil) else { return }
-    let gpsDict = [
-      kCGImagePropertyGPSDateStamp as String : "2016:05:08",
-      kCGImagePropertyGPSTimeStamp as String : "05:44:00",
-      kCGImagePropertyGPSLongitudeRef as String : "E",
-      kCGImagePropertyGPSLongitude as String : 108.389555,
-      kCGImagePropertyGPSLatitudeRef as String : "N",
-      kCGImagePropertyGPSLatitude as String : 22.785911666
-    ]
-    let metaDict = [kCGImagePropertyGPSDictionary as String : gpsDict]
-    
-    CGImageDestinationAddImageFromSource(imageDestination, imageSource!, 0, metaDict)
+//    let gpsDict = [
+//      kCGImagePropertyGPSDateStamp as String : "2016:05:08",
+//      kCGImagePropertyGPSTimeStamp as String : "05:44:00",
+//      kCGImagePropertyGPSLongitudeRef as String : "E",
+//      kCGImagePropertyGPSLongitude as String : 108.389555,
+//      kCGImagePropertyGPSLatitudeRef as String : "N",
+//      kCGImagePropertyGPSLatitude as String : 22.785911666
+//    ]
+//    let metaDict = [kCGImagePropertyGPSDictionary as String : gpsDict]
+    CGImageDestinationAddImageFromSource(imageDestination, imageSource!, 0, saveProperties)
     CGImageDestinationFinalize(imageDestination)
       
-//      let directory = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true).first!
-//      let dateFormatter = NSDateFormatter()
-//      dateFormatter.dateFormat="yyyyMMdd_HHmmss"
-//      let newFileName = "\(dateFormatter.stringFromDate(NSDate())).jpg"
-//      let writePath = NSURL(fileURLWithPath:directory).URLByAppendingPathComponent(newFileName)
-      //        print("Image \(url) saved to \(writePath)")
-      //        _ = try? data.writeToURL(writePath, options: NSDataWritingOptions.AtomicWrite)
+      let directory = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true).first!
+      let newFileName = url.lastPathComponent!
+      let writePath = NSURL(fileURLWithPath:directory).URLByAppendingPathComponent(newFileName)
+              print("Image saved to \(writePath)")
+              _ = try? data.writeToURL(writePath, options: NSDataWritingOptions.AtomicWrite)
   }
   
   // https://github.com/oopww1992/WWimageExif

@@ -11,30 +11,70 @@ import Foundation
 
 let imageIOBundle = NSBundle(identifier:"com.apple.ImageIO.framework")
 
+enum PropertyValueType:Int{
+  case Number
+  case String
+  case Array
+}
+
 class ImagePropertyItem : NSObject {
   var key:String
-  var value:String
+  var textValue:String
   let cat:String?
   let rawKey:String
   let rawValue:AnyObject
   let rawCat:String?
+  let type:PropertyValueType
+  
+  var editable:Bool {
+    return AllEditablePropertyKeys.contains(self.rawKey)
+      && [.Number, .String].contains(self.type)
+  }
+  
+  var objectValue:AnyObject? {
+    switch self.type {
+    case .Number:
+      return Float(self.textValue)
+    default:
+      return self.textValue
+    }
+  }
+  
+  override var description: String {
+    return "(\(rawKey) = \(rawValue) \(rawCat ?? "")) [\(type)]"
+  }
   
   init(rawKey:String, rawValue:AnyObject, rawCat:String?){
     self.rawKey = rawKey
     self.rawValue = rawValue
     self.rawCat = rawCat
     self.key = ImagePropertyItem.normalizeKey(rawKey, rawCat: rawCat)
-    self.value = ImagePropertyItem.normalizeValue(rawValue)
+    self.textValue = ImagePropertyItem.normalizeValue(rawValue)
     if let rawCat = rawCat {
       self.cat = ImagePropertyItem.getImageIOLocalizedString(rawCat)
     }else{
       self.cat = nil
     }
+    if rawValue is NSNumber {
+      self.type = .Number
+    }else if rawValue is NSString {
+      self.type = .String
+    }else if rawValue is NSArray {
+      self.type = .Array
+    }else {
+      self.type = .String
+    }
     super.init()
   }
   
-  override var description: String {
-    return "(\(rawKey) = \(rawValue) \(rawCat ?? ""))"
+  func validateTextValue(textValuePointer: AutoreleasingUnsafeMutablePointer<String?>,
+                     error outError: NSErrorPointer) -> Bool {
+    print("validateTextValue \(textValuePointer.memory)")
+    if self.type == .String {
+      return true
+    }
+    guard let newValue = textValuePointer.memory else { return true }
+    return self.type == .Number && Float(newValue) != nil
   }
   
   class func normalizeKey(rawKey: String, rawCat:String?) -> String {
@@ -49,7 +89,7 @@ class ImagePropertyItem : NSObject {
   class func normalizeValue(value:AnyObject) -> String {
     let valueStr:String
     if let value = value as? NSArray {
-      valueStr = value.componentsJoinedByString(", ")
+      valueStr = value.componentsJoinedByString(", ") + " \(value.dynamicType)"
     }else {
       valueStr = "\(value)"
     }
@@ -81,5 +121,14 @@ class ImagePropertyItem : NSObject {
       }
     }
     return items
+  }
+  
+  class func getObjectValue(item:ImagePropertyItem, value:String) -> AnyObject {
+    switch item.type {
+    case .Number:
+      return Float(value) ?? 0
+    default:
+      return value
+    }
   }
 }

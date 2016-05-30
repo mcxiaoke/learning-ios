@@ -28,6 +28,42 @@ let ImageCategoryPrefixKeys:[String:String] = [
   kCGImagePropertyMakerPentaxDictionary as String: "Pentax"
 ]
 
+let ArrayTypePropertyKeys:[String] = [
+  kCGImagePropertyExifVersion as String,
+  kCGImagePropertyExifISOSpeedRatings as String,
+  kCGImagePropertyExifLensSpecification as String,
+  kCGImagePropertyExifAuxLensInfo as String,
+  kCGImagePropertyExifComponentsConfiguration as String,
+  kCGImagePropertyExifFlashPixVersion as String,
+  kCGImagePropertyExifSubjectArea as String,
+]
+
+let DateTypePropertyKeys:[String] = [
+  kCGImagePropertyExifDateTimeOriginal as String,
+  kCGImagePropertyExifDateTimeDigitized as String,
+  kCGImagePropertyTIFFDateTime as String,
+]
+
+let StringTypePropertyKeys:[String] = [
+  kCGImagePropertyColorModel as String,
+  kCGImagePropertyExifLensModel as String,
+  kCGImagePropertyExifLensMake as String,
+  kCGImagePropertyExifBodySerialNumber as String,
+  kCGImagePropertyExifSubsecTimeOrginal as String,
+  kCGImagePropertyExifSubsecTimeDigitized as String,
+  kCGImagePropertyExifUserComment as String,
+  kCGImagePropertyGPSDestBearingRef as String,
+  kCGImagePropertyGPSImgDirectionRef as String,
+  kCGImagePropertyGPSLatitudeRef as String,
+  kCGImagePropertyGPSLongitudeRef as String,
+  kCGImagePropertyGPSSpeedRef as String,
+  kCGImagePropertyProfileName as String,
+  kCGImagePropertyTIFFMake as String,
+  kCGImagePropertyTIFFModel as String,
+  kCGImagePropertyTIFFSoftware as String,
+  
+]
+
 let ImagePropertyKeys:[String] = [
   kCGImagePropertyDPIHeight as String,
   kCGImagePropertyDPIWidth as String,
@@ -163,4 +199,4 @@ let TIFFPropertyKeys:[String] = [
   kCGImagePropertyTIFFPrimaryChromaticities as String,
 ]
 
-let AllEditablePropertyKeys =  ExifPropertyKeys + GPSPropertyKeys + TIFFPropertyKeys
+let AllEditablePropertyKeys =  ExifPropertyKeys + GPSPropertyKeys

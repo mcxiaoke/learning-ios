@@ -36,8 +36,9 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   @IBOutlet weak var tableView: NSTableView!
   @IBOutlet weak var arrayController: NSArrayController!
   
-  func addChangedProperty(item: ImagePropertyItem, value:AnyObject?){
+  func addChangedProperty(item: ImagePropertyItem){
     let key = item.rawKey
+    let value = item.objectValue
     print("addChangedProperty: \(key)=\(value) Type:\(value.dynamicType)")
     if ExifPropertyKeys.contains(key){
       let exifDict = saveProperties[kCGImagePropertyExifDictionary as String] as? NSMutableDictionary ?? NSMutableDictionary()
@@ -55,9 +56,18 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   @IBAction func textValueDidChange(sender: NSTextField) {
     if let object = self.arrayController.selectedObjects.first as? ImagePropertyItem{
       let row  = self.tableView.selectedRow
-      let objValue = ImagePropertyItem.getObjectValue(object, value: sender.stringValue)
-      print("textValueDidChange row=\(row) obj=\(objValue) type=\(objValue.dynamicType)")
-      addChangedProperty(object, value: objValue)
+      let objValue = object.objectValue
+      print("textValueDidChange row=\(row) obj=\(object) objValue=\(objValue)")
+      addChangedProperty(object)
+      
+      let keyView = self.tableView.viewAtColumn(0, row: row, makeIfNecessary: false)
+      if let keyTextField = keyView?.subviews[0] as? NSTextField {
+        keyTextField.textColor = NSColor.redColor()
+      }
+      let valueView = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
+      if let valueTextField = valueView?.subviews[0] as? NSTextField {
+        valueTextField.textColor = NSColor.redColor()
+      }
     }
 //    print("textValueDidChange text = \(stringValue)")
   }

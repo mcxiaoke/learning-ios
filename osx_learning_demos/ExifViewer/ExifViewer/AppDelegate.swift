@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     print("applicationDidFinishLaunching")
+    NSValueTransformer.setValueTransformer(ValueTextColorTransformer(), forName: "ValueTextColorTransformer")
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {

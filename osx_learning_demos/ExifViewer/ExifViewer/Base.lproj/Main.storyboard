@@ -507,7 +507,7 @@
                                                                     <connections>
                                                                         <action selector="textValueDidChange:" target="XfG-lQ-9wD" id="EFv-nV-biG"/>
                                                                         <binding destination="4by-CU-QU3" name="editable" keyPath="objectValue.editable" id="ulH-lD-qcd"/>
-                                                                        <binding destination="4by-CU-QU3" name="value" keyPath="objectValue.textValue" id="E90-nO-tRj">
+                                                                        <binding destination="4by-CU-QU3" name="value" keyPath="objectValue.textValue" id="sGV-QU-8oH">
                                                                             <dictionary key="options">
                                                                                 <bool key="NSValidatesImmediately" value="YES"/>
                                                                             </dictionary>

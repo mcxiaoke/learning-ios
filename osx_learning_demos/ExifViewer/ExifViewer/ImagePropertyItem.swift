@@ -31,17 +31,17 @@ class ImagePropertyItem : NSObject {
       && [.Number, .String].contains(self.type)
   }
   
-  var objectValue:AnyObject? {
+  var objectValue:AnyObject {
     switch self.type {
     case .Number:
-      return Float(self.textValue)
+      return Float(self.textValue) ?? 0
     default:
       return self.textValue
     }
   }
   
   override var description: String {
-    return "(\(rawKey) = \(rawValue) \(rawCat ?? "")) [\(type)]"
+    return "(\(rawKey) = \(rawValue) - (\(textValue))  \(rawCat ?? "")) [\(type)]"
   }
   
   init(rawKey:String, rawValue:AnyObject, rawCat:String?){
@@ -89,7 +89,8 @@ class ImagePropertyItem : NSObject {
   class func normalizeValue(value:AnyObject) -> String {
     let valueStr:String
     if let value = value as? NSArray {
-      valueStr = value.componentsJoinedByString(", ") + " \(value.dynamicType)"
+      //  + " \(value.dynamicType)"
+      valueStr = value.componentsJoinedByString(", ")
     }else {
       valueStr = "\(value)"
     }

@@ -36,6 +36,12 @@ class ViewController: NSViewController {
   var sortOrder = Directory.FileOrder.Name
   var sortAscending = true
   
+  var dateFormatter:NSDateFormatter {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    return formatter
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.setDelegate(self)
@@ -49,9 +55,9 @@ class ViewController: NSViewController {
     let descriptorSize = NSSortDescriptor(key: Directory.FileOrder.Size.rawValue, ascending: true)
     
     // 2
-    tableView.tableColumns[0].sortDescriptorPrototype = descriptorName;
-    tableView.tableColumns[1].sortDescriptorPrototype = descriptorDate;
-    tableView.tableColumns[2].sortDescriptorPrototype = descriptorSize;
+    tableView.tableColumns[1].sortDescriptorPrototype = descriptorName;
+    tableView.tableColumns[2].sortDescriptorPrototype = descriptorDate;
+    tableView.tableColumns[3].sortDescriptorPrototype = descriptorSize;
     
     statusLabel.stringValue = ""
   }
@@ -160,17 +166,17 @@ extension ViewController: NSTableViewDelegate {
     guard let item = directoryItems?[row] else { return nil }
     
     if tableColumn == tableView.tableColumns[0] {
+      cellIdentifier = "ActionCell"
+    }else if tableColumn == tableView.tableColumns[1] {
       image = item.icon
       text = item.name
       cellIdentifier = "NameCell"
-    }else if tableColumn == tableView.tableColumns[1] {
-      text = item.date.description
-      cellIdentifier = "DateCell"
     }else if tableColumn == tableView.tableColumns[2] {
+      text = self.dateFormatter.stringFromDate(item.date)
+      cellIdentifier = "DateCell"
+    }else if tableColumn == tableView.tableColumns[3] {
       text = item.isFolder ? "--" : sizeFormatter.stringFromByteCount(item.size)
       cellIdentifier = "SizeCell"
-    }else if tableColumn == tableView.tableColumns[3] {
-      cellIdentifier = "ActionCell"
     }
     
     if let cell = tableView.makeViewWithIdentifier(cellIdentifier, owner: nil) as? NSTableCellView {

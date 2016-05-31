@@ -694,6 +694,41 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
+                                                <tableColumn identifier="ActionCell" width="60" minWidth="10" maxWidth="3.4028234663852886e+38" id="ncZ-pI-MvG">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Action">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="VSd-rN-NKO">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="ActionCell" id="MdU-kX-ruS">
+                                                            <rect key="frame" x="1" y="1" width="60" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-nb-mNY">
+                                                                    <rect key="frame" x="18" y="-2" width="24" height="20"/>
+                                                                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SYL-f6-62l">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="cellTitle"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="revealSelectedButtonClick:" target="XfG-lQ-9wD" id="uNb-Sr-mGh"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="E4I-nb-mNY" firstAttribute="centerY" secondItem="MdU-kX-ruS" secondAttribute="centerY" id="knb-ww-XEf"/>
+                                                                <constraint firstItem="E4I-nb-mNY" firstAttribute="centerX" secondItem="MdU-kX-ruS" secondAttribute="centerX" id="wBO-0k-AOZ"/>
+                                                            </constraints>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
                                                 <tableColumn width="100" minWidth="40" maxWidth="1000" id="PPB-wL-7d6">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -708,7 +743,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="NameCell" id="bam-kD-nFO">
-                                                            <rect key="frame" x="1" y="1" width="100" height="17"/>
+                                                            <rect key="frame" x="64" y="1" width="100" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skD-hc-6Xu">
@@ -756,7 +791,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="DateCell" id="bCh-PB-kqw">
-                                                            <rect key="frame" x="104" y="1" width="160" height="17"/>
+                                                            <rect key="frame" x="167" y="1" width="160" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YWb-e2-Quq">
@@ -793,7 +828,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="SizeCell" id="veq-SI-MJW">
-                                                            <rect key="frame" x="267" y="1" width="174" height="17"/>
+                                                            <rect key="frame" x="330" y="1" width="174" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="81V-Lk-Klf">
@@ -813,41 +848,6 @@
                                                             <connections>
                                                                 <outlet property="textField" destination="81V-Lk-Klf" id="kLE-hy-Aex"/>
                                                             </connections>
-                                                        </tableCellView>
-                                                    </prototypeCellViews>
-                                                </tableColumn>
-                                                <tableColumn identifier="ActionCell" width="144" minWidth="10" maxWidth="3.4028234663852886e+38" id="ncZ-pI-MvG">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Action">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="VSd-rN-NKO">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                    <prototypeCellViews>
-                                                        <tableCellView identifier="ActionCell" id="MdU-kX-ruS">
-                                                            <rect key="frame" x="444" y="1" width="46" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <subviews>
-                                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-nb-mNY">
-                                                                    <rect key="frame" x="11" y="-2" width="24" height="20"/>
-                                                                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SYL-f6-62l">
-                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="cellTitle"/>
-                                                                    </buttonCell>
-                                                                    <connections>
-                                                                        <action selector="revealSelectedButtonClick:" target="XfG-lQ-9wD" id="uNb-Sr-mGh"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="E4I-nb-mNY" firstAttribute="centerY" secondItem="MdU-kX-ruS" secondAttribute="centerY" id="knb-ww-XEf"/>
-                                                                <constraint firstItem="E4I-nb-mNY" firstAttribute="centerX" secondItem="MdU-kX-ruS" secondAttribute="centerX" id="wBO-0k-AOZ"/>
-                                                            </constraints>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>

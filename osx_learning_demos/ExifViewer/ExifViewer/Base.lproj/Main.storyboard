@@ -179,7 +179,22 @@
                 </splitViewController>
                 <customObject id="gOI-J4-Uwn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="628"/>
+            <point key="canvasLocation" x="74" y="721"/>
+        </scene>
+        <!--Image Detail Tab View Controller-->
+        <scene sceneID="G6H-Hw-XR9">
+            <objects>
+                <tabViewController storyboardIdentifier="ImageDetailTabViewController" id="4SL-pi-Qyr" customClass="ImageDetailTabViewController" customModule="ExifViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabView key="tabView" type="noTabsNoBorder" id="D75-a1-bgA">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                    </tabView>
+                </tabViewController>
+                <customObject id="6PC-Nr-wHQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="1277"/>
         </scene>
         <!--Image List View Controller-->
         <scene sceneID="rdH-m8-hqQ">
@@ -384,6 +399,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageFrameStyle="grayBezel" id="I2R-0G-TSe"/>
                                 <connections>
                                     <binding destination="XfG-lQ-9wD" name="value" keyPath="image" id="rQi-B1-QX6"/>
+                                    <segue destination="4SL-pi-Qyr" kind="show" identifier="showDetail" id="wfZ-hS-ojm"/>
                                 </connections>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XvO-4V-chk">

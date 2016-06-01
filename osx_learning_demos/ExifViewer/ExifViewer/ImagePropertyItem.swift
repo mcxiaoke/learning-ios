@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 let imageIOBundle = NSBundle(identifier:"com.apple.ImageIO.framework")
 
 enum PropertyValueType:Int{
@@ -19,6 +18,7 @@ enum PropertyValueType:Int{
 
 class ImagePropertyItem : NSObject {
   var key:String
+  var key2:String
   var textValue:String
   let cat:String?
   let rawKey:String
@@ -49,6 +49,7 @@ class ImagePropertyItem : NSObject {
     self.rawValue = rawValue
     self.rawCat = rawCat
     self.key = ImagePropertyItem.normalizeKey(rawKey, rawCat: rawCat)
+    self.key2 = ImagePropertyItem.getImageIOLocalizedString(rawKey)
     self.textValue = ImagePropertyItem.normalizeValue(rawValue)
     if let rawCat = rawCat {
       self.cat = ImagePropertyItem.getImageIOLocalizedString(rawCat)

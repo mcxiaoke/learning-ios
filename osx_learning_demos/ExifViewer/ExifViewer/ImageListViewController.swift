@@ -51,50 +51,15 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
   }
   
   @IBAction func addImages(sender: AnyObject){
-    self.showOpenPanel()
+    if let mvc = self.parentViewController as? MainViewController {
+      mvc.showOpenPanel()
+    }
   }
   
   @IBAction func removeImages(sender: AnyObject){
     if let selectedImages = self.arrayController.selectedObjects as? [NSURL] {
       self.arrayController.removeObjects(selectedImages)
       self.delegate?.imageListViewController(self, removedURLs: selectedImages)
-    }
-  }
-  
-  @IBAction func openDocument(sender:AnyObject) {
-    self.showOpenPanel()
-  }
-  
-  func showOpenPanel(){
-    let panel = NSOpenPanel()
-    panel.allowsMultipleSelection = true
-    panel.canChooseDirectories = true
-    panel.canCreateDirectories = false
-    panel.canChooseFiles = true
-    panel.beginWithCompletionHandler { (result) in
-      if result != NSFileHandlingPanelOKButton {
-        return
-      }
-      let fm = NSFileManager.defaultManager()
-      let urls = panel.URLs
-      let url = urls.first!
-      var fileRoot: NSURL = url.URLByDeletingLastPathComponent!
-      var fileUrls: [NSURL] = urls.filter {$0.isTypeRegularFile() }
-      if urls.count == 1 {
-        if url.isTypeDirectory() {
-          do {
-            let directoryContents = try fm.contentsOfDirectoryAtURL(url,
-              includingPropertiesForKeys: nil, options: [.SkipsHiddenFiles, .SkipsSubdirectoryDescendants])
-            fileUrls = directoryContents.filter {$0.isTypeRegularFile() }
-            fileRoot = url
-          } catch let error as NSError {
-            print(error.localizedDescription)
-          }
-        }
-      }
-//      print("showOpenPanel: \(fileUrls)")
-      self.urls += fileUrls
-      self.directory = fileRoot
     }
   }
   

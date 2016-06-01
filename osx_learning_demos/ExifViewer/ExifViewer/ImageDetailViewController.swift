@@ -54,33 +54,40 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   }
   
   @IBAction func textValueDidChange(sender: NSTextField) {
-    if let object = self.arrayController.selectedObjects.first as? ImagePropertyItem{
-      let row  = self.tableView.selectedRow
-      let objValue = object.objectValue
-      print("textValueDidChange row=\(row) obj=\(object) objValue=\(objValue)")
-      addChangedProperty(object)
-      
-      let keyView = self.tableView.viewAtColumn(0, row: row, makeIfNecessary: false)
-      if let keyTextField = keyView?.subviews[0] as? NSTextField {
-        keyTextField.textColor = NSColor.redColor()
-      }
-      let valueView = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
-      if let valueTextField = valueView?.subviews[0] as? NSTextField {
-        valueTextField.textColor = NSColor.redColor()
-      }
+    let row  = self.tableView.selectedRow
+    guard let object = self.arrayController.selectedObjects.first as? ImagePropertyItem else { return }
+    guard ImagePropertyItem.normalizeValue(object.rawValue) != sender.stringValue else {
+      saveProperties.removeObjectForKey(object.rawKey)
+      updateModifiedRowColor(row, modified: false)
+      return
     }
-//    print("textValueDidChange text = \(stringValue)")
+    
+    let objValue = object.objectValue
+    print("textValueDidChange row=\(row) obj=\(object) objValue=\(objValue)")
+    addChangedProperty(object)
+    updateModifiedRowColor(row, modified: true)
+  }
+  
+  func updateModifiedRowColor(row:Int, modified:Bool){
+    let newColor = modified ? NSColor.redColor() : NSColor.blackColor()
+    let keyView = self.tableView.viewAtColumn(0, row: row, makeIfNecessary: false)
+    if let keyTextField = keyView?.subviews[0] as? NSTextField {
+      keyTextField.textColor = newColor
+    }
+    let valueView = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
+    if let valueTextField = valueView?.subviews[0] as? NSTextField {
+      valueTextField.textColor = newColor
+    }
   }
   
   func tableViewSelectionDidChange(notification: NSNotification) {
-    if let object = self.arrayController.selectedObjects.first as? ImagePropertyItem{
-      let row  = self.tableView.selectedRow
+//    guard let object = self.arrayController.selectedObjects.first as? ImagePropertyItem else { return }
+//    let row  = self.tableView.selectedRow
       //let view = self.tableView.viewAtColumn(1, row: row, makeIfNecessary: false)
       //if let textField = view?.subviews[0] as? NSTextField {
         //textField.editable = object.editable
       //}
-      print("tableViewSelectionDidChange row =\(row) obj=\(object)")
-    }
+//      print("tableViewSelectionDidChange row =\(row) obj=\(object)")
   }
   
   
@@ -123,40 +130,55 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   
   func saveDocumentAs(sender:AnyObject){
     print("saveDocumentAs")
-    if let url = imageURL {
-      writeProperties(url)
-      saveProperties.removeAllObjects()
-    }
+    guard let url = imageURL else { return }
+    guard saveProperties.count > 0 else { return }
+    let alert = NSAlert()
+    alert.messageText = "Image Properties"
+    var infoText = "Save these chagned properties?\n"
+    saveProperties.forEach({ (key, value) in
+      infoText += "\(key)=\(value)\n"
+    })
+    alert.informativeText = infoText
+    alert.addButtonWithTitle("Save")
+    alert.addButtonWithTitle("Override")
+    alert.addButtonWithTitle("Cancel")
+    alert.beginSheetModalForWindow(self.view.window!, completionHandler: { (response) in
+      switch response {
+      case NSAlertFirstButtonReturn:
+        self.writeProperties(url, override: false)
+        self.saveProperties.removeAllObjects()
+      case NSAlertSecondButtonReturn:
+        self.writeProperties(url, override: true)
+        self.saveProperties.removeAllObjects()
+        self.imageURL = url
+      case NSAlertThirdButtonReturn: break
+      default: break
+      }
+    })
+    
   }
   
-  func writeProperties(url:NSURL){
-    if saveProperties.count == 0{
-      return
-    }
-    let imageSource = CGImageSourceCreateWithURL(url, nil)
-    if imageSource == nil {
-      return
-    }
-    let uti = CGImageSourceGetType(imageSource!)!
+  func writeProperties(url:NSURL, override: Bool) -> NSURL?{
+    guard let directory = url.URLByDeletingLastPathComponent else { return nil }
+    guard let base = url.URLByDeletingPathExtension?.lastPathComponent else { return nil }
+    guard let ext = url.pathExtension else { return nil }
+    let newName = override ? url.lastPathComponent! : "\(base)_modified.\(ext)"
+    let newPath = directory.URLByAppendingPathComponent(newName, isDirectory: false)
+    print("writeProperties to \(newPath)")
+    guard let imageSource = CGImageSourceCreateWithURL(url, nil) else { return nil }
+    let imageType = CGImageSourceGetType(imageSource)!
     let data = NSMutableData()
-    guard let imageDestination = CGImageDestinationCreateWithData(data, uti, 1, nil) else { return }
-//    let gpsDict = [
-//      kCGImagePropertyGPSDateStamp as String : "2016:05:08",
-//      kCGImagePropertyGPSTimeStamp as String : "05:44:00",
-//      kCGImagePropertyGPSLongitudeRef as String : "E",
-//      kCGImagePropertyGPSLongitude as String : 108.389555,
-//      kCGImagePropertyGPSLatitudeRef as String : "N",
-//      kCGImagePropertyGPSLatitude as String : 22.785911666
-//    ]
-//    let metaDict = [kCGImagePropertyGPSDictionary as String : gpsDict]
-    CGImageDestinationAddImageFromSource(imageDestination, imageSource!, 0, saveProperties)
+    guard let imageDestination = CGImageDestinationCreateWithData(data, imageType, 1, nil) else { return nil }
+    CGImageDestinationAddImageFromSource(imageDestination, imageSource, 0, saveProperties)
     CGImageDestinationFinalize(imageDestination)
-      
-      let directory = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true).first!
-      let newFileName = url.lastPathComponent!
-      let writePath = NSURL(fileURLWithPath:directory).URLByAppendingPathComponent(newFileName)
-              print("Image saved to \(writePath)")
-              _ = try? data.writeToURL(writePath, options: NSDataWritingOptions.AtomicWrite)
+    if let _ = try? data.writeToURL(newPath, options: NSDataWritingOptions.AtomicWrite) {
+      let alert = NSAlert()
+      alert.messageText = "Image Saved"
+      alert.informativeText = "Image saved to \(newPath.path!)"
+      alert.runModal()
+      return newPath
+    }
+    return nil
   }
   
   // https://github.com/oopww1992/WWimageExif

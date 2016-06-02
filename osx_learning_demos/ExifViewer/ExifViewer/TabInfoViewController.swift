@@ -16,7 +16,6 @@ class TabInfoViewController: NSViewController {
 
   var properties: [ImagePropertyItem]? {
     didSet {
-      print("TabInfoViewController properties did set")
       self.tableView?.reloadData()
     }
   }

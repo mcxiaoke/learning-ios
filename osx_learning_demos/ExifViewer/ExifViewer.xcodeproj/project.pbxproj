@@ -10,8 +10,10 @@
 		AA00DF991CF6C1E7000D242E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF981CF6C1E7000D242E /* MainViewController.swift */; };
 		AA00DF9B1CF6C213000D242E /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */; };
 		AA00DF9F1CF6D6A6000D242E /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */; };
+		AA1078601D0005EE005A3BE7 /* TabThumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA10785E1D0005EE005A3BE7 /* TabThumbViewController.swift */; };
+		AA1078611D0005EE005A3BE7 /* TabThumbViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA10785F1D0005EE005A3BE7 /* TabThumbViewController.xib */; };
 		AA4FFE051CFC462A00AD0A44 /* ValueTextColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4FFE041CFC462A00AD0A44 /* ValueTextColorTransformer.swift */; };
-		AA9C153F1CFED26C0062218A /* ImageDetailTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C153E1CFED26C0062218A /* ImageDetailTabViewController.swift */; };
+		AA9C153F1CFED26C0062218A /* DetailTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C153E1CFED26C0062218A /* DetailTabViewController.swift */; };
 		AA9C15441CFEE2810062218A /* TabInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C15421CFEE2810062218A /* TabInfoViewController.swift */; };
 		AA9C15451CFEE2810062218A /* TabInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9C15431CFEE2810062218A /* TabInfoViewController.xib */; };
 		AAD06AFF1CF8387B003DC181 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06AFE1CF8387B003DC181 /* Constants.swift */; };
@@ -40,8 +42,10 @@
 		AA00DF981CF6C1E7000D242E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AA00DF9A1CF6C213000D242E /* ImageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
 		AA00DF9E1CF6D6A6000D242E /* NSURL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
+		AA10785E1D0005EE005A3BE7 /* TabThumbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabThumbViewController.swift; sourceTree = "<group>"; };
+		AA10785F1D0005EE005A3BE7 /* TabThumbViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabThumbViewController.xib; sourceTree = "<group>"; };
 		AA4FFE041CFC462A00AD0A44 /* ValueTextColorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTextColorTransformer.swift; sourceTree = "<group>"; };
-		AA9C153E1CFED26C0062218A /* ImageDetailTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailTabViewController.swift; sourceTree = "<group>"; };
+		AA9C153E1CFED26C0062218A /* DetailTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTabViewController.swift; sourceTree = "<group>"; };
 		AA9C15421CFEE2810062218A /* TabInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabInfoViewController.swift; sourceTree = "<group>"; };
 		AA9C15431CFEE2810062218A /* TabInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabInfoViewController.xib; sourceTree = "<group>"; };
 		AAD06AFE1CF8387B003DC181 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -113,9 +117,11 @@
 				AAD06B021CF83DB3003DC181 /* ImageHelper.swift */,
 				AAD06B041CF83E1F003DC181 /* ImagePropertyContainer.swift */,
 				AA4FFE041CFC462A00AD0A44 /* ValueTextColorTransformer.swift */,
-				AA9C153E1CFED26C0062218A /* ImageDetailTabViewController.swift */,
+				AA9C153E1CFED26C0062218A /* DetailTabViewController.swift */,
 				AA9C15421CFEE2810062218A /* TabInfoViewController.swift */,
 				AA9C15431CFEE2810062218A /* TabInfoViewController.xib */,
+				AA10785E1D0005EE005A3BE7 /* TabThumbViewController.swift */,
+				AA10785F1D0005EE005A3BE7 /* TabThumbViewController.xib */,
 			);
 			path = ExifViewer;
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAFDAF961CF5784500EC8923 /* Assets.xcassets in Resources */,
+				AA1078611D0005EE005A3BE7 /* TabThumbViewController.xib in Resources */,
 				AA9C15451CFEE2810062218A /* TabInfoViewController.xib in Resources */,
 				AAFDAF991CF5784500EC8923 /* Main.storyboard in Resources */,
 			);
@@ -232,8 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9C15441CFEE2810062218A /* TabInfoViewController.swift in Sources */,
+				AA1078601D0005EE005A3BE7 /* TabThumbViewController.swift in Sources */,
 				AA00DF9F1CF6D6A6000D242E /* NSURL+Extensions.swift in Sources */,
-				AA9C153F1CFED26C0062218A /* ImageDetailTabViewController.swift in Sources */,
+				AA9C153F1CFED26C0062218A /* DetailTabViewController.swift in Sources */,
 				AAD06B011CF83D25003DC181 /* ImagePropertyItem.swift in Sources */,
 				AAD06B031CF83DB3003DC181 /* ImageHelper.swift in Sources */,
 				AA00DF9B1CF6C213000D242E /* ImageListViewController.swift in Sources */,

@@ -179,12 +179,12 @@
                 </splitViewController>
                 <customObject id="gOI-J4-Uwn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="721"/>
+            <point key="canvasLocation" x="35" y="715"/>
         </scene>
-        <!--Image Detail Tab View Controller-->
+        <!--Detail Tab View Controller-->
         <scene sceneID="G6H-Hw-XR9">
             <objects>
-                <tabViewController storyboardIdentifier="ImageDetailTabViewController" id="4SL-pi-Qyr" customClass="ImageDetailTabViewController" customModule="ExifViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController storyboardIdentifier="ImageDetailTabViewController" id="4SL-pi-Qyr" customClass="DetailTabViewController" customModule="ExifViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabView key="tabView" type="noTabsNoBorder" id="D75-a1-bgA">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -194,7 +194,7 @@
                 </tabViewController>
                 <customObject id="6PC-Nr-wHQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="1277"/>
+            <point key="canvasLocation" x="953" y="395"/>
         </scene>
         <!--Image List View Controller-->
         <scene sceneID="rdH-m8-hqQ">
@@ -268,7 +268,8 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <action selector="selectImageURL:" target="bFd-OD-6vA" id="GW8-4N-IrA"/>
+                                                <action trigger="doubleAction" selector="doubleClickRow:" target="bFd-OD-6vA" id="SXm-o2-1cE"/>
+                                                <action selector="selectImageURL:" target="bFd-OD-6vA" id="jDu-23-5GD"/>
                                                 <binding destination="MfX-EM-LiX" name="content" keyPath="arrangedObjects" id="LWz-ko-49g"/>
                                                 <binding destination="MfX-EM-LiX" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="LWz-ko-49g" id="Dny-oq-db5"/>
                                             </connections>
@@ -345,6 +346,7 @@
                         <outlet property="button" destination="0mv-3c-ArR" id="V94-c8-iKO"/>
                         <outlet property="label" destination="Z8x-0f-QJw" id="wsF-mz-ACf"/>
                         <outlet property="tableView" destination="RMb-gl-1Lh" id="0f7-Pe-rFT"/>
+                        <segue destination="4SL-pi-Qyr" kind="show" identifier="showDetail" id="uV3-Xt-kIW"/>
                     </connections>
                 </viewController>
                 <customObject id="3FJ-JL-tfP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -354,7 +356,7 @@
                     </connections>
                 </arrayController>
             </objects>
-            <point key="canvasLocation" x="542" y="220"/>
+            <point key="canvasLocation" x="457" y="403"/>
         </scene>
         <!--Image Detail View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -399,7 +401,6 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageFrameStyle="grayBezel" id="I2R-0G-TSe"/>
                                 <connections>
                                     <binding destination="XfG-lQ-9wD" name="value" keyPath="image" id="rQi-B1-QX6"/>
-                                    <segue destination="4SL-pi-Qyr" kind="show" identifier="showDetail" id="wfZ-hS-ojm"/>
                                 </connections>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XvO-4V-chk">
@@ -609,7 +610,7 @@
                     </connections>
                 </arrayController>
             </objects>
-            <point key="canvasLocation" x="636" y="699"/>
+            <point key="canvasLocation" x="651" y="842"/>
         </scene>
     </scenes>
 </document>

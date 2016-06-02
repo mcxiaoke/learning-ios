@@ -36,14 +36,6 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
   @IBOutlet weak var tableView: NSTableView!
   @IBOutlet weak var arrayController: NSArrayController!
   
-  override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-    print("prepareForSegue: \(segue.identifier)")
-    if let controller = segue.destinationController as? ImageDetailTabViewController {
-      controller.imageURL = self.imageURL
-      controller.properties = self.properties
-    }
-  }
-  
   func addChangedProperty(item: ImagePropertyItem){
     let key = item.rawKey
     let value = item.objectValue
@@ -73,12 +65,8 @@ class ImageDetailViewController: NSViewController, NSTableViewDelegate {
     let objValue = object.objectValue
     print("textValueDidChange row=\(row) obj=\(object) objValue=\(objValue)")
     
-//    let controller = InfoViewController()
-//    controller.properties = self.properties
-    self.performSegueWithIdentifier("showDetail", sender: nil)
-    
-//    addChangedProperty(object)
-//    updateModifiedRowColor(row, modified: true)
+    addChangedProperty(object)
+    updateModifiedRowColor(row, modified: true)
   }
   
   func updateModifiedRowColor(row:Int, modified:Bool){

@@ -33,6 +33,8 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
   
   weak var delegate: ImageListViewControllerDelegate? = nil
   
+  var detailViewController: DetailTabViewController?
+  
   @IBAction func selectImageURL(sender: AnyObject){
 //    print("selectedObjects: \(arrayController.selectedObjects)")
     let selectedURL = arrayController.selectedObjects.first as? NSURL
@@ -63,12 +65,21 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
     }
   }
   
-  func hello(sender:AnyObject){
+  @IBAction func doubleClickRow(sender:AnyObject){
+    print("doubleClickRow")
+    if let _ = self.arrayController.selectedObjects.first as? NSURL {
+      self.performSegueWithIdentifier("showDetail", sender: nil)
+    }
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-//    self.tableView.menu = 
+  
+  override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    print("prepareForSegue: \(segue.identifier)")
+    if let controller = segue.destinationController as? DetailTabViewController {
+      if let imageURL = self.arrayController.selectedObjects.first as? NSURL {
+          controller.imageURL = imageURL
+      }
+    }
   }
   
 }

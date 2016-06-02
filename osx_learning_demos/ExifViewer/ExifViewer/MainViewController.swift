@@ -24,7 +24,7 @@ class MainViewController: NSSplitViewController, ImageListViewControllerDelegate
   }
   
   func imageListViewController(viewController: ImageListViewController, selectedURL: NSURL?) {
-//    print("selectedURL: \(selectedURL)")
+    print("selectedURL: \(selectedURL)")
     self.imageDetailViewController.imageURL = selectedURL
   }
   

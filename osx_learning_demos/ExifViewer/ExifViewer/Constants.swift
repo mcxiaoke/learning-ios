@@ -9,7 +9,10 @@
 
 import Foundation
 
+let kCGImagePropertyCommonDictionary = "{Info}"
+
 let ImageCategoryPrefixKeys:[String:String] = [
+  kCGImagePropertyCommonDictionary:"Info",
   kCGImagePropertyExifDictionary as String:"Exif",
   kCGImagePropertyExifAuxDictionary as String:"Exif Aux",
   kCGImagePropertyGPSDictionary as String:"GPS",

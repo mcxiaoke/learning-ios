@@ -38,34 +38,32 @@ class MainViewController: NSSplitViewController, ImageListViewControllerDelegate
   
   func showOpenPanel(){
     let panel = NSOpenPanel()
-    panel.allowsMultipleSelection = true
+    panel.allowsMultipleSelection = false
     panel.canChooseDirectories = true
     panel.canCreateDirectories = false
-    panel.canChooseFiles = true
+    panel.canChooseFiles = false
     panel.beginWithCompletionHandler { (result) in
       if result != NSFileHandlingPanelOKButton {
         return
       }
+      
+      guard let rootURL = panel.URL else { return }
       let fm = NSFileManager.defaultManager()
-      let urls = panel.URLs
-      let url = urls.first!
-      var fileRoot: NSURL = url.URLByDeletingLastPathComponent!
-      var fileUrls: [NSURL] = urls.filter {$0.isTypeRegularFile() }
-      if urls.count == 1 {
-        if url.isTypeDirectory() {
-          do {
-            let directoryContents = try fm.contentsOfDirectoryAtURL(url,
-              includingPropertiesForKeys: nil, options: [.SkipsHiddenFiles, .SkipsSubdirectoryDescendants])
-            fileUrls = directoryContents.filter {$0.isTypeRegularFile() }
-            fileRoot = url
-          } catch let error as NSError {
-            print(error.localizedDescription)
-          }
+      var fileUrls: [NSURL] = []
+      if rootURL.isTypeDirectory() {
+        do {
+          let directoryContents = try fm.contentsOfDirectoryAtURL(rootURL,
+            includingPropertiesForKeys: nil, options: [.SkipsHiddenFiles, .SkipsSubdirectoryDescendants])
+          fileUrls = directoryContents.filter({ (url) -> Bool in
+            return url.isTypeRegularFile() && ImageExtensions.contains(url.pathExtension?.lowercaseString ?? "")
+          })
+        } catch let error as NSError {
+          print(error.localizedDescription)
         }
       }
       //      print("showOpenPanel: \(fileUrls)")
-      self.imageListViewController.urls += fileUrls
-      self.imageListViewController.directory = fileRoot
+      self.imageListViewController.urls = fileUrls
+      self.imageListViewController.directory = rootURL
     }
   }
     

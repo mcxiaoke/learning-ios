@@ -9,6 +9,8 @@
 
 import Foundation
 
+let ImageExtensions = ["jpg", "jpeg", "png", "gif"]
+
 let kCGImagePropertyCommonDictionary = "{Info}"
 
 let ImageCategoryPrefixKeys:[String:String] = [

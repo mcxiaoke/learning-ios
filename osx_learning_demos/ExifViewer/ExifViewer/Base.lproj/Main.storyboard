@@ -119,6 +119,24 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Edit" id="VHZ-Cb-Nip">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="706-oy-fKc">
+                                    <items>
+                                        <menuItem title="Select All" keyEquivalent="a" id="NDz-UH-R6M">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="a9A-JF-aIN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Deselect All" id="8IJ-7R-Kx3">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="deselectAll:" target="Ady-hI-5gd" id="FzK-ge-bDC"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Help" id="wpr-3q-Mcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">

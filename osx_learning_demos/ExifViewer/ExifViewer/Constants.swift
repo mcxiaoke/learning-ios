@@ -204,4 +204,12 @@ let TIFFPropertyKeys:[String] = [
   kCGImagePropertyTIFFPrimaryChromaticities as String,
 ]
 
+let GPSEditablePropertyKeys:[String] = [
+  kCGImagePropertyGPSLatitude as String,
+  kCGImagePropertyGPSLongitude as String,
+  kCGImagePropertyGPSAltitude as String,
+  kCGImagePropertyGPSTimeStamp as String,
+  kCGImagePropertyGPSDateStamp as String,
+]
+
 let AllEditablePropertyKeys =  ExifPropertyKeys + GPSPropertyKeys

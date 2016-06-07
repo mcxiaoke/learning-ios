@@ -16,6 +16,10 @@
 		AA9C153F1CFED26C0062218A /* DetailTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C153E1CFED26C0062218A /* DetailTabViewController.swift */; };
 		AA9C15441CFEE2810062218A /* TabInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C15421CFEE2810062218A /* TabInfoViewController.swift */; };
 		AA9C15451CFEE2810062218A /* TabInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9C15431CFEE2810062218A /* TabInfoViewController.xib */; };
+		AAC8147B1D05642100C3CE8C /* GPSEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC814791D05642100C3CE8C /* GPSEditViewController.swift */; };
+		AAC8147C1D05642100C3CE8C /* GPSEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC8147A1D05642100C3CE8C /* GPSEditViewController.xib */; };
+		AAC8147F1D0577B100C3CE8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC8147E1D0577B100C3CE8C /* MapKit.framework */; };
+		AAC814811D0577BD00C3CE8C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC814801D0577BD00C3CE8C /* CoreLocation.framework */; };
 		AAD06AFF1CF8387B003DC181 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06AFE1CF8387B003DC181 /* Constants.swift */; };
 		AAD06B011CF83D25003DC181 /* ImagePropertyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06B001CF83D25003DC181 /* ImagePropertyItem.swift */; };
 		AAD06B031CF83DB3003DC181 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD06B021CF83DB3003DC181 /* ImageHelper.swift */; };
@@ -48,6 +52,11 @@
 		AA9C153E1CFED26C0062218A /* DetailTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTabViewController.swift; sourceTree = "<group>"; };
 		AA9C15421CFEE2810062218A /* TabInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabInfoViewController.swift; sourceTree = "<group>"; };
 		AA9C15431CFEE2810062218A /* TabInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabInfoViewController.xib; sourceTree = "<group>"; };
+		AAC814791D05642100C3CE8C /* GPSEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSEditViewController.swift; sourceTree = "<group>"; };
+		AAC8147A1D05642100C3CE8C /* GPSEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSEditViewController.xib; sourceTree = "<group>"; };
+		AAC8147D1D05775900C3CE8C /* ExifViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ExifViewer.entitlements; sourceTree = "<group>"; };
+		AAC8147E1D0577B100C3CE8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AAC814801D0577BD00C3CE8C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AAD06AFE1CF8387B003DC181 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAD06B001CF83D25003DC181 /* ImagePropertyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePropertyItem.swift; sourceTree = "<group>"; };
 		AAD06B021CF83DB3003DC181 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -69,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC814811D0577BD00C3CE8C /* CoreLocation.framework in Frameworks */,
+				AAC8147F1D0577B100C3CE8C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +96,8 @@
 		AAFDAF851CF5784500EC8923 = {
 			isa = PBXGroup;
 			children = (
+				AAC814801D0577BD00C3CE8C /* CoreLocation.framework */,
+				AAC8147E1D0577B100C3CE8C /* MapKit.framework */,
 				AAFDAF901CF5784500EC8923 /* ExifViewer */,
 				AAFDAFA21CF5784500EC8923 /* ExifViewerTests */,
 				AAFDAF8F1CF5784500EC8923 /* Products */,
@@ -103,6 +116,7 @@
 		AAFDAF901CF5784500EC8923 /* ExifViewer */ = {
 			isa = PBXGroup;
 			children = (
+				AAC8147D1D05775900C3CE8C /* ExifViewer.entitlements */,
 				AAFDAF9A1CF5784500EC8923 /* Info.plist */,
 				AAFDAF911CF5784500EC8923 /* AppDelegate.swift */,
 				AAFDAF931CF5784500EC8923 /* ImageDetailViewController.swift */,
@@ -122,6 +136,8 @@
 				AA9C15431CFEE2810062218A /* TabInfoViewController.xib */,
 				AA10785E1D0005EE005A3BE7 /* TabThumbViewController.swift */,
 				AA10785F1D0005EE005A3BE7 /* TabThumbViewController.xib */,
+				AAC814791D05642100C3CE8C /* GPSEditViewController.swift */,
+				AAC8147A1D05642100C3CE8C /* GPSEditViewController.xib */,
 			);
 			path = ExifViewer;
 			sourceTree = "<group>";
@@ -186,6 +202,11 @@
 					AAFDAF8D1CF5784500EC8923 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 934E3APZSV;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					AAFDAF9E1CF5784500EC8923 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -221,6 +242,7 @@
 				AA1078611D0005EE005A3BE7 /* TabThumbViewController.xib in Resources */,
 				AA9C15451CFEE2810062218A /* TabInfoViewController.xib in Resources */,
 				AAFDAF991CF5784500EC8923 /* Main.storyboard in Resources */,
+				AAC8147C1D05642100C3CE8C /* GPSEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +270,7 @@
 				AAFDAF941CF5784500EC8923 /* ImageDetailViewController.swift in Sources */,
 				AA4FFE051CFC462A00AD0A44 /* ValueTextColorTransformer.swift in Sources */,
 				AAFDAF921CF5784500EC8923 /* AppDelegate.swift in Sources */,
+				AAC8147B1D05642100C3CE8C /* GPSEditViewController.swift in Sources */,
 				AAD06B051CF83E1F003DC181 /* ImagePropertyContainer.swift in Sources */,
 				AAD06AFF1CF8387B003DC181 /* Constants.swift in Sources */,
 				AAFDAFAF1CF588D700EC8923 /* MainWindowController.swift in Sources */,
@@ -371,6 +394,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ExifViewer/Info.plist;
@@ -385,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ExifViewer/Info.plist;

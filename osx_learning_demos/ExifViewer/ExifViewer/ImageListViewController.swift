@@ -43,13 +43,14 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
   
   @IBAction func modifySelectedImages(sender:AnyObject){
     let selectedURLs = arrayController.selectedObjects
-    let alert = NSAlert()
-    alert.messageText = "Modify Exif"
-    alert.informativeText = "you selected \(selectedURLs.count) images"
-    alert.runModal()
+//    let alert = NSAlert()
+//    alert.messageText = "Modify Exif"
+//    alert.informativeText = "you selected \(selectedURLs.count) images"
+//    alert.runModal()
 //    alert.beginSheetModalForWindow(self.view.window!) { (response) in
 //      //
 //    }
+    self.presentViewControllerAsModalWindow(GPSEditViewController())
   }
   
   @IBAction func addImages(sender: AnyObject){
@@ -72,6 +73,9 @@ class ImageListViewController: NSViewController, NSMenuDelegate {
     }
   }
   
+  @IBAction override func selectAll(sender: AnyObject?) {
+    self.tableView.selectAll(nil)
+  }
   
   override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
     print("prepareForSegue: \(segue.identifier)")

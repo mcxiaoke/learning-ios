@@ -93,7 +93,7 @@ class ImagePropertyItem : NSObject {
       //  + " \(value.dynamicType)"
       valueStr = value.componentsJoinedByString(", ")
     }else {
-      valueStr = "\(value)"
+      valueStr = "\(value) \(value.dynamicType)"
     }
     return valueStr
   }

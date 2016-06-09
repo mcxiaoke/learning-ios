@@ -130,7 +130,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <mapView fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jzv-PF-uhV">
+                <mapView fixedFrame="YES" mapType="standard" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzv-PF-uhV">
                     <rect key="frame" x="20" y="20" width="488" height="267"/>
                     <connections>
                         <outlet property="delegate" destination="-2" id="ZOF-vP-Wnf"/>

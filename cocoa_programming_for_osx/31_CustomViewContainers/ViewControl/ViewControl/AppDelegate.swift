@@ -24,6 +24,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     self.mainWindowController = mwc
   }
   
+  func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
+    return true
+  }
+  
 //  var window: NSWindow?
 //
 //  func applicationDidFinishLaunching(aNotification: NSNotification) {

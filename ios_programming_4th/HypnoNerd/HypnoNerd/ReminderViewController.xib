@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReminderViewController" customModule="HypnoNerd" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="SeJ-ZL-NL5" id="Hmd-8x-05l"/>
+                <outlet property="view" destination="QYo-fc-Mzl" id="rqM-Pn-Ts8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="QYo-fc-Mzl">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="SeJ-ZL-NL5">
+                    <rect key="frame" x="27.5" y="225.5" width="320" height="216"/>
+                    <date key="date" timeIntervalSinceReferenceDate="524482363.54654998">
+                        <!--2017-08-15 09:32:43 +0000-->
+                    </date>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeV-xv-olP">
+                    <rect key="frame" x="146.5" y="461.5" width="82" height="30"/>
+                    <state key="normal" title="Remind Me!"/>
+                    <connections>
+                        <action selector="addReminder:" destination="-1" eventType="touchUpInside" id="8t5-wK-kqq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GeV-xv-olP" firstAttribute="top" secondItem="SeJ-ZL-NL5" secondAttribute="bottom" constant="20" id="0Ha-K3-f1f"/>
+                <constraint firstItem="SeJ-ZL-NL5" firstAttribute="centerX" secondItem="QYo-fc-Mzl" secondAttribute="centerX" id="9N2-cI-QuV"/>
+                <constraint firstItem="GeV-xv-olP" firstAttribute="centerX" secondItem="QYo-fc-Mzl" secondAttribute="centerX" id="p7B-P4-AqY"/>
+                <constraint firstItem="SeJ-ZL-NL5" firstAttribute="centerY" secondItem="QYo-fc-Mzl" secondAttribute="centerY" id="y56-0W-w1w"/>
+            </constraints>
+            <point key="canvasLocation" x="61" y="-11"/>
+        </view>
+    </objects>
+</document>

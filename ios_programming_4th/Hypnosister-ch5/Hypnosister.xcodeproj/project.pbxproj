@@ -14,6 +14,7 @@
 		AAF7FBB11F42DB7A00578C8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAF7FBAF1F42DB7A00578C8D /* LaunchScreen.storyboard */; };
 		AAF7FBB91F42DBBC00578C8D /* HypnosisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7FBB81F42DBBC00578C8D /* HypnosisterView.swift */; };
 		AAF7FBBB1F42E29500578C8D /* bluetooth.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF7FBBA1F42E29500578C8D /* bluetooth.png */; };
+		AAF7FBBD1F42EC4D00578C8D /* UIColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7FBBC1F42EC4D00578C8D /* UIColorEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AAF7FBB21F42DB7A00578C8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAF7FBB81F42DBBC00578C8D /* HypnosisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HypnosisterView.swift; sourceTree = "<group>"; };
 		AAF7FBBA1F42E29500578C8D /* bluetooth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluetooth.png; sourceTree = "<group>"; };
+		AAF7FBBC1F42EC4D00578C8D /* UIColorEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				AAF7FBAF1F42DB7A00578C8D /* LaunchScreen.storyboard */,
 				AAF7FBB21F42DB7A00578C8D /* Info.plist */,
 				AAF7FBB81F42DBBC00578C8D /* HypnosisterView.swift */,
+				AAF7FBBC1F42EC4D00578C8D /* UIColorEx.swift */,
 			);
 			path = Hypnosister;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF7FBBD1F42EC4D00578C8D /* UIColorEx.swift in Sources */,
 				AAF7FBB91F42DBBC00578C8D /* HypnosisterView.swift in Sources */,
 				AAF7FBA91F42DB7A00578C8D /* ViewController.swift in Sources */,
 				AAF7FBA71F42DB7A00578C8D /* AppDelegate.swift in Sources */,
@@ -312,6 +316,7 @@
 				AAF7FBB71F42DB7A00578C8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,6 +10,12 @@ import UIKit
 
 class HypnosisterView: UIView {
     
+    var circleColor = UIColor.lightGray {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
@@ -17,19 +23,6 @@ class HypnosisterView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    func drawSingleCircle(){
-        let bounds = self.bounds
-        var center = CGPoint()
-        center.x = bounds.origin.x + bounds.size.width/2.0;
-        center.y = bounds.origin.y + bounds.size.height/2.0;
-        let radius = min(bounds.size.width, bounds.size.height)/2.0;
-        let path = UIBezierPath()
-        path.addArc(withCenter: center, radius: radius, startAngle: 0.0, endAngle: CGFloat(Double.pi*2), clockwise: true)
-        path.lineWidth = 10
-        UIColor.lightGray.setStroke()
-        path.stroke()
     }
     
     override func draw(_ rect: CGRect) {
@@ -51,17 +44,18 @@ class HypnosisterView: UIView {
             currentRadius -= 20
         }
         path.lineWidth = 10
-        UIColor.lightGray.setStroke()
+        circleColor.setStroke()
         path.stroke()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let ctx = UIGraphicsGetCurrentContext()
-        ctx?.saveGState()
-        ctx?.setShadow(offset: CGSize(width:6, height:8), blur: 4)
-        let image = UIImage(named: "bluetooth.png")!
-        image.draw(in: bounds)
-        ctx?.restoreGState()
-        
-        
+        let red = CGFloat(arc4random_uniform(100))/100.0
+        let green = CGFloat(arc4random_uniform(100))/100.0
+        let blue = CGFloat(arc4random_uniform(100))/100.0
+        let color = UIColor(red:red, green:green, blue:blue, alpha:1.0)
+        self.circleColor = color
+        print("touchesBegan color=\(color.toHex)")
     }
     
 }

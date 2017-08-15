@@ -12,20 +12,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let firstFrame = CGRect(x:160, y:240, width: 100, height: 150)
-        let firstFrame = self.view.bounds
-        let sv1 = HypnosisterView(frame:firstFrame)
-//        sv1.backgroundColor = UIColor.red
-        self.view.addSubview(sv1)
-        
-        let secondFrame = CGRect(x:20, y:30, width:50, height:50)
-        let sv2  = HypnosisterView(frame:secondFrame)
-        sv2.backgroundColor = UIColor.blue
-//        sv1.addSubview(sv2)
-//        self.view.addSubview(sv2)
-        
+        var frame = self.view.bounds
+        var bigFrame = frame
+        bigFrame.size.width *= 2.0
+        //bigFrame.size.height *= 2.0
+        let sv = UIScrollView(frame:frame)
+        let v1 = HypnosisterView(frame:frame)
+        //v1.circleColor = UIColor.blue
+        frame.origin.x += frame.size.width
+        let v2 = HypnosisterView(frame:frame)
+        //v2.circleColor = UIColor.red
+        sv.addSubview(v1)
+        sv.addSubview(v2)
+        self.view.addSubview(sv)
         self.view.backgroundColor = UIColor.white
-        
+        sv.contentSize = bigFrame.size
+        //sv.isPagingEnabled = true
     }
 
     override func didReceiveMemoryWarning() {

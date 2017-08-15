@@ -11,6 +11,7 @@ import UIKit
 class ReminderViewController: UIViewController {
     
     @IBOutlet weak var datePicker:UIDatePicker!
+    @IBOutlet weak var colorPicker:UISegmentedControl!
     
     @IBAction func addReminder(_ sender:AnyObject) {
         let date = datePicker.date
@@ -21,8 +22,22 @@ class ReminderViewController: UIViewController {
         UIApplication.shared.scheduleLocalNotification(note)
     }
     
+    @IBAction func setColor(_ sender:AnyObject) {
+        setCircleColor()
+    }
+    
+    func setCircleColor() {
+        let index = colorPicker.selectedSegmentIndex
+        let colors = [UIColor.red, UIColor.green, UIColor.blue]
+        print("Set color index to \(index)")
+        guard let vc = self.tabBarController?.viewControllers?[0] else { return }
+        guard let hv = vc.view as? HypnosisterView else { return }
+        hv.circleColor = colors[index]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setCircleColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {

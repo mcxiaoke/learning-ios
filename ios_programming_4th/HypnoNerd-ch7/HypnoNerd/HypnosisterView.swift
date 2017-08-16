@@ -19,14 +19,17 @@ class HypnosisterView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
+        print("init")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clear
+        print("init")
     }
     
     override func draw(_ rect: CGRect) {
+        print("draw")
         let bounds = self.bounds
         var center = CGPoint()
         center.x = bounds.origin.x + bounds.size.width/2.0;
@@ -50,7 +53,7 @@ class HypnosisterView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        print("touchesBegan")
         let red = CGFloat(arc4random_uniform(100))/100.0
         let green = CGFloat(arc4random_uniform(100))/100.0
         let blue = CGFloat(arc4random_uniform(100))/100.0

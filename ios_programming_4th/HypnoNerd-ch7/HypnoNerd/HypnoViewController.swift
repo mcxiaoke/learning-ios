@@ -9,6 +9,8 @@
 import UIKit
 
 class HypnoViewController: UIViewController {
+    var scrollView:UIScrollView!
+    var hypnoView:HypnosisterView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +18,18 @@ class HypnoViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        let hv = HypnosisterView()
+        // https://www.appcoda.com/uiscrollview-introduction/
+        let sv = UIScrollView(frame:UIScreen.main.bounds)
+        sv.isPagingEnabled = false
+        sv.contentSize = CGSize(width: UIScreen.main.bounds.size.width*2,
+                                height:UIScreen.main.bounds.size.height*2)
+        sv.minimumZoomScale = 0.5
+        sv.maximumZoomScale = 5.0
+        sv.delegate = self
+        
+        let hv = HypnosisterView(frame:UIScreen.main.bounds)
         let tf = CGRect(x:40, y:70, width:240, height:30)
+        
         let tv = UITextField(frame: tf)
         tv.spellCheckingType = .no
         tv.autocorrectionType = .no
@@ -26,8 +38,13 @@ class HypnoViewController: UIViewController {
         tv.placeholder = "Hypnotize Me"
         tv.returnKeyType = .done
         tv.delegate = self
+        
         hv.addSubview(tv)
-        self.view = hv
+        sv.addSubview(hv)
+        
+        self.scrollView = sv
+        self.hypnoView = hv
+        self.view = sv
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +58,7 @@ class HypnoViewController: UIViewController {
     }
     
     func drawHypnoticMessage(message:String) {
-        for i in 1..<20 {
+        for _ in 1...20 {
             let lb = UILabel()
             lb.backgroundColor = UIColor.clear
             lb.textColor = UIColor.black
@@ -76,25 +93,21 @@ class HypnoViewController: UIViewController {
 }
 
 extension HypnoViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        //
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        //
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        return false
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("textFieldShouldReturn \(textField.text)")
+        print("textFieldShouldReturn \(textField.text ?? "")")
         if let message = textField.text {
             drawHypnoticMessage(message: message)
             textField.text = ""
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension HypnoViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        print("viewForZooming")
+        return self.hypnoView
     }
 }

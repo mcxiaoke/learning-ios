@@ -49,6 +49,16 @@ class DrawView: UIView {
         move.cancelsTouchesInView = false
         self.moveRecongnizer = move
         self.addGestureRecognizer(move)
+        
+        let threeSwipe = UISwipeGestureRecognizer.init(target: self, action: #selector(threeSwipe(gs:)))
+        threeSwipe.numberOfTouchesRequired = 3
+        threeSwipe.cancelsTouchesInView = true
+        threeSwipe.direction = .up
+        self.addGestureRecognizer(threeSwipe)
+    }
+    
+    func threeSwipe(gs:UIGestureRecognizer) {
+        print("threeSwipe")
     }
     
     func longPress(gs:UIGestureRecognizer) {

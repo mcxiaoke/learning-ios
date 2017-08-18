@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA036E991F46DC0300DD7103 /* CollectionEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA036E981F46DC0300DD7103 /* CollectionEx.swift */; };
+		AA036E9B1F46F0E600DD7103 /* ColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA036E9A1F46F0E600DD7103 /* ColorPickerController.xib */; };
 		AAE451901F459A9A00ACB347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4518F1F459A9A00ACB347 /* AppDelegate.swift */; };
 		AAE451921F459A9A00ACB347 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE451911F459A9A00ACB347 /* DrawViewController.swift */; };
 		AAE451971F459A9A00ACB347 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE451961F459A9A00ACB347 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		AA036E981F46DC0300DD7103 /* CollectionEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionEx.swift; sourceTree = "<group>"; };
+		AA036E9A1F46F0E600DD7103 /* ColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerController.xib; sourceTree = "<group>"; };
 		AAE4518C1F459A9A00ACB347 /* TouchTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE4518F1F459A9A00ACB347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE451911F459A9A00ACB347 /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				AAE451981F459A9A00ACB347 /* LaunchScreen.storyboard */,
 				AAE4519B1F459A9A00ACB347 /* Info.plist */,
 				AAE451A91F45A11600ACB347 /* Extensions.swift */,
+				AA036E9A1F46F0E600DD7103 /* ColorPickerController.xib */,
 			);
 			path = TouchTracker;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE4519A1F459A9A00ACB347 /* LaunchScreen.storyboard in Resources */,
+				AA036E9B1F46F0E600DD7103 /* ColorPickerController.xib in Resources */,
 				AAE451971F459A9A00ACB347 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

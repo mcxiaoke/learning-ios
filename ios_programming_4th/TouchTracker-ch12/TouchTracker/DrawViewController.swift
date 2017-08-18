@@ -13,5 +13,9 @@ class DrawViewController: UIViewController {
     override func loadView() {
         self.view = DrawView(frame:CGRect.zero)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 

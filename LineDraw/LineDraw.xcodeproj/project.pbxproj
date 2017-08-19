@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA53B89F1F48231900626A0C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA53B8961F48231900626A0C /* Info.plist */; };
+		AA53B8A01F48231900626A0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B8971F48231900626A0C /* AppDelegate.swift */; };
+		AA53B8A11F48231900626A0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA53B8981F48231900626A0C /* Assets.xcassets */; };
+		AA53B8A21F48231900626A0C /* CollectionEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B8991F48231900626A0C /* CollectionEx.swift */; };
+		AA53B8A31F48231900626A0C /* ColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA53B89A1F48231900626A0C /* ColorPickerController.xib */; };
+		AA53B8A41F48231900626A0C /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B89B1F48231900626A0C /* DrawView.swift */; };
+		AA53B8A51F48231900626A0C /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B89C1F48231900626A0C /* DrawViewController.swift */; };
+		AA53B8A61F48231900626A0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B89D1F48231900626A0C /* Extensions.swift */; };
+		AA53B8A71F48231900626A0C /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B89E1F48231900626A0C /* Line.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA53B8961F48231900626A0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LineDraw/Info.plist; sourceTree = SOURCE_ROOT; };
+		AA53B8971F48231900626A0C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LineDraw/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		AA53B8981F48231900626A0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LineDraw/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		AA53B8991F48231900626A0C /* CollectionEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionEx.swift; path = LineDraw/CollectionEx.swift; sourceTree = SOURCE_ROOT; };
+		AA53B89A1F48231900626A0C /* ColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorPickerController.xib; path = LineDraw/ColorPickerController.xib; sourceTree = SOURCE_ROOT; };
+		AA53B89B1F48231900626A0C /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawView.swift; path = LineDraw/DrawView.swift; sourceTree = SOURCE_ROOT; };
+		AA53B89C1F48231900626A0C /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawViewController.swift; path = LineDraw/DrawViewController.swift; sourceTree = SOURCE_ROOT; };
+		AA53B89D1F48231900626A0C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = LineDraw/Extensions.swift; sourceTree = SOURCE_ROOT; };
+		AA53B89E1F48231900626A0C /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Line.swift; path = LineDraw/Line.swift; sourceTree = SOURCE_ROOT; };
+		AAE4518C1F459A9A00ACB347 /* LineDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAE451891F459A9A00ACB347 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAE451831F459A9A00ACB347 = {
+			isa = PBXGroup;
+			children = (
+				AAE4518E1F459A9A00ACB347 /* LineDraw */,
+				AAE4518D1F459A9A00ACB347 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAE4518D1F459A9A00ACB347 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4518C1F459A9A00ACB347 /* LineDraw.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAE4518E1F459A9A00ACB347 /* LineDraw */ = {
+			isa = PBXGroup;
+			children = (
+				AA53B8961F48231900626A0C /* Info.plist */,
+				AA53B8971F48231900626A0C /* AppDelegate.swift */,
+				AA53B8981F48231900626A0C /* Assets.xcassets */,
+				AA53B8991F48231900626A0C /* CollectionEx.swift */,
+				AA53B89A1F48231900626A0C /* ColorPickerController.xib */,
+				AA53B89B1F48231900626A0C /* DrawView.swift */,
+				AA53B89C1F48231900626A0C /* DrawViewController.swift */,
+				AA53B89D1F48231900626A0C /* Extensions.swift */,
+				AA53B89E1F48231900626A0C /* Line.swift */,
+			);
+			name = LineDraw;
+			path = TouchTracker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAE4518B1F459A9A00ACB347 /* LineDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAE4519E1F459A9A00ACB347 /* Build configuration list for PBXNativeTarget "LineDraw" */;
+			buildPhases = (
+				AAE451881F459A9A00ACB347 /* Sources */,
+				AAE451891F459A9A00ACB347 /* Frameworks */,
+				AAE4518A1F459A9A00ACB347 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LineDraw;
+			productName = TouchTracker;
+			productReference = AAE4518C1F459A9A00ACB347 /* LineDraw.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAE451841F459A9A00ACB347 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Xiaoke Zhang";
+				TargetAttributes = {
+					AAE4518B1F459A9A00ACB347 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5R8HH5SP77;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AAE451871F459A9A00ACB347 /* Build configuration list for PBXProject "LineDraw" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAE451831F459A9A00ACB347;
+			productRefGroup = AAE4518D1F459A9A00ACB347 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAE4518B1F459A9A00ACB347 /* LineDraw */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAE4518A1F459A9A00ACB347 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA53B8A11F48231900626A0C /* Assets.xcassets in Resources */,
+				AA53B8A31F48231900626A0C /* ColorPickerController.xib in Resources */,
+				AA53B89F1F48231900626A0C /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAE451881F459A9A00ACB347 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA53B8A61F48231900626A0C /* Extensions.swift in Sources */,
+				AA53B8A51F48231900626A0C /* DrawViewController.swift in Sources */,
+				AA53B8A21F48231900626A0C /* CollectionEx.swift in Sources */,
+				AA53B8A71F48231900626A0C /* Line.swift in Sources */,
+				AA53B8A01F48231900626A0C /* AppDelegate.swift in Sources */,
+				AA53B8A41F48231900626A0C /* DrawView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AAE4519C1F459A9A00ACB347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAE4519D1F459A9A00ACB347 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAE4519F1F459A9A00ACB347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 5R8HH5SP77;
+				INFOPLIST_FILE = "$(SRCROOT)/LineDraw/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.linedraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		AAE451A01F459A9A00ACB347 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 5R8HH5SP77;
+				INFOPLIST_FILE = "$(SRCROOT)/LineDraw/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.linedraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAE451871F459A9A00ACB347 /* Build configuration list for PBXProject "LineDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE4519C1F459A9A00ACB347 /* Debug */,
+				AAE4519D1F459A9A00ACB347 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAE4519E1F459A9A00ACB347 /* Build configuration list for PBXNativeTarget "LineDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE4519F1F459A9A00ACB347 /* Debug */,
+				AAE451A01F459A9A00ACB347 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAE451841F459A9A00ACB347 /* Project object */;
+}

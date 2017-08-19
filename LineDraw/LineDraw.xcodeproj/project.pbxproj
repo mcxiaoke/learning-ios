@@ -263,6 +263,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5R8HH5SP77;
 				INFOPLIST_FILE = "$(SRCROOT)/LineDraw/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.linedraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -278,6 +279,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5R8HH5SP77;
 				INFOPLIST_FILE = "$(SRCROOT)/LineDraw/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.linedraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";

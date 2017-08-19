@@ -31,6 +31,10 @@ extension CGFloat {
     static func random() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
+    
+    static func random(_ max: UInt32) -> CGFloat {
+        return CGFloat(arc4random() % max)
+    }
 }
 
 extension UIColor {
@@ -39,6 +43,13 @@ extension UIColor {
                        green: .random(),
                        blue:  .random(),
                        alpha: 1.0)
+    }
+    
+    static func random2() -> UIColor {
+        return UIColor(hue: .random(256)/256.0,
+                       saturation: .random(256)/256.0,
+                       brightness: .random(256)/256.0,
+                       alpha:1)
     }
     
     // http://crunchybagel.com/working-with-hex-colors-in-swift-3/

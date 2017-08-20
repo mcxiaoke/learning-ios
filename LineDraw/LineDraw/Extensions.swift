@@ -8,6 +8,36 @@
 
 import UIKit
 
+extension Array where Element: Equatable {
+    
+    static func -= (lhs: inout Array, rhs: Element) {
+        lhs.remove(object: rhs)
+    }
+    
+    static func += (lhs: inout Array, rhs: Element) {
+        lhs.append(rhs)
+    }
+    
+    @discardableResult mutating func remove(object: Element) -> Bool {
+        if let index = index(of: object) {
+            self.remove(at: index)
+            return true
+        }
+        return false
+    }
+    
+    @discardableResult mutating func remove(where predicate: (Array.Iterator.Element) -> Bool) -> Bool {
+        if let index = self.index(where: { (element) -> Bool in
+            return predicate(element)
+        }) {
+            self.remove(at: index)
+            return true
+        }
+        return false
+    }
+    
+}
+
 extension CGPoint : Hashable {
     func distance(point: CGPoint) -> Float {
         let dx = Float(x - point.x)

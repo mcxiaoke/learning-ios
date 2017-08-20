@@ -10,7 +10,6 @@
 		AA53B89F1F48231900626A0C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA53B8961F48231900626A0C /* Info.plist */; };
 		AA53B8A01F48231900626A0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B8971F48231900626A0C /* AppDelegate.swift */; };
 		AA53B8A11F48231900626A0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA53B8981F48231900626A0C /* Assets.xcassets */; };
-		AA53B8A21F48231900626A0C /* CollectionEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B8991F48231900626A0C /* CollectionEx.swift */; };
 		AA53B8A31F48231900626A0C /* ColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA53B89A1F48231900626A0C /* ColorPickerController.xib */; };
 		AA53B8A41F48231900626A0C /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B89B1F48231900626A0C /* DrawView.swift */; };
 		AA53B8A51F48231900626A0C /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B89C1F48231900626A0C /* DrawViewController.swift */; };
@@ -22,7 +21,6 @@
 		AA53B8961F48231900626A0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LineDraw/Info.plist; sourceTree = SOURCE_ROOT; };
 		AA53B8971F48231900626A0C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LineDraw/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		AA53B8981F48231900626A0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LineDraw/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		AA53B8991F48231900626A0C /* CollectionEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionEx.swift; path = LineDraw/CollectionEx.swift; sourceTree = SOURCE_ROOT; };
 		AA53B89A1F48231900626A0C /* ColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorPickerController.xib; path = LineDraw/ColorPickerController.xib; sourceTree = SOURCE_ROOT; };
 		AA53B89B1F48231900626A0C /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawView.swift; path = LineDraw/DrawView.swift; sourceTree = SOURCE_ROOT; };
 		AA53B89C1F48231900626A0C /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawViewController.swift; path = LineDraw/DrawViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -64,7 +62,6 @@
 				AA53B8961F48231900626A0C /* Info.plist */,
 				AA53B8971F48231900626A0C /* AppDelegate.swift */,
 				AA53B8981F48231900626A0C /* Assets.xcassets */,
-				AA53B8991F48231900626A0C /* CollectionEx.swift */,
 				AA53B89A1F48231900626A0C /* ColorPickerController.xib */,
 				AA53B89B1F48231900626A0C /* DrawView.swift */,
 				AA53B89C1F48231900626A0C /* DrawViewController.swift */,
@@ -151,7 +148,6 @@
 			files = (
 				AA53B8A61F48231900626A0C /* Extensions.swift in Sources */,
 				AA53B8A51F48231900626A0C /* DrawViewController.swift in Sources */,
-				AA53B8A21F48231900626A0C /* CollectionEx.swift in Sources */,
 				AA53B8A71F48231900626A0C /* Line.swift in Sources */,
 				AA53B8A01F48231900626A0C /* AppDelegate.swift in Sources */,
 				AA53B8A41F48231900626A0C /* DrawView.swift in Sources */,

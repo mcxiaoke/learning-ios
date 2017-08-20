@@ -9,6 +9,10 @@
 import UIKit
 
 class DrawViewController: UIViewController {
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func loadView() {
         self.view = DrawView(frame:UIScreen.main.bounds)

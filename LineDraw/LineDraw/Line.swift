@@ -11,7 +11,7 @@ import UIKit
 class Line: NSObject, NSCoding, NSCopying {
     var begin: CGPoint
     var end: CGPoint
-    var width: CGFloat = 10
+    var width: Int = 10
     var color: UIColor = UIColor.random()
     
     init?(dict:[String:CGPoint]) {

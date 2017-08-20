@@ -15,7 +15,7 @@ class DrawView: UIView {
     var bottomLeftCorner:CGRect = CGRect.zero
     var bottomRightCorner:CGRect = CGRect.zero
     
-    var currentWidth:CGFloat = 10
+    var currentWidth:Int = 10
     var currentLines:[NSValue:Line] = [:]
     var finishedLines:[Line] = []
     weak var selectedLine:Line?
@@ -42,11 +42,13 @@ class DrawView: UIView {
 //        load()
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gs:)))
         doubleTap.numberOfTapsRequired = 2
+        doubleTap.numberOfTouchesRequired = 1
         doubleTap.delaysTouchesBegan = true
         self.addGestureRecognizer(doubleTap)
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTap(gs:)))
         singleTap.numberOfTapsRequired = 1
+        singleTap.numberOfTouchesRequired = 1
         singleTap.require(toFail: doubleTap)
         singleTap.delaysTouchesBegan = true
         //self.addGestureRecognizer(singleTap)
@@ -56,6 +58,7 @@ class DrawView: UIView {
         
         let move = UIPanGestureRecognizer(target: self, action: #selector(move(gs:)))
         move.delegate = self
+        move.maximumNumberOfTouches = 1
         move.cancelsTouchesInView = false
         self.moveRecongnizer = move
         self.addGestureRecognizer(move)
@@ -74,12 +77,16 @@ class DrawView: UIView {
         self.cornerSize = size
         self.topLeftCorner = CGRect(x: 0, y: 0,
                                     width: size, height: size)
-        self.topRightCorner = CGRect(x: 0, y: width - size,
+        self.topRightCorner = CGRect(x: width - size, y: 0,
                                      width: size, height: size)
         self.bottomLeftCorner = CGRect(x: 0, y: height - size,
                                        width: size, height: size)
         self.bottomRightCorner = CGRect(x: width - size, y: height - size,
                                         width: size, height: size)
+        print("topLeftCorner=\(topLeftCorner)")
+        print("topRightCorner=\(topRightCorner)")
+        print("bottomLeftCorner=\(bottomLeftCorner)")
+        print("bottomRightCorner=\(bottomRightCorner)")
     }
     
 //    func threeSwipe(gs:UIGestureRecognizer) {
@@ -115,23 +122,30 @@ class DrawView: UIView {
     
     func doubleTap(gs: UIGestureRecognizer) {
         let point = gs.location(in: self)
-        print("doubleTap point=\(point) rect=\(bottomRightCorner)")
-        guard self.finishedLines.count > 0 else { return }
-        
+        print("doubleTap point=\(point)")
         if topLeftCorner.contains(point) {
-        
+            clearAll()
         } else if topRightCorner.contains(point) {
-        
+            removeLast()
         } else if bottomLeftCorner.contains(point) {
-            self.currentLines.removeAll()
-            self.finishedLines.removeAll()
-            setNeedsDisplay()
+            clearAll()
         } else if bottomRightCorner.contains(point) {
-            self.finishedLines.removeLast()
-            setNeedsDisplay()
+            removeLast()
         } else {
             checkPoint(point)
         }
+    }
+    
+    func clearAll() {
+        self.currentLines.removeAll()
+        self.finishedLines.removeAll()
+        setNeedsDisplay()
+    }
+    
+    func removeLast() {
+        guard self.finishedLines.count > 0 else { return }
+        self.finishedLines.removeLast()
+        setNeedsDisplay()
     }
     
     func checkPoint(_ point: CGPoint) {
@@ -154,7 +168,7 @@ class DrawView: UIView {
         let velocity = gs.velocity(in: self)
         // min=0 20px max=6000 5px
         let speed = min(sqrt(velocity.x*velocity.x + velocity.y*velocity.y), 6000)
-        self.currentWidth = max(20 - speed/6000 * 20, 2)
+        self.currentWidth = max(Int(20 - speed/6000 * 20), 2)
 //        print("updateSpeed speed=\(speed) currentWidth=\(currentWidth)")
     }
     
@@ -243,7 +257,32 @@ class DrawView: UIView {
         return true
     }
     
+    func drawRect(_ rect: CGRect, fill: Bool) {
+        let bp = UIBezierPath()
+        bp.move(to: CGPoint(x: rect.minX, y: rect.minY))
+        bp.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+        bp.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        bp.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+        bp.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+        if fill {
+            bp.fill()
+        } else {
+            bp.stroke()
+        }
+        
+    }
+    
+    func drawCorners() {
+        UIColor(hex: "F8F8F8").set()
+        drawRect(topLeftCorner, fill: false)
+        drawRect(topRightCorner, fill: false)
+        drawRect(bottomLeftCorner, fill: false)
+        drawRect(bottomRightCorner, fill: false)
+    }
+    
     override func draw(_ rect: CGRect) {
+        drawCorners()
+        
         for line in finishedLines {
             line.color.set()
             strokeLine(line)
@@ -260,9 +299,9 @@ class DrawView: UIView {
         }
     }
     
-    func strokeLine(_ line: Line, width: CGFloat? = nil) {
+    func strokeLine(_ line: Line, width: Int? = nil) {
         let bp = UIBezierPath()
-        bp.lineWidth = width ?? line.width
+        bp.lineWidth = CGFloat(width ?? line.width)
         bp.lineCapStyle = .round
         bp.move(to: line.begin)
         bp.addLine(to: line.end)

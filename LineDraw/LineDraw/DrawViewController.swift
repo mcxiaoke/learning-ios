@@ -21,5 +21,10 @@ class DrawViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("viewWillTransition to \(size) with \(coordinator)")
+        self.view = DrawView(frame:UIScreen.main.bounds)
+    }
 }
 

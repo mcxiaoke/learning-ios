@@ -8,6 +8,29 @@
 
 import UIKit
 
+extension UIResponder {
+    var viewController: UIViewController? {
+        return self as? UIViewController ?? next?.viewController
+//        if let vc = self as? UIViewController {
+//            return vc
+//        }
+//        
+//        return next?.viewController
+    }
+}
+
+extension UIImage{
+    convenience init(view: UIView) {
+        
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage)!)
+        
+    }
+}
+
 extension Array where Element: Equatable {
     
     static func -= (lhs: inout Array, rhs: Element) {

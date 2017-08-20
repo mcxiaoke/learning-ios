@@ -8,6 +8,8 @@
 
 import UIKit
 
+let DrawViewStateSaveKey = "DrawViewStateSaveKey_1"
+
 class DrawView: UIView {
     var cornerSize:CGFloat = 0
     var topLeftCorner:CGRect = CGRect.zero
@@ -39,7 +41,6 @@ class DrawView: UIView {
         
         self.isMultipleTouchEnabled = true
         self.backgroundColor = UIColor.white
-//        load()
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gs:)))
         doubleTap.numberOfTapsRequired = 2
         doubleTap.numberOfTouchesRequired = 1
@@ -68,6 +69,8 @@ class DrawView: UIView {
 //        threeSwipe.cancelsTouchesInView = true
 //        threeSwipe.direction = .up
 //        self.addGestureRecognizer(threeSwipe)
+        
+        loadState()
     }
     
     func setupCorners() {
@@ -126,26 +129,120 @@ class DrawView: UIView {
         if topLeftCorner.contains(point) {
             clearAll()
         } else if topRightCorner.contains(point) {
-            removeLast()
+            shareImage()
         } else if bottomLeftCorner.contains(point) {
-            clearAll()
-        } else if bottomRightCorner.contains(point) {
             removeLast()
+        } else if bottomRightCorner.contains(point) {
+            saveImage()
         } else {
             checkPoint(point)
         }
     }
     
-    func clearAll() {
-        self.currentLines.removeAll()
-        self.finishedLines.removeAll()
-        setNeedsDisplay()
-    }
     
+    // top left
     func removeLast() {
         guard self.finishedLines.count > 0 else { return }
         self.finishedLines.removeLast()
         setNeedsDisplay()
+        saveState()
+    }
+    
+    // bottom left
+    func clearAll() {
+        let ac = UIAlertController(title: "Clear Canvas", message: "Are you sure to clear this canvas ?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [weak self] (action) in
+            print("clearAll OK")
+            if let wself = self {
+                wself.currentLines.removeAll()
+                wself.finishedLines.removeAll()
+                wself.setNeedsDisplay()
+                wself.clearState()
+            }
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            print("clearAll Cancel")
+        }))
+        self.viewController?.present(ac, animated: true, completion: nil)
+    }
+    
+    
+    // top right
+    func shareImage() {
+        let ac = UIAlertController(title: "Share Image", message: "Are you sure to share this image ?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
+            print("shareImage OK")
+            self?.showShareImage()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            print("shareImage Cancel")
+        }))
+        self.viewController?.present(ac, animated: true, completion: nil)
+    }
+    
+    // bottom right
+    func saveImage() {
+        let image = UIImage(view: self)
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(onImageSaved(_:didFinishSavingWithError:contextInfo:)), nil)
+        
+        DispatchQueue.global().async { [unowned self] in
+            let file = self.getSaveImageFile()
+            do {
+                try UIImagePNGRepresentation(image)?.write(to: file, options: .atomicWrite)
+                print("saveImage file=\(file)")
+                try FileManager.default.removeItem(at: file)
+            } catch {
+                print("saveImage error=\(error)")
+            }
+        }
+        
+    }
+    
+    func showShareImage() {
+        let file = self.getSaveImageFile()
+        DispatchQueue.global().async { [unowned self] in
+            let image = UIImage(view: self)
+            do {
+                try UIImagePNGRepresentation(image)?.write(to: file, options: .atomicWrite)
+                print("showShareImage file=\(file)")
+                DispatchQueue.main.async {
+                    print("showShareImage show share 1")
+                    let av = UIActivityViewController(activityItems: [file], applicationActivities: nil)
+                    print("showShareImage show share 2")
+                    self.viewController?.present(av, animated: true, completion: nil)
+                }
+                //                try FileManager.default.removeItem(at: file)
+            } catch {
+                print("showShareImage error=\(error)")
+            }
+        }
+    }
+    
+    func onImageSaved(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer?) {
+        if let error = error {
+            print("onImageSaved error=\(error)")
+            let ac = UIAlertController(title: "Save Failed", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+            self.viewController?.present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Image Saved", message: "Image saved to photo library.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+            self.viewController?.present(ac, animated: true)
+        }
+    }
+    
+    func getSaveImageFile() -> URL {
+        let cacheDir = try! FileManager.default.url(for: .cachesDirectory,
+                                                   in: .userDomainMask,
+                                                   appropriateFor: nil,
+                                                   create: true)
+        let imagesDir = cacheDir.appendingPathComponent("images")
+        do {
+            try FileManager.default.createDirectory(at: imagesDir, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print(error)
+        }
+        return imagesDir.appendingPathComponent("\(Date().hashValue).png")
     }
     
     func checkPoint(_ point: CGPoint) {
@@ -225,12 +322,12 @@ class DrawView: UIView {
         return nil
     }
     
-    func getLinesStoreFile() -> String {
+    func getSaveStateFile() -> String {
         let fileDir = try! FileManager.default.url(for: .documentDirectory,
                                                    in: .userDomainMask,
                                                    appropriateFor: nil,
                                                    create: true)
-        return fileDir.appendingPathComponent("finishedLines.dat").path
+        return fileDir.appendingPathComponent(DrawViewStateSaveKey).path
     }
     
     func getColorsStoreFile() -> String {
@@ -238,16 +335,23 @@ class DrawView: UIView {
                                                    in: .userDomainMask,
                                                    appropriateFor: nil,
                                                    create: true)
-        return fileDir.appendingPathComponent("finishedLineColors.dat").path
+        return fileDir.appendingPathComponent(DrawViewStateSaveKey).path
     }
     
-    func save() {
-        let ret = NSKeyedArchiver.archiveRootObject(self.finishedLines, toFile: getLinesStoreFile())
+    func saveState() {
+        let ret = NSKeyedArchiver.archiveRootObject(self.finishedLines, toFile: getSaveStateFile())
         print("save result=\(ret)")
     }
     
-    func load() {
-        if let lines = NSKeyedUnarchiver.unarchiveObject(withFile: getLinesStoreFile()) as? [Line] {
+    func clearState() {
+        let _ = try? FileManager.default.removeItem(atPath: getSaveStateFile())
+    }
+    
+    func loadState() {
+        let file = getSaveStateFile()
+        guard FileManager.default.fileExists(atPath: file) else { return }
+        print("load")
+        if let lines = NSKeyedUnarchiver.unarchiveObject(withFile: file) as? [Line] {
             self.finishedLines = lines
         }
         setNeedsDisplay()
@@ -281,7 +385,7 @@ class DrawView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        drawCorners()
+//        drawCorners()
         
         for line in finishedLines {
             line.color.set()
@@ -344,7 +448,7 @@ class DrawView: UIView {
             }
         }
         setNeedsDisplay()
-//        save()
+        saveState()
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -354,7 +458,7 @@ class DrawView: UIView {
             self.currentLines[key] = nil
         }
         setNeedsDisplay()
-//        save()
+        saveState()
     }
     
 }

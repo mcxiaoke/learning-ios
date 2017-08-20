@@ -35,11 +35,17 @@ class Line: NSObject, NSCoding, NSCopying {
     required init?(coder aDecoder: NSCoder) {
         self.begin = aDecoder.decodeCGPoint(forKey: "begin")
         self.end = aDecoder.decodeCGPoint(forKey: "end")
+        self.width = aDecoder.decodeInteger(forKey: "width")
+        if let colorHex = aDecoder.decodeObject(forKey: "color") as? String {
+            self.color = UIColor(hex: colorHex)
+        }
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.begin, forKey: "begin")
         aCoder.encode(self.end, forKey: "end")
+        aCoder.encode(self.width, forKey: "width")
+        aCoder.encode(self.color.toHexString, forKey: "color")
     }
     
     func copy(with zone: NSZone? = nil) -> Any {

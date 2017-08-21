@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        Logger.log("logger", event: .w)
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let dvc = DrawViewController()
         self.window?.rootViewController = dvc

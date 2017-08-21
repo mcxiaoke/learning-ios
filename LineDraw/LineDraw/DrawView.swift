@@ -199,6 +199,21 @@ class DrawView: UIView {
     }
     
     func showShareImage() {
+    let image = UIImage(view: self)
+        print("showShareImage image=\(image)")
+        let av = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        av.excludedActivityTypes = [.assignToContact, .print, .addToReadingList]
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            var frame = self.bounds
+            frame.origin.x = frame.size.width
+            frame.size.height /= 2
+            av.popoverPresentationController?.sourceView = self
+            av.popoverPresentationController?.sourceRect = frame
+        }
+        self.viewController?.present(av, animated: true, completion: nil)
+    }
+    
+    func showShareImageFile() {
         let file = self.getSaveImageFile()
         DispatchQueue.global().async { [unowned self] in
             let image = UIImage(view: self)
@@ -206,9 +221,14 @@ class DrawView: UIView {
                 try UIImagePNGRepresentation(image)?.write(to: file, options: .atomicWrite)
                 print("showShareImage file=\(file)")
                 DispatchQueue.main.async {
-                    print("showShareImage show share 1")
                     let av = UIActivityViewController(activityItems: [file], applicationActivities: nil)
-                    print("showShareImage show share 2")
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        var frame = self.bounds
+                        frame.origin.x = frame.size.width
+                        frame.size.height /= 2
+                        av.popoverPresentationController?.sourceView = self
+                        av.popoverPresentationController?.sourceRect = frame
+                    }
                     self.viewController?.present(av, animated: true, completion: nil)
                 }
                 //                try FileManager.default.removeItem(at: file)

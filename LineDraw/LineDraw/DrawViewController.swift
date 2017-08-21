@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import SnapKit
 
 class DrawViewController: UIViewController {
+    var drawView: DrawView!
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
 
     override func loadView() {
-        self.view = DrawView(frame:UIScreen.main.bounds)
+        self.view = UIView(frame: UIScreen.main.bounds)
+        self.drawView = DrawView(frame:UIScreen.main.bounds)
+        self.view.addSubview(self.drawView)
+        self.drawView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(0, 0, 0, 0))
+        }
     }
     
     override func viewDidLoad() {

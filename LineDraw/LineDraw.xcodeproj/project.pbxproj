@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA53B89F1F48231900626A0C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA53B8961F48231900626A0C /* Info.plist */; };
+		53A188EBBA20C058419EEDE6 /* Pods_LineDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A06FFC9B7149FE35ACCCF80 /* Pods_LineDraw.framework */; };
+		AA4BF1C41F4AAC9F003F8C9B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BF1C31F4AAC9F003F8C9B /* Logger.swift */; };
 		AA53B8A01F48231900626A0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53B8971F48231900626A0C /* AppDelegate.swift */; };
 		AA53B8A11F48231900626A0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA53B8981F48231900626A0C /* Assets.xcassets */; };
 		AA53B8A31F48231900626A0C /* ColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA53B89A1F48231900626A0C /* ColorPickerController.xib */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E301452311AA7B95CBEFA74 /* Pods-LineDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LineDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-LineDraw/Pods-LineDraw.release.xcconfig"; sourceTree = "<group>"; };
+		3A06FFC9B7149FE35ACCCF80 /* Pods_LineDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LineDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA4BF1C31F4AAC9F003F8C9B /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = LineDraw/Logger.swift; sourceTree = SOURCE_ROOT; };
 		AA53B8961F48231900626A0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LineDraw/Info.plist; sourceTree = SOURCE_ROOT; };
 		AA53B8971F48231900626A0C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LineDraw/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		AA53B8981F48231900626A0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LineDraw/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -27,6 +31,7 @@
 		AA53B89D1F48231900626A0C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = LineDraw/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		AA53B89E1F48231900626A0C /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Line.swift; path = LineDraw/Line.swift; sourceTree = SOURCE_ROOT; };
 		AAE4518C1F459A9A00ACB347 /* LineDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC618D8C82EDD7EADF3BA539 /* Pods-LineDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LineDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LineDraw/Pods-LineDraw.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A188EBBA20C058419EEDE6 /* Pods_LineDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4557DB44F523B7A8054464 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A06FFC9B7149FE35ACCCF80 /* Pods_LineDraw.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37A698F39953FDC629F94FF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC618D8C82EDD7EADF3BA539 /* Pods-LineDraw.debug.xcconfig */,
+				0E301452311AA7B95CBEFA74 /* Pods-LineDraw.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AAE451831F459A9A00ACB347 = {
 			isa = PBXGroup;
 			children = (
 				AAE4518E1F459A9A00ACB347 /* LineDraw */,
 				AAE4518D1F459A9A00ACB347 /* Products */,
+				37A698F39953FDC629F94FF9 /* Pods */,
+				2F4557DB44F523B7A8054464 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +92,7 @@
 				AA53B89C1F48231900626A0C /* DrawViewController.swift */,
 				AA53B89D1F48231900626A0C /* Extensions.swift */,
 				AA53B89E1F48231900626A0C /* Line.swift */,
+				AA4BF1C31F4AAC9F003F8C9B /* Logger.swift */,
 			);
 			name = LineDraw;
 			path = TouchTracker;
@@ -79,9 +105,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAE4519E1F459A9A00ACB347 /* Build configuration list for PBXNativeTarget "LineDraw" */;
 			buildPhases = (
+				B79DF2FE396CD152914ED8D2 /* [CP] Check Pods Manifest.lock */,
 				AAE451881F459A9A00ACB347 /* Sources */,
 				AAE451891F459A9A00ACB347 /* Frameworks */,
 				AAE4518A1F459A9A00ACB347 /* Resources */,
+				306709C370C8D84C16E0199A /* [CP] Embed Pods Frameworks */,
+				025113ADE9537567B21EB666 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,11 +164,66 @@
 			files = (
 				AA53B8A11F48231900626A0C /* Assets.xcassets in Resources */,
 				AA53B8A31F48231900626A0C /* ColorPickerController.xib in Resources */,
-				AA53B89F1F48231900626A0C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		025113ADE9537567B21EB666 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LineDraw/Pods-LineDraw-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		306709C370C8D84C16E0199A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LineDraw/Pods-LineDraw-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LineDraw/Pods-LineDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B79DF2FE396CD152914ED8D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LineDraw-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AAE451881F459A9A00ACB347 /* Sources */ = {
@@ -147,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA53B8A61F48231900626A0C /* Extensions.swift in Sources */,
+				AA4BF1C41F4AAC9F003F8C9B /* Logger.swift in Sources */,
 				AA53B8A51F48231900626A0C /* DrawViewController.swift in Sources */,
 				AA53B8A71F48231900626A0C /* Line.swift in Sources */,
 				AA53B8A01F48231900626A0C /* AppDelegate.swift in Sources */,
@@ -254,6 +339,7 @@
 		};
 		AAE4519F1F459A9A00ACB347 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC618D8C82EDD7EADF3BA539 /* Pods-LineDraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -261,6 +347,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/LineDraw/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.linedraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -270,6 +357,7 @@
 		};
 		AAE451A01F459A9A00ACB347 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E301452311AA7B95CBEFA74 /* Pods-LineDraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IDMPhotoBrowser
 
 class ItemCell: UITableViewCell {
     @IBOutlet weak var thumbView: UIImageView!
@@ -108,10 +109,30 @@ class ItemsViewController: UITableViewController {
             cell.config(item)
         cell.thumbClickBlock = { [weak self, weak cell] key in
             guard let cell = cell else { return }
-            self?.showImageViewController(key, at: cell)
+            self?.showImageViewController2(key, at: cell)
         }
 //        }
         return cell
+    }
+    
+    func showImageViewController2(_ key: String, at cell: ItemCell) {
+        guard let image = ImageStore.shared.image(forKey: key) else { return }
+        let photo = IDMPhoto(image: image)!
+        let ivc = IDMPhotoBrowser.init(photos: [photo], animatedFrom: cell.thumbView)!
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            ivc.preferredContentSize = CGSize(width: 600, height: 600)
+            // if no this line, ivc.popoverPresentationController is nil
+            ivc.modalPresentationStyle = .popover
+            if let popover = ivc.popoverPresentationController {
+                popover.delegate = self
+                popover.backgroundColor = UIColor.darkGray
+                popover.permittedArrowDirections = .any
+                popover.sourceView = cell.thumbButton
+                popover.sourceRect = cell.thumbButton.bounds
+            }
+            
+        }
+        self.present(ivc, animated: true, completion: nil)
     }
     
     func showImageViewController(_ key: String, at cell: ItemCell) {

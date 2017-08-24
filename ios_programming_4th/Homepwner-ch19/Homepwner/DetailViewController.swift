@@ -142,12 +142,13 @@ class DetailViewController: UIViewController {
     @IBAction func takePicture(_ sender: Any) {
         saveEdit()
         let imagePicker = UIImagePickerController()
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
-        imagePicker.allowsEditing = true
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            imagePicker.sourceType = .camera
+//        } else {
+//            imagePicker.sourceType = .photoLibrary
+//        }
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
         imagePicker.delegate = self
         
         if UIDevice.current.userInterfaceIdiom == .pad {

@@ -62,7 +62,7 @@ class ImageStore: AnyObject {
         print("setImage for \(key)")
         images[key] = image
         thumbs[key] = image.getThumb()
-        guard let data = UIImageJPEGRepresentation(image, 0.8) else { return }
+        guard let data = UIImageJPEGRepresentation(image, 0.9) else { return }
         do {
             try data.write(to: path, options: .atomic)
             print("setImage write success")

@@ -11,6 +11,7 @@ import IDMPhotoBrowser
 
 class ItemsViewController: UIViewController {
     var collectionView: UICollectionView!
+    var removeMode = false
     
     override func loadView() {
         super.loadView()
@@ -36,6 +37,8 @@ class ItemsViewController: UIViewController {
         cv.bouncesZoom = true
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
+        cv.allowsMultipleSelection = false
+        cv.allowsSelection = false
         self.collectionView = cv
         self.view = cv
     }
@@ -53,14 +56,28 @@ class ItemsViewController: UIViewController {
     }
     
     @IBAction func toggleEditMode(_ sender: AnyObject) {
-        print("toggleEditMode \(self.isEditing)")
-        guard let v = sender as? UIButton else { return }
-        if self.isEditing {
-            v.setTitle("Edit", for: .normal)
-            self.isEditing = false
+        if self.removeMode {
+            print("toggleEditMode quit edit mode")
+            self.navigationItem.leftBarButtonItem?.title = "Edit"
+            self.removeMode = false
+//            self.collectionView.allowsSelection = true
+            var indexPaths: [IndexPath] = []
+            ItemStore.shared.allItems.enumerated().forEach({ (index, item) in
+                if item.isSelected {
+                    indexPaths.append(IndexPath(item: index, section: 0))
+                }
+            })
+            if indexPaths.count > 0 {
+                ItemStore.shared.allItems = ItemStore.shared.allItems.filter {!$0.isSelected}
+                self.collectionView.deleteItems(at: indexPaths)
+                self.collectionView.reloadData()
+                let _ = ItemStore.shared.save()
+            }
         } else {
-            v.setTitle("Done", for: .normal)
-            self.isEditing = true
+            print("toggleEditMode enter edit mode")
+            self.navigationItem.leftBarButtonItem?.title = "Remove"
+            self.removeMode = true
+//            self.collectionView.allowsSelection = false
         }
     }
 
@@ -70,24 +87,50 @@ class ItemsViewController: UIViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: "CollectionItemCell")
         self.navigationItem.title = "Homepwner"
         let newButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem(_:)))
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        let removeButtonItem = UIBarButtonItem.init(title: "Edit", style: .plain, target: self, action: #selector(toggleEditMode(_:)))
+        self.navigationItem.leftBarButtonItem = removeButtonItem
         self.navigationItem.rightBarButtonItem = newButtonItem
         
         let doubleTap = UITapGestureRecognizer.init(target: self, action: #selector(doubleTap(_:)))
         doubleTap.numberOfTapsRequired = 2
         doubleTap.numberOfTouchesRequired = 1
         doubleTap.delaysTouchesBegan = true
-        doubleTap.cancelsTouchesInView = false
+        
+        let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(singleTap(_:)))
+        singleTap.numberOfTapsRequired = 1
+        singleTap.numberOfTouchesRequired = 1
+        singleTap.require(toFail: doubleTap)
+        
         self.collectionView.addGestureRecognizer(doubleTap)
+        self.collectionView.addGestureRecognizer(singleTap)
+        
+        print("viewDidLoad")
     }
     
     func doubleTap(_ gs: UITapGestureRecognizer) {
+        print("doubleTap")
+        guard !self.removeMode else { return }
         let point = gs.location(in: self.collectionView)
         if let indexPath = self.collectionView.indexPathForItem(at: point) {
             print("doubleTap at:\(point) index:\(indexPath)")
             removeItem(at: indexPath)
         }
-        
+    }
+    
+    func singleTap(_ gs: UITapGestureRecognizer) {
+        print("singleTap")
+        let point = gs.location(in: self.collectionView)
+        guard let indexPath = self.collectionView.indexPathForItem(at: point) else { return }
+        print("singleTap at:\(point) index:\(indexPath)")
+        let item = ItemStore.shared.allItems[indexPath.row]
+        if self.removeMode {
+            item.isSelected = !item.isSelected
+            self.collectionView.reloadItems(at: [indexPath])
+        } else {
+            let dvc = DetailViewController()
+            dvc.item = item
+            showModalViewController(vc: dvc)
+        }
     }
     
     func removeItem(at indexPath: IndexPath) {
@@ -151,9 +194,13 @@ class ItemsViewController: UIViewController {
 
 }
 
+let checkOverlaySelectedColor  = UIColor(white: 1.0, alpha: 0.3)
+
 class CollectionItemCell: UICollectionViewCell {
     @IBOutlet weak var thumbView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var checkMark: UIImageView!
+    @IBOutlet weak var checkOverlay: UIView!
     
     var item: Item?
     var thumbClickBlock: ((String)->Void)?
@@ -169,20 +216,14 @@ class CollectionItemCell: UICollectionViewCell {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        print("thumb frame=\(self.thumbView.frame)")
-        print("label frame=\(self.nameLabel.frame)")
-        print("cell frame=\(self.frame)")
-    }
-    
     func config(_ item: Item) {
         self.item = item
-        self.nameLabel.text = item.itemName
-        self.nameLabel.sizeToFit()
         let thumb = ImageStore.shared.thumb(forKey: item.key)
-        self.thumbView.image = thumb
-        print("thumb size=\(thumb?.size)")
+        self.thumbView.image = thumb ?? ImageStore.shared.placeholder
+        self.nameLabel.text = item.itemName
+        self.checkMark.isHidden  = !item.isSelected
+        self.checkOverlay.backgroundColor = item.isSelected ? checkOverlaySelectedColor : UIColor.clear
+        print("thumb size=\(String(describing: thumb?.size)) for \(item)")
     }
 }
 
@@ -207,11 +248,17 @@ extension ItemsViewController: UICollectionViewDataSource {
 
 extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print("shouldSelectItemAt \(indexPath) \(!self.removeMode)")
+        return false
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("collectionView didSelectItemAt \(indexPath)")
-        let dvc = DetailViewController()
-        dvc.item = ItemStore.shared.allItems[indexPath.row]
-        showModalViewController(vc: dvc)
+        // ignore this, using singleTap instead
+//        print("collectionView didSelectItemAt \(indexPath)")
+//        let dvc = DetailViewController()
+//        dvc.item = ItemStore.shared.allItems[indexPath.row]
+//        showModalViewController(vc: dvc)
     }
 
 }

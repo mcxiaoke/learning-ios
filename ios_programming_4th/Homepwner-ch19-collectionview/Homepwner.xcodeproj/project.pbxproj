@@ -22,6 +22,8 @@
 		AA5B86CB1F4445F900105CF0 /* CollectionEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B86CA1F4445F900105CF0 /* CollectionEx.swift */; };
 		AA7925D31F4ED38400E6D659 /* CenterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7925D21F4ED38400E6D659 /* CenterScrollView.swift */; };
 		AA862D7D1F4FD5D500F4D28A /* CollectionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA862D7C1F4FD5D500F4D28A /* CollectionItemCell.xib */; };
+		AA862D7F1F50023500F4D28A /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA862D7E1F50023500F4D28A /* placeholder.jpg */; };
+		AA862D811F50052200F4D28A /* placeholder2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA862D801F50052200F4D28A /* placeholder2.jpg */; };
 		AAE4517C1F456B4400ACB347 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4517B1F456B4400ACB347 /* DetailViewController.swift */; };
 		AAE4517E1F456B8400ACB347 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE4517D1F456B8400ACB347 /* DetailViewController.xib */; };
 		AAE451821F45816400ACB347 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE451811F45816400ACB347 /* ImageStore.swift */; };
@@ -44,6 +46,8 @@
 		AA5B86CA1F4445F900105CF0 /* CollectionEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionEx.swift; sourceTree = "<group>"; };
 		AA7925D21F4ED38400E6D659 /* CenterScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterScrollView.swift; sourceTree = "<group>"; };
 		AA862D7C1F4FD5D500F4D28A /* CollectionItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionItemCell.xib; sourceTree = "<group>"; };
+		AA862D7E1F50023500F4D28A /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
+		AA862D801F50052200F4D28A /* placeholder2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder2.jpg; sourceTree = "<group>"; };
 		AAE4517B1F456B4400ACB347 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AAE4517D1F456B8400ACB347 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		AAE451811F45816400ACB347 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		AA338DA01F442D330016E9E9 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				AA862D801F50052200F4D28A /* placeholder2.jpg */,
+				AA862D7E1F50023500F4D28A /* placeholder.jpg */,
 				AA338DA11F442D330016E9E9 /* AppDelegate.swift */,
 				AA338DA31F442D330016E9E9 /* ItemsViewController.swift */,
 				AA338DA81F442D330016E9E9 /* Assets.xcassets */,
@@ -191,6 +197,8 @@
 				AA5B86C91F443F4100105CF0 /* HeaderView.xib in Resources */,
 				AA338DAC1F442D330016E9E9 /* LaunchScreen.storyboard in Resources */,
 				AA4374251F4E847200975948 /* ItemCell.xib in Resources */,
+				AA862D811F50052200F4D28A /* placeholder2.jpg in Resources */,
+				AA862D7F1F50023500F4D28A /* placeholder.jpg in Resources */,
 				AA338DA91F442D330016E9E9 /* Assets.xcassets in Resources */,
 				AAE4517E1F456B8400ACB347 /* DetailViewController.xib in Resources */,
 			);
@@ -241,6 +249,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Homepwner/Pods-Homepwner-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/IDMPhotoBrowser/IDMPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/NYTPhotoViewer/NYTPhotoViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -251,6 +260,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYTPhotoViewer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",

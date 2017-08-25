@@ -16,13 +16,17 @@ class ImageStore: AnyObject {
     private var thumbs: [String: UIImage] = [:]
     
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(clearCache(noti:)), name: .UIApplicationDidReceiveMemoryWarning, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clearCache(noti:)),
+                                               name: .UIApplicationDidReceiveMemoryWarning,
+                                               object: nil)
     }
     
     @objc func clearCache(noti: Notification) {
-        print("low memory, clear cache")
         images.removeAll()
     }
+    
+    lazy var placeholder = UIImage(named: "placeholder.jpg")?.getThumb(ImageStore.shared.thumbSize, rounded: false)
+    lazy var placeholder2 = UIImage(named: "placeholder2.jpg")?.getThumb(ImageStore.shared.thumbSize, rounded: false)
     
     func thumb(forKey key: String) -> UIImage? {
         if let thumb = thumbs[key] {
@@ -35,13 +39,10 @@ class ImageStore: AnyObject {
     
     func image(forKey key: String) -> UIImage? {
         if let image =  images[key] {
-            print("image for key: \(key) found cache")
             return image
         } else {
             let path = imagePath(forKey: key)
-            print("image for key: \(key) check disk")
             if let newImage = UIImage(contentsOfFile: path.path) {
-                print("image for key: \(key) found disk file")
                 images[key] = newImage
                 thumbs[key] = newImage.getThumb(thumbSize)
                 return newImage
@@ -60,7 +61,6 @@ class ImageStore: AnyObject {
     
     func setImage(image: UIImage, forKey key:String){
         let path = imagePath(forKey: key)
-        print("setImage for \(key)")
         images[key] = image
         thumbs[key] = image.getThumb(thumbSize)
         guard let data = UIImageJPEGRepresentation(image, 0.9) else { return }
@@ -75,8 +75,6 @@ class ImageStore: AnyObject {
     func removeImage(forKey key:String) {
         print("removeImage for key: \(key)")
         images[key] = nil
-        //let path = imagePath(forKey: key)
-        //try? FileManager.default.removeItem(at: path)
     }
     
     func save() {

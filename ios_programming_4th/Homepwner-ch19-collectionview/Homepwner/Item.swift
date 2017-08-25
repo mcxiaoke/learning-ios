@@ -23,6 +23,7 @@ class Item : NSObject, NSCoding, NSCopying{
     var valueInDollars:Int
     var key = UUID().uuidString
     var dateCreated:Date = Date()
+    var isSelected = false
     
     override var description:String {
         return "\(itemName) (\(serialNumber)) $\(valueInDollars)"

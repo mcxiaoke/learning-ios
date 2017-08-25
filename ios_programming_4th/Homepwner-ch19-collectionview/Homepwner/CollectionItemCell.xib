@@ -21,19 +21,37 @@
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQ5-as-uGY">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF8-Ud-Lqi">
-                        <rect key="frame" x="5" y="80.5" width="90" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF8-Ud-Lqi">
+                        <rect key="frame" x="0.0" y="80.5" width="100" height="14.5"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.60364940068493156" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-xb-xRg">
+                        <rect key="frame" x="77" y="5" width="18" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="nuW-S4-lGK"/>
+                            <constraint firstAttribute="height" constant="18" id="tr5-H1-Gjb"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWG-58-sRy">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bQ5-as-uGY" secondAttribute="trailing" id="2Fh-Mo-4yj"/>
-                <constraint firstAttribute="trailing" secondItem="IF8-Ud-Lqi" secondAttribute="trailing" constant="5" id="5cn-vi-Dh2"/>
-                <constraint firstItem="IF8-Ud-Lqi" firstAttribute="leading" secondItem="ryQ-Q7-Wxo" secondAttribute="leading" constant="5" id="PUs-a5-cQv"/>
+                <constraint firstAttribute="trailing" secondItem="IF8-Ud-Lqi" secondAttribute="trailing" id="5cn-vi-Dh2"/>
+                <constraint firstAttribute="bottom" secondItem="AWG-58-sRy" secondAttribute="bottom" id="8g8-lv-JGi"/>
+                <constraint firstItem="2K8-xb-xRg" firstAttribute="top" secondItem="ryQ-Q7-Wxo" secondAttribute="top" constant="5" id="CSm-h0-O5V"/>
+                <constraint firstAttribute="trailing" secondItem="AWG-58-sRy" secondAttribute="trailing" id="Hli-ok-pz9"/>
+                <constraint firstItem="IF8-Ud-Lqi" firstAttribute="leading" secondItem="ryQ-Q7-Wxo" secondAttribute="leading" id="PUs-a5-cQv"/>
+                <constraint firstAttribute="trailing" secondItem="2K8-xb-xRg" secondAttribute="trailing" constant="5" id="TmR-7P-ygH"/>
+                <constraint firstItem="AWG-58-sRy" firstAttribute="leading" secondItem="ryQ-Q7-Wxo" secondAttribute="leading" id="UjK-4D-2Oc"/>
+                <constraint firstItem="AWG-58-sRy" firstAttribute="top" secondItem="ryQ-Q7-Wxo" secondAttribute="top" id="WZA-SL-mM2"/>
                 <constraint firstAttribute="bottom" secondItem="bQ5-as-uGY" secondAttribute="bottom" id="hoi-ag-zWw"/>
                 <constraint firstItem="bQ5-as-uGY" firstAttribute="leading" secondItem="ryQ-Q7-Wxo" secondAttribute="leading" id="mxz-Ai-04u"/>
                 <constraint firstAttribute="bottom" secondItem="IF8-Ud-Lqi" secondAttribute="bottom" constant="5" id="pHr-VE-WiG"/>
@@ -41,10 +59,15 @@
             </constraints>
             <size key="customSize" width="80" height="80"/>
             <connections>
+                <outlet property="checkMark" destination="2K8-xb-xRg" id="a0u-UC-jAl"/>
+                <outlet property="checkOverlay" destination="AWG-58-sRy" id="1Uo-rE-cuz"/>
                 <outlet property="nameLabel" destination="IF8-Ud-Lqi" id="qgK-X2-xHI"/>
                 <outlet property="thumbView" destination="bQ5-as-uGY" id="bRa-kU-Zh1"/>
             </connections>
             <point key="canvasLocation" x="48" y="34"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="ic_check" width="18" height="18"/>
+    </resources>
 </document>
